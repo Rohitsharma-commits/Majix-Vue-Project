@@ -1,0 +1,310 @@
+<template>
+  <q-layout view="lHh LpR lFf">
+    <q-header reveal style="background: #338DFF">
+      <q-toolbar>
+        <q-btn @click="left = !left" flat round dense icon="menu" class="q-mr-sm"/>
+        <q-toolbar-title></q-toolbar-title>
+        <!-- <div style="font-size:20px;"><b>HAWK</b></div> -->
+         <q-btn flat class="q-mr-sm" :label="showName()"/>
+        <q-btn  size="lg" round dense flat icon="settings" >
+          <q-tooltip>
+            Settings
+          </q-tooltip>
+          <q-menu
+            transition-show="flip-right"
+            transition-hide="flip-left"
+            auto-close
+          >
+            <q-list style="min-width: 100px">
+              <q-item clickable to="/menu/editprofile">
+                <q-item-section avatar>
+                  <q-icon color="blue" name="account_circle" />
+                </q-item-section>
+                <q-item-section>Edit profile</q-item-section>
+              </q-item>
+              <q-item clickable  to="/menu/units">
+                <q-item-section avatar>
+                  <q-icon color="blue" name="send" />
+                </q-item-section>
+                <q-item-section>Units</q-item-section>
+              </q-item>
+              <q-item clickable  to="/menu/contactus">
+                <q-item-section avatar>
+                  <q-icon color="blue" name="contact_support" />
+                </q-item-section>
+                <q-item-section>Contact Us</q-item-section>
+              </q-item>
+              <q-item clickable  @click.native="logoutAdmin()">
+                <q-item-section avatar>
+                  <q-icon color="red" name="power_settings_new" />
+                </q-item-section>
+                <q-item-section>Logout</q-item-section>
+              </q-item>
+            </q-list>
+          </q-menu>
+        </q-btn>
+      </q-toolbar>
+    </q-header>
+    <q-drawer class="left-navigation text-white"
+      show-if-above v-model="left"
+      content-style="{ backgroundColor: '#ff0000' }"
+      side="left"
+      :width="260"
+      elevated>
+      <div style="height: calc(100% - 117px);padding:10px">
+        <q-toolbar>
+        <q-avatar>
+          <img src="../assets/HAWK.png">
+        </q-avatar>
+          <q-toolbar-title>HAWK</q-toolbar-title>
+        </q-toolbar>
+        <hr/>
+        <q-scroll-area class="fit" style="margin-top: -15px;">
+          <q-list padding>
+            <q-item active-class="tab-active" to="/menu/dashboard" exact class="q-ma-sm navigation-item" clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon name="dashboard"/>
+              </q-item-section>
+              <q-item-section>
+                Dashboard
+              </q-item-section>
+            </q-item>
+        <q-expansion-item
+          expand-separator
+          class="q-ma-sm navigation-item"
+          icon="perm_identity"
+          label="Customers">
+          <q-item active-class="tab-active" :to="{name: 'sector', params: { pitem: 0 }}" class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+            <div style="padding-bottom: 0px;padding-top: 0px;">
+              Sector
+            </div>
+          </q-item>
+          <q-item active-class="tab-active" :to="{name: 'customer', params: { pitem: 'New' }}" class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+              <div style="padding-bottom: 0px;padding-top: 0px;">
+              Add Customer
+              </div>
+          </q-item>
+          <q-item active-class="tab-active" :to="{name: 'customers', params: { pstatus: 1 }}" class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+              <div style="padding-bottom: 0px;padding-top: 0px;">
+              All Customers
+              </div>
+          </q-item>
+        </q-expansion-item>
+        <q-expansion-item
+          expand-separator
+          class="q-ma-sm navigation-item"
+          icon="archive"
+          label="Products">
+          <q-item active-class="tab-active" :to="{name: 'productgroup', params: { pitem: 0 }}" class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+            <q-item-section>
+              Product Group
+            </q-item-section>
+          </q-item>
+          <q-item active-class="tab-active" :to="{name: 'product-form', params: { pitem: 'New', pstatus: 0 }}" class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+            <q-item-section>
+              Add Product
+            </q-item-section>
+          </q-item>
+          <q-item active-class="tab-active" :to="{name: 'products', params: { pitem: 1, pstatus: 1 }}" class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+            <q-item-section>
+              All Products
+            </q-item-section>
+          </q-item>
+          <q-item active-class="tab-active" :to="{name: 'products', params: { pitem: 0, pstatus: 1 }}" class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+            <q-item-section>
+              Discontinued Products
+            </q-item-section>
+          </q-item>
+        </q-expansion-item>
+        <q-expansion-item
+          expand-separator
+          class="q-ma-sm navigation-item"
+          icon="pending_actions"
+          label="Tasks">
+          <q-item active-class="tab-active" :to="{name: 'task-form', params: { pitem: 'New', pstatus: 1 }}"  class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+            <q-item-section>
+              Add Task
+            </q-item-section>
+          </q-item>
+          <q-item active-class="tab-active" :to="{name: 'tasks', params: { pitem: 'Pending', pstatus: 1 }}"  class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+            <q-item-section>
+              Pending Tasks
+            </q-item-section>
+          </q-item>
+          <q-item active-class="tab-active" :to="{name: 'tasks', params: { pitem: 'Completed', pstatus: 1 }}" class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+            <q-item-section>
+              Completed Tasks
+            </q-item-section>
+          </q-item>
+        </q-expansion-item>
+        <q-expansion-item
+          expand-separator
+          class="q-ma-sm navigation-item"
+          icon="shopping_bag"
+          label="Sample Orders">
+          <q-item active-class="tab-active" :to="{name: 'Order-form', params: { pitem: 'New' }}"  class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+            <q-item-section>
+              Add Sample Order
+            </q-item-section>
+          </q-item>
+          <q-item active-class="tab-active" :to="{name: 'orders', params: { pitem: 'Pending', pstatus: 1 }}"  class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+            <q-item-section>
+              Pending Sample Orders
+            </q-item-section>
+          </q-item>
+          <q-item active-class="tab-active" :to="{name: 'orders', params: { pitem: 'Dispatched', pstatus: 1 }}" class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+            <q-item-section>
+              Dispatched Sample Orders
+            </q-item-section>
+          </q-item>
+          <q-item active-class="tab-active" :to="{name: 'orders', params: { pitem: 'Rejected', pstatus: 1 }}" class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+            <q-item-section>
+              Rejected Sample Orders
+            </q-item-section>
+          </q-item>
+        </q-expansion-item>
+        <q-expansion-item
+          expand-separator
+          class="q-ma-sm navigation-item"
+          icon="point_of_sale"
+          label="Sales Representatives">
+          <q-item active-class="tab-active" :to="{name: 'team', params: { pitem: 0 }}" class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+            <q-item-section>
+              Team
+            </q-item-section>
+          </q-item>
+          <q-item active-class="tab-active" :to="{name: 'salerepresentative-form', params: { pitem: 'New' }}" class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+            <q-item-section>
+              Add Sales Representative
+            </q-item-section>
+          </q-item>
+          <q-item active-class="tab-active" :to="{name: 'salesrepresentative', params: { pitem: 1, pstatus: 1 }}" class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+            <q-item-section>
+              All Sales Representative
+            </q-item-section>
+          </q-item>
+          <q-item active-class="tab-active" :to="{name: 'salesrepresentative', params: { pitem: 0, pstatus: 1 }}" class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+            <q-item-section>
+              Discontinued Sales Representative
+            </q-item-section>
+          </q-item>
+        </q-expansion-item>
+          </q-list>
+        </q-scroll-area>
+      </div>
+    </q-drawer>
+    <q-page-container>
+      <q-page class="row no-wrap">
+        <div class="col">
+          <div class="full-height">
+            <q-scroll-area class="col q-pr-sm full-height" visible>
+              <router-view/>
+            </q-scroll-area>
+          </div>
+        </div>
+      </q-page>
+    </q-page-container>
+  </q-layout>
+</template>
+<script>
+export default {
+  data () {
+    return {
+      left: false
+    }
+  },
+  methods: {
+    logoutAdmin: function () {
+      this.$c.resetLogin()
+      window.localStorage.clear()
+      localStorage.removeItem('name')
+      this.$router.push({ name: 'login' })
+    },
+    showName: function () {
+      return this.$c.getLocalStorage('companyname')
+    }
+  }
+}
+</script>
+<style>
+  .q-drawer {
+    /*background-image: url(https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-2.32103624.jpg) !important;*/
+    /* background-image: url('../assets/images/lake.jpg') !important; */
+    /* background-size: cover !important; */
+  }
+
+  .q-drawer__content {
+    background-color: rgba(1, 1, 1, 0.75);
+    padding-bottom: 50px;
+    padding-top: 0px;
+  }
+
+  .navigation-item {
+    border-radius: 10px;
+  }
+
+  .tab-active {
+    background-color: green;
+  }
+
+  body {
+    background: #f1f1f1 !important;
+  }
+  .setheaderbackground {
+    background: #284B63 !important;
+  }
+</style>
