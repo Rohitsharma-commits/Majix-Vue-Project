@@ -30,11 +30,9 @@ export default function (/* { store, ssrContext } */) {
     if (isAuthenticated === null) {
       isAuthenticated = ''
     }
-    if (to.name !== 'login' && to.name !== 'registration' && to.name !== 'forgotpassword' && isAuthenticated === '') {
-      // Redirect user to homepage
+    if (to.name !== 'login' && to.name !== 'frontpage' && to.name !== 'about' && to.name !== 'contact' && to.name !== 'updates' && to.name !== 'registration' && to.name !== 'forgotpassword' && isAuthenticated === '') {
       return next({ path: '/' })
     }
-    // Let the user pass
     return next()
   })
   return Router

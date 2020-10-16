@@ -9,7 +9,7 @@
       <q-breadcrumbs-el label="Edit Profile" to="/menu/editprofile" />
     </q-breadcrumbs>
     <div class="q-pa-xs">
-    <q-card>
+    <q-card style="max-width: 40%">
       <q-card-section>
         Edit Profile
     </q-card-section>

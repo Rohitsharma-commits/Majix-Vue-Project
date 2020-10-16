@@ -335,10 +335,10 @@
           </q-btn>
         </q-bar>
         <q-card-section>
-          <q-input outlined dense v-model="SubmitRecord.CourierNo" label="CourierNo." type="text">
+          <q-input outlined dense v-model="SubmitRecord.courierNo" label="CourierNo." type="text">
           </q-input>
           <br/>
-        <q-input outlined dense v-model="SubmitRecord.TrackingNo" label="TrackingNo." type="text">
+        <q-input outlined dense v-model="SubmitRecord.trackingNo" label="TrackingNo." type="text">
           </q-input>
           <br/>
         </q-card-section>
@@ -569,6 +569,7 @@ export default {
       row.status = 'Dispatched'
       row.dispatchdate = self.$c.formatDateYYYYMMDD(new Date())
       row.iud = 'U'
+      console.log(JSON.stringify(row))
       self.$c.postData('Orders/', JSON.stringify(row), function (success, response, error) {
         self.$c.showSuccess('Record(s) Approved successfully')
         self.Submitmodal = false

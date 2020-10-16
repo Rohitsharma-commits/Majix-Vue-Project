@@ -22,16 +22,20 @@ export default {
     this.setLocalStorage('companyname', '')
     this.setLocalStorage('mobileno', null)
     this.setLocalStorage('emailid', '')
-    this.setLocalStorage('password', '')
+    this.setLocalStorage('addressline1', '')
+    this.setLocalStorage('addressline2', '')
+    this.setLocalStorage('city', '')
   },
-  setLogin (reccode, name, companyname, mobileno, emailid, password) {
+  setLogin (reccode, name, companyname, mobileno, emailid, addressline1, addressline2, city) {
     // alert(DesignationCode)
     this.setLocalStorage('reccode', reccode)
     this.setLocalStorage('name', name)
     this.setLocalStorage('companyname', companyname)
     this.setLocalStorage('mobileno', mobileno)
     this.setLocalStorage('emailid', emailid)
-    this.setLocalStorage('password', password)
+    this.setLocalStorage('addressline1', addressline1)
+    this.setLocalStorage('addressline2', addressline2)
+    this.setLocalStorage('city', city)
   },
   getLocalStorage (name) {
     return sessionStorage.getItem(this.appPrefix + name)

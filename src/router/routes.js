@@ -2,6 +2,26 @@
 const routes = [
   {
     path: '/',
+    name: 'frontpage',
+    component: () => import('pages/FrontPage.vue')
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: () => import('pages/About.vue')
+  },
+  {
+    path: '/updates',
+    name: 'updates',
+    component: () => import('pages/Updates.vue')
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: () => import('pages/Contact.vue')
+  },
+  {
+    path: '/login',
     name: 'login',
     component: () => import('pages/login.vue')
   },
@@ -18,6 +38,7 @@ const routes = [
       { path: 'dashboard', name: 'dashboard', component: () => import('pages/Dashboard.vue') },
       { path: 'contactus', name: 'contactus', component: () => import('pages/ContactUs.vue') },
       { path: 'units', name: 'units', component: () => import('pages/Masters/Units.vue') },
+      { path: 'mastersdashboard', name: 'mastersdashboard', component: () => import('pages/MastersDashboard.vue') },
       { path: 'editprofile', name: 'editprofile', component: () => import('pages/EditProfile.vue') },
       { path: 'products/:pitem/:pstatus', name: 'products', component: () => import('pages/Products.vue') },
       { path: 'tasks/:pitem/:pstatus', name: 'tasks', component: () => import('pages/Tasks.vue') },

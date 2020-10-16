@@ -1,5 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+// import '../assets/js/jquery-3.5.1.min.js'
+import '../assets/js/bootstrap.bundle.min.js'
+// import '../assets/vendor/owl-carousel/js/owl.carousel.min.js'
+// import '../assets/vendor/wow/wow.min.js'
+// import '../assets/js/mobster.js'
 
 // import example from './module-example'
 

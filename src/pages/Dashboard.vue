@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12 col-md-4 q-pa-xs">
       <div @click="$router.push({name: 'orders', params: { pitem: 'Pending', pstatus: 1 }})">
-      <q-card class="my-card">
+      <q-card class="my-card" >
       <q-card-section class="text-white" style="background: #338DFF">
         <div class="text-h6"> Pending Samples the Month</div>
       </q-card-section>
@@ -292,3 +292,10 @@ export default {
   }
 }
 </script>
+<style scoped>
+.my-card {
+  padding: 10px;
+  border-radius: 25px;
+  border-block-end-color: #338DFF;
+}
+</style>

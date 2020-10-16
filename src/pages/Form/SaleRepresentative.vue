@@ -6,7 +6,7 @@
       active-color="cyan"
       color="light">
       <q-breadcrumbs-el label="Dashboard" to="/menu/dashboard" />
-      <q-breadcrumbs-el label="SalesRepresentative List" :to="{name: 'salesrepresentative', params: { pitem: 1, pstatus: 1 }}" />
+      <q-breadcrumbs-el label="SalesRepresentative List" :to="{name: 'salesrepresentative', params: { pitem: '1', pstatus: '1' }}" />
       <q-breadcrumbs-el label="SalesRepresentative" to="/menu/Task" />
     </q-breadcrumbs>
     <q-card>
@@ -95,7 +95,7 @@
         </div>
         <div class="row">
           <div class="col-12 col-md-2 q-pa-xs">
-            country
+            Country
           </div>
           <div class="col-12 col-md-4 q-pa-xs">
             <q-input outlined dense v-model="SalesRepresentativesRecord.country" type="text">
@@ -196,7 +196,7 @@ export default {
       this.postSalesRepresentatives()
     },
     CancelSalesRepresentatives: function () {
-      this.$router.push({ name: 'salesrepresentative', params: { pitem: 1, pstatus: 1 } })
+      this.$router.push({ name: 'salesrepresentative', params: { pitem: '1', pstatus: '1' } })
     },
     postSalesRepresentatives: function () {
       var self = this
@@ -246,7 +246,7 @@ export default {
           }
         }
         if (count1 === 1) {
-          return self.$c.showError('Phone Number Already present')
+          return self.$c.showError('Phone Number Already Registered')
         }
         var count2 = 0
         for (var b = 0; b < self.SalesRepresentatives.length; b++) {
@@ -267,7 +267,7 @@ export default {
               self.SalesRepresentativesAll.push(self.SalesRepresentativesRecord)
             }
             self.$c.showSuccess('Record(s) saved successfully')
-            self.$router.push({ name: 'salesrepresentative', params: { pitem: 1, pstatus: 1 } })
+            self.$router.push({ name: 'salesrepresentative', params: { pitem: '1', pstatus: '1' } })
             self.$c.hideLoader()
           }
         })

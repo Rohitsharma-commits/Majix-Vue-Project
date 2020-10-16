@@ -290,7 +290,7 @@ export default {
       var self = this
       if (self.CustomerRecord.customername === '') {
         self.checkcustomername = true
-        return self.$c.showError('Enter Customer Name')
+        return self.$c.showError('Enter Customer Contact Person')
       }
       if (self.CustomerRecord.companyname === '') {
         self.checkcompanyname = true
@@ -340,7 +340,7 @@ export default {
             }
           }
           if (count1 === 1) {
-            return self.$c.showError('Customer already present')
+            return self.$c.showError('Customer Already Registered')
           }
         }
         var count2 = 0
@@ -351,7 +351,7 @@ export default {
           }
         }
         if (count2 === 1) {
-          return self.$c.showError('Email Address Already present')
+          return self.$c.showError('Email Address Already Registered')
         }
         var count3 = 0
         for (var c = 0; c < self.Customers.length; c++) {
@@ -361,7 +361,7 @@ export default {
           }
         }
         if (count3 === 1) {
-          return self.$c.showError('Company Name Already present')
+          return self.$c.showError('Company Name Already Registered')
         }
         var count4 = 0
         for (var d = 0; d < self.Customers.length; d++) {
@@ -371,7 +371,7 @@ export default {
           }
         }
         if (count4 === 1) {
-          return self.$c.showError('Phone No Already present')
+          return self.$c.showError('Phone Number Already Registered')
         }
       }
       self.$c.showLoader()

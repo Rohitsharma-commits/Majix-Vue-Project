@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh LpR lFf">
+  <q-layout view="lHh LpR lFf" style="height: 300px">
     <q-header reveal style="background: #338DFF">
       <q-toolbar>
         <q-btn @click="left = !left" flat round dense icon="menu" class="q-mr-sm"/>
@@ -22,11 +22,11 @@
                 </q-item-section>
                 <q-item-section>Edit profile</q-item-section>
               </q-item>
-              <q-item clickable  to="/menu/units">
+              <q-item clickable  to="/menu/mastersdashboard">
                 <q-item-section avatar>
                   <q-icon color="blue" name="send" />
                 </q-item-section>
-                <q-item-section>Units</q-item-section>
+                <q-item-section>Organization</q-item-section>
               </q-item>
               <q-item clickable  to="/menu/contactus">
                 <q-item-section avatar>
@@ -49,17 +49,18 @@
       show-if-above v-model="left"
       content-style="{ backgroundColor: '#ff0000' }"
       side="left"
-      :width="260"
+      :width="240"
+      :height="100"
       elevated>
-      <div style="height: calc(100% - 117px);padding:10px">
+      <div style="height: calc(100% - 117px);padding:10px;margin-top: -10px;">
         <q-toolbar>
         <q-avatar>
           <img src="../assets/HAWK.png">
         </q-avatar>
           <q-toolbar-title>HAWK</q-toolbar-title>
         </q-toolbar>
-        <hr/>
-        <q-scroll-area class="fit" style="margin-top: -15px;">
+        <hr style="margin-top: -1px;"/>
+        <q-scroll-area class="fit">
           <q-list padding>
             <q-item active-class="tab-active" to="/menu/dashboard" exact class="q-ma-sm navigation-item" clickable v-ripple>
               <q-item-section avatar>
@@ -69,74 +70,7 @@
                 Dashboard
               </q-item-section>
             </q-item>
-        <q-expansion-item
-          expand-separator
-          class="q-ma-sm navigation-item"
-          icon="perm_identity"
-          label="Customers">
-          <q-item active-class="tab-active" :to="{name: 'sector', params: { pitem: 0 }}" class="q-ma-sm navigation-item" clickable v-ripple>
-            <q-item-section avatar>
-              <q-icon name="send"/>
-            </q-item-section>
-            <div style="padding-bottom: 0px;padding-top: 0px;">
-              Sector
-            </div>
-          </q-item>
-          <q-item active-class="tab-active" :to="{name: 'customer', params: { pitem: 'New' }}" class="q-ma-sm navigation-item" clickable v-ripple>
-            <q-item-section avatar>
-              <q-icon name="send"/>
-            </q-item-section>
-              <div style="padding-bottom: 0px;padding-top: 0px;">
-              Add Customer
-              </div>
-          </q-item>
-          <q-item active-class="tab-active" :to="{name: 'customers', params: { pstatus: 1 }}" class="q-ma-sm navigation-item" clickable v-ripple>
-            <q-item-section avatar>
-              <q-icon name="send"/>
-            </q-item-section>
-              <div style="padding-bottom: 0px;padding-top: 0px;">
-              All Customers
-              </div>
-          </q-item>
-        </q-expansion-item>
-        <q-expansion-item
-          expand-separator
-          class="q-ma-sm navigation-item"
-          icon="archive"
-          label="Products">
-          <q-item active-class="tab-active" :to="{name: 'productgroup', params: { pitem: 0 }}" class="q-ma-sm navigation-item" clickable v-ripple>
-            <q-item-section avatar>
-              <q-icon name="send"/>
-            </q-item-section>
-            <q-item-section>
-              Product Group
-            </q-item-section>
-          </q-item>
-          <q-item active-class="tab-active" :to="{name: 'product-form', params: { pitem: 'New', pstatus: 0 }}" class="q-ma-sm navigation-item" clickable v-ripple>
-            <q-item-section avatar>
-              <q-icon name="send"/>
-            </q-item-section>
-            <q-item-section>
-              Add Product
-            </q-item-section>
-          </q-item>
-          <q-item active-class="tab-active" :to="{name: 'products', params: { pitem: 1, pstatus: 1 }}" class="q-ma-sm navigation-item" clickable v-ripple>
-            <q-item-section avatar>
-              <q-icon name="send"/>
-            </q-item-section>
-            <q-item-section>
-              All Products
-            </q-item-section>
-          </q-item>
-          <q-item active-class="tab-active" :to="{name: 'products', params: { pitem: 0, pstatus: 1 }}" class="q-ma-sm navigation-item" clickable v-ripple>
-            <q-item-section avatar>
-              <q-icon name="send"/>
-            </q-item-section>
-            <q-item-section>
-              Discontinued Products
-            </q-item-section>
-          </q-item>
-        </q-expansion-item>
+            <br/>
         <q-expansion-item
           expand-separator
           class="q-ma-sm navigation-item"
@@ -205,19 +139,64 @@
             </q-item-section>
           </q-item>
         </q-expansion-item>
+        <br/>
+        <q-expansion-item
+          expand-separator
+          class="q-ma-sm navigation-item"
+          icon="perm_identity"
+          label="Customers">
+          <q-item active-class="tab-active" :to="{name: 'customer', params: { pitem: 'New' }}" class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+              <div style="padding-bottom: 0px;padding-top: 0px;">
+              Add Customer
+              </div>
+          </q-item>
+          <q-item active-class="tab-active" :to="{name: 'customers', params: { pstatus: 1 }}" class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+              <div style="padding-bottom: 0px;padding-top: 0px;">
+              All Customers
+              </div>
+          </q-item>
+        </q-expansion-item>
+        <q-expansion-item
+          expand-separator
+          class="q-ma-sm navigation-item"
+          icon="archive"
+          label="Products">
+          <q-item active-class="tab-active" :to="{name: 'product-form', params: { pitem: 'New', pstatus: 0 }}" class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+            <q-item-section>
+              Add Product
+            </q-item-section>
+          </q-item>
+          <q-item active-class="tab-active" :to="{name: 'products', params: { pitem: '1', pstatus: '1' }}" class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+            <q-item-section>
+              All Products
+            </q-item-section>
+          </q-item>
+          <q-item active-class="tab-active" :to="{name: 'products', params: { pitem: 0, pstatus: 1 }}" class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send"/>
+            </q-item-section>
+            <q-item-section>
+              Discontinued Products
+            </q-item-section>
+          </q-item>
+        </q-expansion-item>
         <q-expansion-item
           expand-separator
           class="q-ma-sm navigation-item"
           icon="point_of_sale"
           label="Sales Representatives">
-          <q-item active-class="tab-active" :to="{name: 'team', params: { pitem: 0 }}" class="q-ma-sm navigation-item" clickable v-ripple>
-            <q-item-section avatar>
-              <q-icon name="send"/>
-            </q-item-section>
-            <q-item-section>
-              Team
-            </q-item-section>
-          </q-item>
           <q-item active-class="tab-active" :to="{name: 'salerepresentative-form', params: { pitem: 'New' }}" class="q-ma-sm navigation-item" clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="send"/>
@@ -226,7 +205,7 @@
               Add Sales Representative
             </q-item-section>
           </q-item>
-          <q-item active-class="tab-active" :to="{name: 'salesrepresentative', params: { pitem: 1, pstatus: 1 }}" class="q-ma-sm navigation-item" clickable v-ripple>
+          <q-item active-class="tab-active" :to="{name: 'salesrepresentative', params: { pitem: '1', pstatus: '1' }}" class="q-ma-sm navigation-item" clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="send"/>
             </q-item-section>
@@ -234,7 +213,7 @@
               All Sales Representative
             </q-item-section>
           </q-item>
-          <q-item active-class="tab-active" :to="{name: 'salesrepresentative', params: { pitem: 0, pstatus: 1 }}" class="q-ma-sm navigation-item" clickable v-ripple>
+          <q-item active-class="tab-active" :to="{name: 'salesrepresentative', params: { pitem: '0', pstatus: '1' }}" class="q-ma-sm navigation-item" clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="send"/>
             </q-item-section>
@@ -306,5 +285,9 @@ export default {
   }
   .setheaderbackground {
     background: #284B63 !important;
+  }
+  .q-item {
+    min-height: 0px;
+    padding: 6px 2px;
   }
 </style>

@@ -36,12 +36,12 @@
         <q-input v-model="Filter" debounce="500" placeholder="Search"><template v-slot:append><q-icon name="search"  @click.native="testProps(props)" /></template></q-input>
       </template>
       <template slot="top-right" slot-scope="props">
-        <q-btn size="sm"  color="cyan" label="+ New" v-if="checkstatus === 1" @click.native="addEditDeleteSalesRepresentatives(props.row, false)" class="q-mr-sm">
+        <q-btn size="sm"  color="cyan" label="+ New" v-if="checkstatus === '1'" @click.native="addEditDeleteSalesRepresentatives(props.row, false)" class="q-mr-sm">
         <q-tooltip>
             Create SalesRepresentative
           </q-tooltip>
           </q-btn>
-        <q-btn color="light-blue-5" size="lg" round v-if="checkstatus === 1" dense flat icon="print" >
+        <q-btn color="light-blue-5" size="lg" round v-if="checkstatus === '1'" dense flat icon="print" >
           <q-tooltip>
             Print
           </q-tooltip>
@@ -71,17 +71,17 @@
       </template>
       <q-tr slot="body" slot-scope="props" :props="props" @click.native="rowClickBrands(props.row)" class="cursor-pointer">
         <q-td key="reccode" :props="props">
-          <q-btn size="sm" round dense color="cyan" icon="edit" v-if="checkstatus === 1" @click.native="addEditDeleteSalesRepresentatives(props.row, false)" class="q-mr-sm">
+          <q-btn size="sm" round dense color="cyan" icon="edit" v-if="checkstatus === '1'" @click.native="addEditDeleteSalesRepresentatives(props.row, false)" class="q-mr-sm">
           <q-tooltip>
             Edit
           </q-tooltip>
           </q-btn>
-          <q-btn size="sm" round dense color="cyan" v-if="checkstatus === 1" icon="remove" @click.native="DeleteSalesRepresentativesdata(props.row, true)" class="q-mr-sm">
+          <q-btn size="sm" round dense color="cyan" v-if="checkstatus === '1'" icon="remove" @click.native="DeleteSalesRepresentativesdata(props.row, true)" class="q-mr-sm">
           <q-tooltip>
             Delete
           </q-tooltip>
           </q-btn>
-          <q-btn size="sm" round dense color="cyan" icon="check" v-if="checkstatus !== 1" @click.native="Active(props.row)" class="q-mr-sm">
+          <q-btn size="sm" round dense color="cyan" icon="check" v-if="checkstatus !== '1'" @click.native="Active(props.row)" class="q-mr-sm">
           <q-tooltip>
             Active
           </q-tooltip>

@@ -199,7 +199,7 @@
                 <template v-slot:append>
                     <q-icon name="event" class="cursor-pointer">
                     <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
-                        <q-date v-model="SubmitRecord.donedate" dense mask="DD-MM-YYYY" @input="() => $refs.qDateProxy.hide()"/>
+                        <q-date v-model="SubmitRecord.donedate" @click="CheckDonedate(SubmitRecord.donedate)" dense mask="DD-MM-YYYY" @input="() => $refs.qDateProxy.hide()"/>
                     </q-popup-proxy>
                     </q-icon>
                 </template>
@@ -333,6 +333,15 @@ export default {
     DeleteTasksdata: function (row) {
       this.deleteDialog = true
       this.TasksRecord = row
+    },
+    CheckDonedate: function (row) {
+      var self = this
+      var currentdate = self.$c.formatDateYYYYMMDD(new Date())
+      var oDateOne = row.split('-').reverse().join('-')
+      if (oDateOne > currentdate) {
+        self.SubmitRecord.donedate = null
+        self.$c.showError('Date Cannot be of the future')
+      }
     },
     closemodal: function () {
       this.TasksModal = false

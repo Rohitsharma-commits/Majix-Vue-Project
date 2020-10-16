@@ -28,14 +28,12 @@
               /> -->
               <q-input
                 filled
-                dense
                 v-model="Register.companyname"
                 label="Company Name *"
                 lazy-rules
               />
               <q-input
                 filled
-                dense
                 type="number"
                 v-model="Register.mobileno"
                 label="Mobile No *"
@@ -43,7 +41,6 @@
               />
               <q-input
                 filled
-                dense
                 v-model="Register.emailid"
                 label="Email Id *"
                 lazy-rules
@@ -93,6 +90,9 @@
   .login-form {
     position: absolute;
   }
+  .Password__field {
+    padding: -20px;
+}
 </style>
 <script>
 // const axios = require('axios')
@@ -163,17 +163,17 @@ export default {
                     }
                   })
                 } else {
-                  self.$c.showError('MobileNo already exists Use Another Number')
+                  self.$c.showError('Mobile Number already Registered')
                   self.Register.mobileno = ''
                 }
               })
             } else {
-              self.$c.showError('Emailid already exists Use Another Number')
+              self.$c.showError('Email id already Registered')
               self.Register.emailid = ''
             }
           })
         } else {
-          self.$c.showError('Company Name Already Present')
+          self.$c.showError('Company Name Already Registered')
           self.Register.companyname = ''
         }
       })
@@ -181,7 +181,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

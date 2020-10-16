@@ -12,6 +12,12 @@
     <q-card>
       <q-card-section>
         <b>Sample Order</b>
+      <div style="float: right;margin-top:-10px">
+        <q-btn color="light-blue-5" size="lg" @click="print()" round dense flat icon="print"></q-btn>
+          <q-tooltip>
+            Print
+          </q-tooltip>
+      </div>
       </q-card-section>
       <q-separator></q-separator>
       <q-card-section>
@@ -234,6 +240,74 @@
         </q-card-section>
       </q-card>
     </q-dialog>
+    <q-dialog v-model="printmodal" persistent transition-show="flip-down" transition-hide="flip-up">
+          <q-card style="min-width:100%">
+            <q-bar class="bg-cyan text-white">
+              <div></div>
+              <q-space />
+              <q-btn dense flat icon="close" @click="printmodal = !printmodal">
+                <q-tooltip content-class="bg-white text-primary">Close</q-tooltip>
+              </q-btn>
+            </q-bar>
+            <q-card-section>
+            <div id="getpdf">
+              <div>
+                <!-- <img src="~assets/Servehr.png" height="100" width="450"> -->
+                <b>Sample Order: {{this.AddEditOrder.orderNo}}</b><br/>
+              <div class="row">
+                <div class="col-12 col-md-12 q-pa-xs">
+                  {{this.$c.getLocalStorage('companyname')}}<br/>
+                  {{this.$c.getLocalStorage('addressline1')}}<br/>
+                  {{this.$c.getLocalStorage('addressline2')}}<br/>
+                  {{this.$c.getLocalStorage('city')}}<br/>
+                  {{this.$c.getLocalStorage('mobileno')}}
+                </div>
+                <br/>
+              <div class="col-12 col-md-12 q-pa-xs">
+                To,<br/>
+                {{this.AllCustomerData.companyname}}<br/>
+                {{this.AllCustomerData.customername}}<br/>
+                {{this.AllCustomerData.addressline1}}<br/>
+                {{this.AllCustomerData.addressline2}}<br/>
+                {{this.AllCustomerData.city}}<br/>
+                {{this.AllCustomerData.customerphoneno}}<br/>
+                </div>
+              </div>
+              <br/>
+              We send the below Samples to you for your kind Consideration.
+              </div>
+            <table style="width:100%"  border="1">
+              <tr>
+              <th>Product Name</th>
+              <th>Units</th>
+              <th>Quantity</th>
+              <th>Remarks</th>
+              </tr>
+              <!-- <div v-for="item in Products" :key="item.reccode"> -->
+              <tr v-for="item in OrderItems" :key="item.reccode">
+                <td style="width:=20%;text-align: center">{{item.productname}}</td>
+                <td style="width:=20%;text-align: center">{{item.unitname}}</td>
+                <td style="width:=20%;text-align: center">{{item.quantity}}</td>
+                <td style="width:20%;text-align: center">{{item.remarks}}</td>
+              </tr>
+        </table>
+        <br/>
+        Awaiting your valuable Orders in the Same
+        <br/>
+        Courier Company: {{this.AddEditOrder.courierNo}}<br/>
+        Tracking Number:{{this.AddEditOrder.trackingNo}}
+        <br/>
+        <br/>
+        <br/>
+        Regards<br/>
+        {{this.$c.getLocalStorage('companyname')}}
+        </div>
+        <div style="text-align:right">
+        <q-btn label="Print" color="cyan" @click.native="PrintPDF()" />
+      </div>
+      </q-card-section>
+    </q-card>
+    </q-dialog>
   </div>
 </template>
 
@@ -244,6 +318,7 @@ export default {
     return {
       OrdersModal: false,
       GetUnits: [],
+      AllCustomerData: '',
       OrdersRecord: [],
       deleteshadeDialog: false,
       checksalesrepresentativecode: false,
@@ -320,6 +395,7 @@ export default {
   },
   mounted () {
     this.AddEditOrder = this.$route.params.pitem
+    console.log(JSON.stringify(this.AddEditOrder))
     this.fetchOrders()
     // this.checkclickfromMenu = self.$route.params.pstatus
     if (this.AddEditOrder === 'New') {
@@ -338,6 +414,16 @@ export default {
   },
   methods: {
     rowClickBrands: function (row) {
+    },
+    print: function () {
+      this.printmodal = true
+    },
+    PrintPDF: function () {
+      var printContent = document.getElementById('getpdf').innerHTML
+      var w = window.open()
+      w.document.write(printContent)
+      w.print()
+      w.close()
     },
     Checkdate: function (row) {
       var self = this
@@ -473,11 +559,6 @@ export default {
               item.productname = self.GetProducts[a].label
             }
           }
-          // for (var b = 0; b < self.GetShades.length; b++) {
-          //   if (self.GetShades[b].value === item.shadecode) {
-          //     item.shadename = self.GetShades[b].label
-          //   }
-          // }
           for (var c = 0; c < self.GetUnits.length; c++) {
             if (self.GetUnits[c].value === item.units) {
               item.unitname = self.GetUnits[c].label
@@ -559,7 +640,13 @@ export default {
       self.GetCustomer = []
       self.GetProducts = []
       self.GetUnits = []
+      self.AllCustomerData = ''
       self.GetSalesRepresentatives = []
+      if (self.AddEditOrder.customercode !== undefined) {
+        self.$c.getData('Customers/GetCustomerDetailToPrintinOrder/' + self.AddEditOrder.customercode, function (success, response, data) {
+          self.AllCustomerData = data
+        })
+      }
       self.$c.getData('Customers/' + self.$c.getLocalStorage('reccode'), function (success, response, data) {
         data.forEach(function (item, index, array) {
           self.GetCustomer.push({ value: item.reccode, label: item.companyname })
