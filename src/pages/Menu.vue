@@ -251,7 +251,7 @@ export default {
       this.$c.resetLogin()
       window.localStorage.clear()
       localStorage.removeItem('name')
-      this.$router.push({ name: 'login' })
+      this.$router.push({ name: 'frontpage' })
     },
     showName: function () {
       return this.$c.getLocalStorage('companyname')
