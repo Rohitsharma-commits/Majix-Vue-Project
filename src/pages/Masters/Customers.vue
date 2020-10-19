@@ -69,14 +69,14 @@
           </q-menu>
         </q-btn>
       </template>
-      <q-tr slot="body" slot-scope="props" :props="props" @click.native="rowClickBrands(props.row)" class="cursor-pointer">
+      <q-tr slot="body" slot-scope="props" :props="props" @click.native="addEditDeleteCustomers(props.row, false)" class="cursor-pointer">
         <q-td key="reccode" :props="props">
-          <q-btn size="sm" round dense color="cyan" icon="edit" @click.native="addEditDeleteCustomers(props.row, false)" class="q-mr-sm">
+          <q-btn size="sm" round dense color="cyan" icon="edit" @click.stop="addEditDeleteCustomers(props.row, false)" class="q-mr-sm">
           <q-tooltip>
             Edit
           </q-tooltip>
           </q-btn>
-          <q-btn size="sm" round dense color="cyan" icon="remove" @click.native="DeleteCustomers(props.row, true)" class="q-mr-sm">
+          <q-btn size="sm" round dense color="cyan" icon="remove" @click.stop="DeleteCustomers(props.row, true)" class="q-mr-sm">
           <q-tooltip>
             Delete
           </q-tooltip>
@@ -254,7 +254,8 @@ export default {
     print: function () {
       this.printmodal = true
     },
-    DeleteCustomers: function () {
+    DeleteCustomers: function (row) {
+      this.CustomerRecord = row
       this.deleteDialog = true
     },
     rowClickBrands: function (row) {
@@ -313,12 +314,12 @@ export default {
         // }
       }
     },
-    // SaveCustomers: function () {
-    //   if (this.CustomerRecord.iud === 'S' | this.CustomerRecord.iud === undefined) {
-    //     this.CustomerRecord.iud = 'U'
-    //   }
-    //   this.PostCustomers()
-    // },
+    SaveCustomers: function () {
+      if (this.CustomerRecord.iud === 'S' | this.CustomerRecord.iud === undefined) {
+        this.CustomerRecord.iud = 'U'
+      }
+      this.PostCustomers()
+    },
     deleteCustomer: function () {
       this.CustomerRecord.iud = 'D'
       this.PostCustomers()

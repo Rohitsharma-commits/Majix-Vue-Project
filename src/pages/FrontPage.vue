@@ -26,7 +26,7 @@
       </ul>
       <div class="ml-auto my-2 my-lg-0">
         <!-- <button class="btn btn-dark rounded-pill">Login</button> -->
-        <q-btn class="btn btn-dark rounded-pill" size="sm" to="/">Login</q-btn>
+        <q-btn class="btn btn-dark rounded-pill" size="sm" to="/registration">Register Now</q-btn>
       </div>
     </div>
   </div>
@@ -49,7 +49,7 @@
           <q-page-container>
             <q-page class="flex flex-center">
               <div id="particles-js"></div>
-              <q-card class="login-form" v-bind:style="$q.platform.is.mobile?{'width': '80%'}:{'width':'60%'}">
+              <q-card class="login-form" style="background:#f1f1f1;" v-bind:style="$q.platform.is.mobile?{'width': '80%'}:{'width':'60%'}">
                 <q-card-section>
                   <div class="row no-wrap items-center">
                     <div class="col text-h6 ellipsis">
@@ -65,6 +65,7 @@
                       filled
                       v-model="mobileEmail"
                       dense=""
+                      outlined
                       style="margin-left:8px;margin-right:-5px;"
                       label="Username"
                       lazy-rules
@@ -74,6 +75,7 @@
                       type="password"
                       filled
                       dense=""
+                      outlined
                       v-model="password"
                       style="margin-left:8px;margin-right:-5px;"
                       label="Password"
@@ -92,7 +94,7 @@
           </q-page-container>
         </q-layout>
         </div>
-        <div class="col-lg-6 d-none d-lg-block wow zoomIn">
+        <div class="col-lg-6 d-none d-lg-block wow zoomIn" style="margin-top:-400px;">
           <div class="img-place mobile-preview shadow floating-animate">
             <img src="../assets/img/Dashboard.png" alt="">
           </div>

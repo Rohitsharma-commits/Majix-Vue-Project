@@ -264,11 +264,12 @@ export default {
     if (data === undefined) {
       U = {
         reccode: c.UUID(),
+        taskNo: 0,
         salescode: '',
         customercode: '',
         tasktype: '',
         taskdate: null,
-        description: '',
+        remarks: '',
         donedate: null,
         status: 'Pending',
         insertuser: c.getLocalStorage('reccode'),
@@ -279,11 +280,12 @@ export default {
     } else {
       U = {
         reccode: data.reccode,
+        taskNo: data.taskNo,
         salescode: data.salescode,
         customercode: data.customercode,
         tasktype: data.tasktype,
         taskdate: data.taskdate,
-        description: data.description,
+        remarks: data.remarks,
         donedate: data.donedate,
         status: data.status,
         insertuser: c.getLocalStorage('reccode'),
@@ -300,6 +302,7 @@ export default {
       U = {
         reccode: c.UUID(),
         orderNo: 0,
+        followup: 'No',
         salesrepresentativecode: '',
         customercode: '',
         samplingdate: null,
@@ -323,6 +326,7 @@ export default {
       U = {
         reccode: data.reccode,
         orderNo: data.orderNo,
+        followup: data.followup,
         salesrepresentativecode: data.salesrepresentativecode,
         customercode: data.customercode,
         samplingdate: data.samplingdate,

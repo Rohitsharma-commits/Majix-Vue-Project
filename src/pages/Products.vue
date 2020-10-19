@@ -71,14 +71,14 @@
           </q-menu>
         </q-btn>
       </template>
-      <q-tr slot="body" slot-scope="props" :props="props" @click.native="rowClickBrands(props.row)" class="cursor-pointer">
+      <q-tr slot="body" slot-scope="props" :props="props" @click.native="addEditDeleteProducts(props.row, false)" class="cursor-pointer">
         <q-td key="reccode" :props="props">
-          <q-btn size="sm" round dense color="cyan" icon="edit" v-if="checkstatus === '1'" @click.native="addEditDeleteProducts(props.row, false)" class="q-mr-sm">
+          <q-btn size="sm" round dense color="cyan" icon="edit" v-if="checkstatus === '1'" @click.stop="addEditDeleteProducts(props.row, false)" class="q-mr-sm">
           <q-tooltip>
             Edit
           </q-tooltip>
           </q-btn>
-          <q-btn size="sm" round dense color="cyan" icon="check" v-if="checkstatus !== '1'" @click.native="Active(props.row)" class="q-mr-sm">
+          <q-btn size="sm" round dense color="cyan" icon="check" v-if="checkstatus !== '1'" @click.stop="Active(props.row)" class="q-mr-sm">
           <q-tooltip>
             Active
           </q-tooltip>

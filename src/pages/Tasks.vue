@@ -71,24 +71,25 @@
           </q-menu>
         </q-btn>
       </template>
-      <q-tr slot="body" slot-scope="props" :props="props" @click="checkstatus === 'Pending' ? '' : addEditDeleteTasks(props.row)" class="cursor-pointer">
+      <q-tr slot="body" slot-scope="props" :props="props" @click="addEditDeleteTasks(props.row, false)" class="cursor-pointer">
         <q-td key="reccode" :props="props">
-          <q-btn size="sm" round dense color="cyan" icon="edit" @click.native="addEditDeleteTasks(props.row, false)" class="q-mr-sm">
+          <q-btn size="sm" round dense color="cyan" icon="edit" @click.stop="addEditDeleteTasks(props.row, false)" class="q-mr-sm">
           <q-tooltip>
             Edit
           </q-tooltip>
           </q-btn>
-          <q-btn size="sm" round dense color="cyan" icon="remove" :disable="props.row.status === 'Completed'" @click.native="DeleteTasksdata(props.row, true)" class="q-mr-sm">
+          <q-btn size="sm" round dense color="cyan" icon="remove" :disable="props.row.status === 'Completed'" @click.stop="DeleteTasksdata(props.row, true)" class="q-mr-sm">
           <q-tooltip>
             Delete
           </q-tooltip>
           </q-btn>
-           <q-btn size="sm" round dense color="cyan" icon="check" :disable="props.row.status === 'Completed'" @click.native="Submitdata(props.row)" class="q-mr-sm">
+           <q-btn size="sm" round dense color="cyan" icon="check" :disable="props.row.status === 'Completed'" @click.stop="Submitdata(props.row)" class="q-mr-sm">
           <q-tooltip>
             Completed
           </q-tooltip>
           </q-btn>
         </q-td>
+        <q-td key="taskNo" :props="props">{{ props.row.taskNo }}</q-td>
         <q-td key="tasktype" :props="props">{{ props.row.tasktype }}</q-td>
         <q-td key="taskdate" :props="props">{{ formatDate(props.row.taskdate) }}</q-td>
         <q-td key="description" :props="props">{{ props.row.description }}</q-td>
@@ -518,6 +519,14 @@ export default {
               sortable: false
             },
             {
+              name: 'taskNo',
+              required: true,
+              label: 'Task No',
+              align: 'left',
+              field: 'taskNo',
+              sortable: true
+            },
+            {
               name: 'tasktype',
               required: true,
               label: 'Task Type',
@@ -560,6 +569,14 @@ export default {
           ]
         } else {
           self.ColumnTasks = [
+            {
+              name: 'taskNo',
+              required: true,
+              label: 'Task No',
+              align: 'left',
+              field: 'taskNo',
+              sortable: true
+            },
             {
               name: 'tasktype',
               required: true,

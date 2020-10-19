@@ -73,21 +73,29 @@
           </q-menu>
         </q-btn>
       </template>
-      <q-tr slot="body" slot-scope="props" :props="props" @click.native="checkstatus === 'Pending' ? '' : addEditDeleteOrders(props.row)" class="cursor-pointer">
-        <q-td key="reccode" :props="props">
-          <q-btn size="sm" round dense color="cyan" icon="edit" @click.native="addEditDeleteOrders(props.row, false)" class="q-mr-sm">
+      <q-tr slot="body" slot-scope="props" :props="props" @click.native="addEditDeleteOrders(props.row)" class="cursor-pointer">
+        <!-- <q-tr slot="body" slot-scope="props" :props="props" class="cursor-pointer"> -->
+        <q-td key="reccode" :props="props" v-if="props.row.status === 'Pending'">
+          <q-btn size="sm" round dense color="cyan" icon="edit" @click.stop="addEditDeleteOrders(props.row, false)" class="q-mr-sm">
             <q-tooltip>
             Edit
           </q-tooltip>
           </q-btn>
-          <q-btn size="sm" round dense color="cyan" icon="cancel" :disable="props.row.status === 'Rejected' || props.row.status === 'Dispatched'" @click.native="RejectOrder(props.row)" class="q-mr-sm">
+          <q-btn size="sm" round dense color="cyan" icon="cancel" :disable="props.row.status === 'Rejected' || props.row.status === 'Dispatched'" @click.stop="RejectOrder(props.row)" class="q-mr-sm">
           <q-tooltip>
             Reject
           </q-tooltip>
           </q-btn>
-         <q-btn size="sm" round dense color="cyan" icon="check" :disable="props.row.status === 'Rejected' || props.row.status === 'Dispatched'" @click.native="Submitdata(props.row)" class="q-mr-sm">
+         <q-btn size="sm" round dense color="cyan" icon="check" :disable="props.row.status === 'Rejected' || props.row.status === 'Dispatched'" @click.stop="Submitdata(props.row)" class="q-mr-sm">
           <q-tooltip>
             Approve
+          </q-tooltip>
+          </q-btn>
+        </q-td>
+        <q-td key="reccode" :props="props" v-if="props.row.status === 'Dispatched'">
+         <q-btn size="sm" round dense color="cyan" icon="check" :disable="props.row.followup === 'Yes'" @click.stop="FollowUp(props.row)" class="q-mr-sm">
+          <q-tooltip>
+            Follow up
           </q-tooltip>
           </q-btn>
         </q-td>
@@ -97,6 +105,7 @@
         <q-td key="dispatchdate" :props="props">{{ formatDate(props.row.dispatchdate) }}</q-td>
         <!-- <q-td key="address" :props="props">{{ props.row.address }}</q-td> -->
         <q-td key="status" :props="props" v-bind:class="props.row.status === 'Pending' ? 'red' :props.row.status === 'Rejected' ? 'yellow': 'green'">{{ props.row.status }}</q-td>
+        <q-td key="followup" :props="props" v-bind:class="props.row.followup === 'No' ? 'red' : props.row.followup === 'Yes' ? 'green': ''">{{ props.row.followup }}</q-td>
       </q-tr>
       <div slot="pagination" slot-scope="props" class="row flex-center q-py-sm">
         <q-btn
@@ -579,6 +588,19 @@ export default {
         self.$c.hideLoader()
       })
     },
+    FollowUp: function (row) {
+      var self = this
+      row.followup = 'Yes'
+      row.iud = 'U'
+      console.log(JSON.stringify(row))
+      self.$c.postData('Orders/', JSON.stringify(row), function (success, response, error) {
+        self.$c.showSuccess('Record(s) Follow up successfully')
+        self.Submitmodal = false
+        self.fetchOrders()
+        // self.servicetypeModal = false
+        self.$c.hideLoader()
+      })
+    },
     RejectSampleOrder: function (row) {
       var self = this
       row.status = 'Rejected'
@@ -857,10 +879,20 @@ export default {
         if (self.checkstatus === 'Dispatched') {
           self.ColumnOrders = [
             {
+              name: 'reccode',
+              required: true,
+              label: 'Action',
+              align: 'center',
+              field: 'RecCode',
+              style: 'width:20px',
+              sortable: false
+            },
+            {
               name: 'orderNo',
               required: true,
               label: 'Order No',
               align: 'left',
+              style: 'width:20px',
               field: 'orderNo',
               sortable: true
             },
@@ -903,9 +935,17 @@ export default {
               align: 'left',
               field: 'status',
               sortable: true
+            },
+            {
+              name: 'followup',
+              required: true,
+              label: 'Follow up',
+              align: 'left',
+              field: 'followup',
+              sortable: true
             }
           ]
-        } else {
+        } else if (self.checkstatus === 'Pending') {
           self.ColumnOrders = [
             {
               name: 'reccode',
@@ -948,14 +988,49 @@ export default {
               field: 'dispatchdate',
               sortable: true
             },
-            // {
-            //   name: 'address',
-            //   required: true,
-            //   label: 'Address',
-            //   align: 'left',
-            //   field: 'address',
-            //   sortable: true
-            // },
+            {
+              name: 'status',
+              required: true,
+              label: 'Status',
+              align: 'left',
+              field: 'status',
+              sortable: true
+            }
+          ]
+        } else {
+          self.ColumnOrders = [
+            {
+              name: 'orderNo',
+              required: true,
+              label: 'Order No',
+              align: 'left',
+              field: 'orderNo',
+              sortable: true
+            },
+            {
+              name: 'customers',
+              required: true,
+              label: 'Customer',
+              align: 'left',
+              field: 'customers',
+              sortable: true
+            },
+            {
+              name: 'samplingdate',
+              required: true,
+              label: 'Sampling Date',
+              align: 'left',
+              field: 'samplingdate',
+              sortable: true
+            },
+            {
+              name: 'dispatchdate',
+              required: true,
+              label: 'Dispatch Date',
+              align: 'left',
+              field: 'dispatchdate',
+              sortable: true
+            },
             {
               name: 'status',
               required: true,

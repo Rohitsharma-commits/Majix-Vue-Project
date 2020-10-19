@@ -89,10 +89,10 @@
           </div>
           <div class="row">
           <div class="col-12 col-md-2 q-pa-xs">
-            Description
+            Remarks
           </div>
           <div class="col-12 col-md-4 q-pa-xs">
-              <q-input outlined dense v-model="TasksRecord.description" autogrow type="textarea">
+              <q-input outlined dense v-model="TasksRecord.remarks" autogrow type="textarea">
               </q-input>
           </div>
           </div>
@@ -205,8 +205,12 @@ export default {
         self.$c.postData('Tasks/', JSON.stringify(self.TasksRecord), function (success, response, error) {
           if (response.data === 'Successfull') {
             if (self.TasksRecord.iud === 'I') {
-              self.SectorAll.push(self.TasksRecord)
+              self.$c.getData('Tasks/UpdateTasksCountid/' + self.TasksRecord.reccode + '/loginuser/' + self.$c.getLocalStorage('reccode'), function (success, response, data) {
+              })
             }
+            // if (self.TasksRecord.iud === 'I') {
+            //   self.SectorAll.push(self.TasksRecord)
+            // }
             self.$c.showSuccess('Record(s) saved successfully')
             self.$router.push({ name: 'tasks', params: { pitem: 'Pending', pstatus: 1 } })
             self.TasksModal = false

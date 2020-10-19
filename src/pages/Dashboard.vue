@@ -42,14 +42,15 @@
     </div>
   </div>
   <br/>
-   <q-card class="my-card">
+   <!-- <q-card class="my-card">
     <q-card-section>
    <div class="text-h6">Samples by Customer </div>
      </q-card-section>
-   </q-card>
+   </q-card> -->
     <div class="row">
       <div class="col-12 col-md-6 q-pa-xs">
       <q-card class="my-card">
+        <div class="text-h6" style="text-align:center;">Samples by Customer </div>
       <q-card-section>
         <canvas  id="myChart"></canvas>
       </q-card-section>
@@ -57,6 +58,8 @@
       </div>
     <div class="col-12 col-md-6 q-pa-xs">
       <q-card class="my-card">
+        <div class="text-h6" style="text-align:center;">Sample Distribution by Product</div>
+        <!-- <div class="text-h6;" style="text-align:center;">Sample Distribution by Product</div> -->
       <q-card-section>
           <canvas  id="quantitychart"></canvas>
       </q-card-section>
@@ -176,8 +179,8 @@ export default {
                       labels: self.labelData,
                       datasets: [{
                             data: self.GraphData,
-                            backgroundColor: ["red", "blue", "green", "blue", "red", "blue"],
-                            borderColor: ["red", "blue", "green", "blue", "red", "blue"],
+                            backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"],
+                            backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"],
                           borderWidth: 1
                       }]
                   },
@@ -221,8 +224,8 @@ export default {
                       datasets: [{
                           label: 'Customers',
                             data: self.QuantityGraphData,
-                            backgroundColor: ["Orange", "blue", "green", "blue", "red", "blue"],
-                            borderColor: ["Orange", "blue", "green", "blue", "red", "blue"],
+                            backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"],
+                            backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"],
                           borderWidth: 1
                       }]
                   },
@@ -266,8 +269,8 @@ export default {
                       datasets: [{
                           label: 'Customers',
                             data: self.SalesRepresetativeGraphData,
-                            backgroundColor: ["blue", "Orange", "green", "blue", "red", "blue"],
-                            borderColor: ["blue", "Orange", "green", "blue", "red", "blue"],
+                            backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"],
+                            backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"],
                           borderWidth: 1
                       }]
                   },

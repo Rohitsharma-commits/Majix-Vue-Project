@@ -26,14 +26,14 @@
         </q-tooltip>
         </q-btn>
       </template>
-      <q-tr slot="body" slot-scope="props" :props="props" @click.native="rowClickBrands(props.row)" class="cursor-pointer">
+      <q-tr slot="body" slot-scope="props" :props="props" @click.native="addEditDeleteUnits(props.row, false)" class="cursor-pointer">
         <q-td key="reccode" :props="props">
-          <q-btn size="sm" round dense color="cyan" icon="edit" @click.native="addEditDeleteUnits(props.row, false)" class="q-mr-sm">
+          <q-btn size="sm" round dense color="cyan" icon="edit" @click.stop="addEditDeleteUnits(props.row, false)" class="q-mr-sm">
           <q-tooltip>
             Edit
           </q-tooltip>
           </q-btn>
-          <q-btn size="sm" round dense color="cyan" icon="remove" @click.native="addEditDeleteUnits(props.row, true)" class="q-mr-sm">
+          <q-btn size="sm" round dense color="cyan" icon="remove" @click.stop="addEditDeleteUnits(props.row, true)" class="q-mr-sm">
           <q-tooltip>
             Delete
           </q-tooltip>
@@ -92,7 +92,7 @@
           <br/>
           <div style="text-align:right">
             <q-btn flat label="Cancel" @click="deleteDialog = !deleteDialog" />
-            <q-btn flat color="primary" label="Delete" @click="dekleteUnits()" />
+            <q-btn flat color="primary" label="Delete" @click="deleteUnits()" />
           </div>
         </q-card-section>
       </q-card>
@@ -172,7 +172,7 @@ export default {
       }
       self.postsUnits()
     },
-    dekleteUnits: function () {
+    deleteUnits: function () {
       this.UnitsRecord.iud = 'D'
       this.postsUnits()
       this.deleteDialog = false

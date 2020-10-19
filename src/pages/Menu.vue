@@ -277,7 +277,7 @@ export default {
   }
 
   .tab-active {
-    background-color: green;
+    color: #40E0D0;
   }
 
   body {

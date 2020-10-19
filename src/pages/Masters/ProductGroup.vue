@@ -26,14 +26,14 @@
           </q-tooltip>
           </q-btn>
       </template>
-      <q-tr slot="body" slot-scope="props" :props="props" @click.native="rowClickBrands(props.row)" class="cursor-pointer">
+      <q-tr slot="body" slot-scope="props" :props="props" @click.native="addEditDeleteSectorProductGroup(props.row, false)" class="cursor-pointer">
         <q-td key="reccode" :props="props">
-          <q-btn size="sm" round dense color="cyan" icon="edit" @click.native="addEditDeleteSectorProductGroup(props.row, false)" class="q-mr-sm">
+          <q-btn size="sm" round dense color="cyan" icon="edit" @click.stop="addEditDeleteSectorProductGroup(props.row, false)" class="q-mr-sm">
           <q-tooltip>
             Edit
           </q-tooltip>
           </q-btn>
-          <q-btn size="sm" round dense color="cyan" icon="remove" @click.native="addEditDeleteSectorProductGroup(props.row, true)" class="q-mr-sm">
+          <q-btn size="sm" round dense color="cyan" icon="remove" @click.stop="addEditDeleteSectorProductGroup(props.row, true)" class="q-mr-sm">
           <q-tooltip>
             Delete
           </q-tooltip>
