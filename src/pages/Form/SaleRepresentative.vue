@@ -26,29 +26,29 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-12 col-md-2 q-pa-xs">
+          <div class="col-12 col-md-2 q-pa-xs" style="margin-top:-20px;" >
             Phone No *
           </div>
           <div class="col-12 col-md-4 q-pa-xs">
-            <q-input outlined dense :error="checkphonenumber" v-model="SalesRepresentativesRecord.phonenumber" maxlength="10" type="tel">
+            <q-input outlined dense :error="checkphonenumber" style="margin-top:-20px;"  v-model="SalesRepresentativesRecord.phonenumber" maxlength="10" type="tel">
             </q-input>
           </div>
         </div>
         <div class="row">
-          <div class="col-12 col-md-2 q-pa-xs">
+          <div class="col-12 col-md-2 q-pa-xs" style="margin-top:-20px;" >
             Email Id *
           </div>
           <div class="col-12 col-md-4 q-pa-xs">
-            <q-input outlined dense :error="checkemail" v-model="SalesRepresentativesRecord.email" type="text">
+            <q-input outlined dense :error="checkemail" style="margin-top:-20px;"  v-model="SalesRepresentativesRecord.email" type="text">
             </q-input>
           </div>
         </div>
         <div class="row">
-          <div class="col-12 col-md-2 q-pa-xs">
+          <div class="col-12 col-md-2 q-pa-xs" style="margin-top:-20px;" >
             Team *
           </div>
           <div class="col-12 col-md-4 q-pa-xs">
-          <q-select v-model="SalesRepresentativesRecord.teamid" :error="checkteamid"  @click.native="CheckteamPresentornot()" outlined dense emit-value use-input hide-selected fill-input map-options class="full-width" :options="GetTeams">
+          <q-select v-model="SalesRepresentativesRecord.teamid" style="margin-top:-20px;"  :error="checkteamid"  @click.native="CheckteamPresentornot()" outlined dense emit-value use-input hide-selected fill-input map-options class="full-width" :options="GetTeams">
             <template v-slot:no-option>
               <q-item>
                 <q-item-section class="text-grey">
@@ -60,11 +60,11 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-12 col-md-2 q-pa-xs">
+          <div class="col-12 col-md-2 q-pa-xs" style="margin-top:-20px;" >
             Sector
           </div>
           <div class="col-12 col-md-4 q-pa-xs">
-            <q-select v-model="SalesRepresentativesRecord.sectorid" outlined dense emit-value use-input hide-selected fill-input map-options class="full-width" :options="GetSectors">
+            <q-select v-model="SalesRepresentativesRecord.sectorid" style="margin-top:-20px;"  outlined dense emit-value use-input hide-selected fill-input map-options class="full-width" :options="GetSectors">
             <template v-slot:no-option>
               <q-item>
                 <q-item-section class="text-grey">

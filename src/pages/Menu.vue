@@ -2,7 +2,6 @@
   <q-layout view="lHh LpR lFf" style="height: 300px">
     <q-header reveal style="background: #338DFF">
       <q-toolbar>
-        <q-btn @click="left = !left" flat round dense icon="menu" class="q-mr-sm"/>
         <q-toolbar-title></q-toolbar-title>
         <!-- <div style="font-size:20px;"><b>HAWK</b></div> -->
          <q-btn flat class="q-mr-sm" :label="showName()"/>
@@ -46,7 +45,10 @@
       </q-toolbar>
     </q-header>
     <q-drawer class="left-navigation text-white"
-      show-if-above v-model="left"
+      show-if-above
+      v-model="drawer"
+      :mini="!drawer || miniState"
+      @click.capture="drawerClick"
       content-style="{ backgroundColor: '#ff0000' }"
       side="left"
       :width="240"
@@ -54,6 +56,7 @@
       elevated>
       <div style="height: calc(100% - 117px);padding:10px;margin-top: -10px;">
         <q-toolbar>
+        <q-btn @click="miniState = true" flat round dense icon="menu" style="margin-left:-10px;" class="q-mr-sm"/>
         <q-avatar>
           <img src="../assets/HAWK.png">
         </q-avatar>
@@ -243,7 +246,8 @@
 export default {
   data () {
     return {
-      left: false
+      drawer: false,
+      miniState: false
     }
   },
   methods: {
@@ -255,6 +259,18 @@ export default {
     },
     showName: function () {
       return this.$c.getLocalStorage('companyname')
+    },
+    drawerClick (e) {
+      // if in "mini" state and user
+      // click on drawer, we switch it to "normal" mode
+      if (this.miniState) {
+        this.miniState = false
+
+        // notice we have registered an event with capture flag;
+        // we need to stop further propagation as this click is
+        // intended for switching drawer to "normal" mode only
+        e.stopPropagation()
+      }
     }
   }
 }

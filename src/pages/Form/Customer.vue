@@ -26,20 +26,20 @@
           </div>
           </div>
        <div class="row">
-          <div class="col-12 col-md-2 q-pa-xs">
+          <div class="col-12 col-md-2 q-pa-xs" style="margin-top:-20px;" >
             Customer Contact Person*
           </div>
           <div class="col-12 col-md-4 q-pa-xs">
-            <q-input outlined dense v-model="CustomerRecord.customername" :error="checkcustomername" type="text">
+            <q-input outlined dense v-model="CustomerRecord.customername" style="margin-top:-20px;" :error="checkcustomername" type="text">
             </q-input>
           </div>
           </div>
           <div class="row">
-          <div class="col-12 col-md-2 q-pa-xs">
+          <div class="col-12 col-md-2 q-pa-xs" style="margin-top:-20px;" >
             Sector *
           </div>
           <div class="col-12 col-md-4 q-pa-xs">
-          <q-select v-model="CustomerRecord.sectorid" :error="checksectorid" @click.native="CheckSectorPresentornot()" outlined dense emit-value use-input hide-selected fill-input map-options class="full-width" :options="GetSectors">
+          <q-select v-model="CustomerRecord.sectorid" :error="checksectorid" style="margin-top:-20px;" @click.native="CheckSectorPresentornot()" outlined dense emit-value use-input hide-selected fill-input map-options class="full-width" :options="GetSectors">
             <template v-slot:no-option>
               <q-item>
                 <q-item-section class="text-grey">
@@ -51,29 +51,29 @@
           </div>
           </div>
           <div class="row">
-          <div class="col-12 col-md-2 q-pa-xs">
+          <div class="col-12 col-md-2 q-pa-xs" style="margin-top:-20px;" >
             Phone No *
           </div>
-          <div class="col-12 col-md-4 q-pa-xs">
-            <q-input outlined dense v-model="CustomerRecord.customerphoneno" :error="checkcustomerphoneno" maxlength="10"  type="tel">
+          <div class="col-12 col-md-4 q-pa-xs" >
+            <q-input outlined dense v-model="CustomerRecord.customerphoneno" style="margin-top:-20px;" :error="checkcustomerphoneno" maxlength="10"  type="tel">
             </q-input>
           </div>
           </div>
           <div class="row">
-          <div class="col-12 col-md-2 q-pa-xs">
+          <div class="col-12 col-md-2 q-pa-xs" style="margin-top:-20px;" >
             Email Id *
           </div>
           <div class="col-12 col-md-4 q-pa-xs">
-            <q-input outlined dense v-model="CustomerRecord.customeremailid" :error="checkcustomeremailid" type="text">
+            <q-input outlined dense v-model="CustomerRecord.customeremailid" style="margin-top:-20px;" :error="checkcustomeremailid" type="text">
             </q-input>
           </div>
           </div>
           <div class="row">
-          <div class="col-12 col-md-2 q-pa-xs">
+          <div class="col-12 col-md-2 q-pa-xs" style="margin-top:-20px;" >
             GST
           </div>
           <div class="col-12 col-md-4 q-pa-xs">
-            <q-input outlined dense v-model="CustomerRecord.gst"  maxlength="15" type="text">
+            <q-input outlined dense v-model="CustomerRecord.gst"  style="margin-top:-20px;" maxlength="15" type="text">
             </q-input>
           </div>
           </div>

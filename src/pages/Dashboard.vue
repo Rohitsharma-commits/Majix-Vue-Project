@@ -4,51 +4,121 @@
       <div class="col-12 col-md-4 q-pa-xs">
       <div @click="$router.push({name: 'orders', params: { pitem: 'Pending', pstatus: 1 }})">
       <q-card class="my-card" >
-      <q-card-section class="text-white" style="background: #338DFF">
+      <q-card-section class="text-white" style="background: #338DFF;padding: 8px;">
         <div class="text-h6"> Pending Samples the Month</div>
       </q-card-section>
-      <q-separator />
-      <q-card-actions align="center">
-        <q-btn flat>{{pendingsamples}}</q-btn>
+      <q-card-actions class="q-pt-none" align="center" style="padding: 0px;">
+        <!-- <q-btn flat>{{pendingsamples}}</q-btn> -->
+        <div>{{pendingsamples}}</div>
       </q-card-actions>
     </q-card>
       </div>
-    </div>
-    <div class="col-12 col-md-4 q-pa-xs">
-      <div @click="$router.push({name: 'orders', params: { pitem: 'Dispatched', pstatus: 1 }})">
-      <q-card class="my-card">
-      <q-card-section class="text-white" style="background: #338DFF">
-        <div class="text-h6">Samples Dispatched this Month </div>
-      </q-card-section>
-      <q-separator />
-      <q-card-actions align="center">
-        <q-btn flat>{{dispatchedsamples}}</q-btn>
-      </q-card-actions>
-    </q-card>
-      </div>
-    </div>
-    <div class="col-12 col-md-4 q-pa-xs">
-      <div @click="$router.push({name: 'tasks', params: { pitem: 'Completed', pstatus: 1 }})">
-      <q-card class="my-card">
-      <q-card-section class="text-white" style="background: #338DFF">
-        <div class="text-h6"> Customer Visits Done</div>
-      </q-card-section>
-      <q-separator />
-      <q-card-actions align="center">
-        <q-btn flat>{{CustomerTask}}</q-btn>
-      </q-card-actions>
-    </q-card>
-      </div>
-    </div>
-  </div>
-  <br/>
-   <!-- <q-card class="my-card">
-    <q-card-section>
-   <div class="text-h6">Samples by Customer </div>
-     </q-card-section>
-   </q-card> -->
-    <div class="row">
+      <div class="row">
       <div class="col-12 col-md-6 q-pa-xs">
+        <q-card class="my-card" >
+        <q-card-section class="text-white" style="background: #338DFF;padding: 8px;">
+          <div class="text-h6">Current</div>
+        </q-card-section>
+        <q-card-actions class="q-pt-none" align="center" style="padding: 0px;">
+          <!-- <q-btn flat>{{pendingsamplecurrentdate}}</q-btn> -->
+          <div>{{pendingsamplecurrentdate}}</div>
+        </q-card-actions>
+      </q-card>
+      </div>
+      <div class="col-12 col-md-6 q-pa-xs">
+        <q-card class="my-card" >
+        <q-card-section class="text-white" style="background: #FF0000;padding: 8px;">
+          <div class="text-h6">Overdue</div>
+        </q-card-section>
+        <q-card-actions class="q-pt-none" align="center" style="padding: 0px;">
+          <!-- <q-btn flat>{{pendingsamplesoverdue}}</q-btn> -->
+          <div>{{pendingsamplesoverdue}}</div>
+        </q-card-actions>
+      </q-card>
+      </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-12 col-md-12 q-pa-xs">
+        <div @click="$router.push({name: 'orders', params: { pitem: 'Dispatched', pstatus: 1 }})">
+          <q-card class="my-card" >
+          <q-card-section class="text-white" style="background: #338DFF;padding: 8px;">
+            <div class="text-h6"> Samples Dispatched</div>
+          </q-card-section>
+          <q-card-actions class="q-pt-none" align="center" style="padding: 0px;">
+            <!-- <q-btn flat>{{dispatchedsamplespresentmonth}}</q-btn> -->
+            <div>{{dispatchedsamplespresentmonth}}</div>
+          </q-card-actions>
+        </q-card>
+      </div>
+        <div class="row">
+          <div class="col-12 col-md-6 q-pa-xs">
+            <q-card class="my-card" >
+            <q-card-section class="text-white" style="background: #FF0000;padding: 8px;">
+              <div class="text-h6">Last Month</div>
+            </q-card-section>
+            <q-card-actions class="q-pt-none" align="center" style="padding: 0px;">
+              <!-- <q-btn flat>{{dispatchedsampleslastmonth}}</q-btn> -->
+              <div>{{dispatchedsampleslastmonth}}</div>
+            </q-card-actions>
+          </q-card>
+          </div>
+          <div class="col-12 col-md-6 q-pa-xs">
+            <q-card class="my-card" >
+            <q-card-section class="text-white" style="background: #338DFF;padding: 7px;">
+              <div class="text-h6">Present Month</div>
+            </q-card-section>
+            <q-card-actions class="q-pt-none" align="center" style="padding: 0px;">
+              <!-- <q-btn flat>{{dispatchedsamplespresentmonth}}</q-btn> -->
+              <div>{{dispatchedsamplespresentmonth}}</div>
+            </q-card-actions>
+          </q-card>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-8 q-pa-xs">
+      <q-card class="my-card">
+        <div class="text-h6" style="text-align:center;">Sampling Done per month </div>
+      <q-card-section>
+        <canvas  id="lineChart"></canvas>
+      </q-card-section>
+      </q-card>
+      </div>
+  </div>
+    <div class="row">
+    <div class="col-12 col-md-3 q-pa-xs">
+    <q-card class="my-card">
+      <q-card-section class="bg-white text-center" >
+          <q-btn push style="background: #338DFF;color: white;" @click="$router.push({name: 'Order-form', params: { pitem: 'New' }})" label="New Sample Order" />
+      </q-card-section>
+   </q-card>
+    </div>
+  <div class="col-12 col-md-3 q-pa-xs">
+    <q-card class="my-card">
+    <q-card-section class="bg-white text-center" >
+        <q-btn push style="background: #338DFF;color: white;" @click="$router.push({name: 'customer', params: { pitem: 'New' }})" label="Add Customer" />
+    </q-card-section>
+    </q-card>
+    </div>
+  <div class="col-12 col-md-3 q-pa-xs">
+    <q-card class="my-card">
+    <q-card-section class="bg-white text-center" >
+        <q-btn push style="background: #338DFF;color: white;" @click="$router.push({name: 'product-form', params: { pitem: 'New', pstatus: 0 }})" label="Add Product" />
+    </q-card-section>
+    </q-card>
+    </div>
+  <div class="col-12 col-md-3 q-pa-xs">
+    <q-card class="my-card">
+      <q-card-section class="bg-white text-center" >
+          <q-btn push style="background: #338DFF;color: white;" @click="$router.push({name: 'salerepresentative-form', params: { pitem: 'New' }})" label="Add Sale Representative" />
+      </q-card-section>
+    </q-card>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-4 q-pa-xs">
       <q-card class="my-card">
         <div class="text-h6" style="text-align:center;">Samples by Customer </div>
       <q-card-section>
@@ -56,7 +126,7 @@
       </q-card-section>
       </q-card>
       </div>
-    <div class="col-12 col-md-6 q-pa-xs">
+    <div class="col-12 col-md-4 q-pa-xs">
       <q-card class="my-card">
         <div class="text-h6" style="text-align:center;">Sample Distribution by Product</div>
         <!-- <div class="text-h6;" style="text-align:center;">Sample Distribution by Product</div> -->
@@ -65,30 +135,22 @@
       </q-card-section>
       </q-card>
       </div>
-    </div>
-    <br/>
-   <q-card class="my-card">
-      <q-card-section class="bg-white text-center" >
-          <q-btn push style="background: #338DFF;color: white;" @click="$router.push({name: 'Order-form', params: { pitem: 'New' }})" label="New Sample Order" />
-      </q-card-section>
-   </q-card>
-   <br/>
-  <q-card class="my-card">
-    <q-card-section>
-   <div class="text-h6">Samples by Sales Representative</div>
-    </q-card-section>
-   </q-card>
-    <div class="row">
-      <div class="col-12 col-md-12 q-pa-xs">
+      <div class="col-12 col-md-4 q-pa-xs">
       <q-card class="my-card">
+        <div class="text-h6" style="text-align:center;">Samples by Sales Representative</div>
       <q-card-section>
         <canvas  id="salesrepresentativechart"></canvas>
       </q-card-section>
       </q-card>
       </div>
     </div>
+  <!-- <q-card class="my-card">
+    <q-card-section>
+   <div class="text-h6">Samples by Sales Representative</div>
+    </q-card-section>
+   </q-card> -->
   <br/>
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-12 col-md-4 q-pa-xs">
     <q-card class="my-card">
     <q-card-section class="bg-white text-center" >
@@ -111,7 +173,7 @@
     </q-card>
     <br/>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script src="chartjs-plugin-datalabels.js"></script>
@@ -128,8 +190,15 @@ export default {
       GraphData: [],
       chartOptions: [],
       myChart: null,
+      dispatchedsampleslastmonth: '',
+      dispatchedsamplespresentmonth: '',
+      pendingsamplecurrentdate: '',
       salesrepresentativechart: null,
       quantitychart: null,
+      lineChart: null,
+      linechartlabelData: [],
+      linechartGraphData: [],
+      pendingsamplesoverdue: '',
       SalesRepresetativelabelData: [],
       SalesRepresetativeGraphData: [],
       QuantityGraphData: [],
@@ -143,7 +212,7 @@ export default {
     this.$c.showLoader()
   },
   mounted () {
-    this.GetCustomerGraphonDashboard()
+    this.GetLineGraphonDashboard()
   },
   methods: {
     fetchsamplescount: function () {
@@ -151,10 +220,50 @@ export default {
       self.Team = []
       self.$c.getData('Orders/loginuser/' + self.$c.getLocalStorage('reccode'), function (success, response, data) {
         self.pendingsamples = data[0].salesrepresentativecode
-        self.dispatchedsamples = data[0].customercode
-        self.CustomerTask = data[0].dispatchdate
+        self.pendingsamplecurrentdate = data[0].samplingdate
+        self.pendingsamplesoverdue = data[0].customercode
+        self.dispatchedsamplespresentmonth = data[0].dispatchdate
+        self.dispatchedsampleslastmonth = data[0].zipcode
         // self.TeamAll = self.Team
         self.$c.hideLoader()
+      })
+    },
+    GetLineGraphonDashboard: function () {
+      var self = this
+      self.$c.showLoader()
+      if (self.lineChart !== null) {
+        self.lineChart.destroy()
+      }
+      self.linechartlabelData = []
+      self.linechartGraphData = []
+      self.$c.getData('Orders/' + 'GetLineGraphOnDashboard/' + self.$c.getLocalStorage('reccode'), function (success, response, data) {
+        if (data.length !== 0) {
+          data.forEach(function (item, index, array) {
+            self.linechartlabelData.push(item.states)
+            self.linechartGraphData.push(item.country)
+          })
+          console.log(JSON.stringify(self.linechartlabelData))
+          var ctx = document.getElementById('lineChart').getContext('2d');
+            var lineChart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+
+                // The data for our dataset
+                data: {
+                    labels: self.linechartlabelData,
+                    datasets: [{
+                        label: 'Sampling Done',
+                        // backgroundColor: 'rgb(255, 99, 132)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: self.linechartGraphData
+                    }]
+                },
+
+                // Configuration options go here
+                options: {}
+            });
+          self.GetCustomerGraphonDashboard()
+        }
       })
     },
     GetCustomerGraphonDashboard: function () {
@@ -179,8 +288,8 @@ export default {
                       labels: self.labelData,
                       datasets: [{
                             data: self.GraphData,
-                            backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"],
-                            backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"],
+                            backgroundColor: ["#356798", "#FF4136", "#6598cd", "#9dc8cb", "#f0cde1", "#d69fc7", "#c677b0", "#663a93", "#382662"],
+                            // backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"],
                           borderWidth: 1
                       }]
                   },
@@ -224,8 +333,8 @@ export default {
                       datasets: [{
                           label: 'Customers',
                             data: self.QuantityGraphData,
-                            backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"],
-                            backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"],
+                            backgroundColor: ["#346699", "#6799cb", "#76cddd", "#d2edf3", "#70c066", "#369946", "#026666"],
+                            // backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"],
                           borderWidth: 1
                       }]
                   },
@@ -269,8 +378,8 @@ export default {
                       datasets: [{
                           label: 'Customers',
                             data: self.SalesRepresetativeGraphData,
-                            backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"],
-                            backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"],
+                            backgroundColor: ["#cccc33", "#ffcc99", "#ffffcc", "#ccffff", "#6699cc", "#333399", "#333366"],
+                            // backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"],
                           borderWidth: 1
                       }]
                   },
@@ -300,5 +409,11 @@ export default {
   padding: 10px;
   border-radius: 25px;
   border-block-end-color: #338DFF;
+}
+body {
+  line-height: 0;
+}
+.q-card__section--vert {
+    padding: 16px;
 }
 </style>

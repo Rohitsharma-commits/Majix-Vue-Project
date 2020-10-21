@@ -38,11 +38,11 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-12 col-md-2 q-pa-xs">
+        <div class="col-12 col-md-2 q-pa-xs" style="margin-top:-20px;" >
           Customers *
         </div>
         <div class="col-12 col-md-4 q-pa-xs">
-          <q-select v-model="OrdersRecord.customercode" :error="checkcustomercode" @input="GetCustomerAddress(OrdersRecord.customercode)" outlined dense emit-value use-input hide-selected fill-input map-options class="full-width" :options="GetCustomer">
+          <q-select v-model="OrdersRecord.customercode" style="margin-top:-20px;"  :error="checkcustomercode" @input="GetCustomerAddress(OrdersRecord.customercode)" outlined dense emit-value use-input hide-selected fill-input map-options class="full-width" :options="GetCustomer">
               <template v-slot:no-option>
                 <q-item>
                   <q-item-section class="text-grey">
@@ -54,11 +54,11 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-12 col-md-2 q-pa-xs">
+        <div class="col-12 col-md-2 q-pa-xs" style="margin-top:-20px;" >
           Sampling Date *
         </div>
         <div class="col-12 col-md-4 q-pa-xs">
-        <q-input outlined dense :error="checksamplingdate" v-model="OrdersRecord.samplingdate">
+        <q-input outlined dense :error="checksamplingdate" style="margin-top:-20px;"  v-model="OrdersRecord.samplingdate">
             <template v-slot:append>
               <q-icon name="event" class="cursor-pointer">
               <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
@@ -70,11 +70,11 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-12 col-md-2 q-pa-xs">
+        <div class="col-12 col-md-2 q-pa-xs" style="margin-top:-20px;" >
           Address
         </div>
         <div class="col-12 col-md-4 q-pa-xs">
-        <q-input outlined dense v-model="OrdersRecord.addressline1" label="street 1" autogrow readonly type="textarea">
+        <q-input outlined dense v-model="OrdersRecord.addressline1" style="margin-top:-20px;"  label="street 1" autogrow readonly type="textarea">
         </q-input>
         </div>
       </div>

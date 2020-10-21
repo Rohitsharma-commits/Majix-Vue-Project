@@ -34,11 +34,11 @@
           </div>
           </div>
           <div class="row">
-          <div class="col-12 col-md-2 q-pa-xs">
+          <div class="col-12 col-md-2 q-pa-xs" style="margin-top:-20px;" >
             Customers *
           </div>
           <div class="col-12 col-md-4 q-pa-xs">
-          <q-select v-model="TasksRecord.customercode" :error="checkcustomercode" outlined dense emit-value use-input hide-selected fill-input map-options class="full-width" :options="GetCustomer">
+          <q-select v-model="TasksRecord.customercode" style="margin-top:-20px;"  :error="checkcustomercode" outlined dense emit-value use-input hide-selected fill-input map-options class="full-width" :options="GetCustomer">
               <template v-slot:no-option>
                 <q-item>
                   <q-item-section class="text-grey">
@@ -50,11 +50,11 @@
           </div>
           </div>
         <div class="row">
-          <div class="col-12 col-md-2 q-pa-xs">
+          <div class="col-12 col-md-2 q-pa-xs" style="margin-top:-20px;" >
             Task *
           </div>
           <div class="col-12 col-md-4 q-pa-xs">
-          <q-select v-model="TasksRecord.tasktype" :error="checktasktype" outlined dense emit-value use-input hide-selected fill-input map-options :options="[
+          <q-select v-model="TasksRecord.tasktype" style="margin-top:-20px;"  :error="checktasktype" outlined dense emit-value use-input hide-selected fill-input map-options :options="[
                   {label: 'Mail', value: 'Mail'},
                   {label: 'Call', value: 'Call'},
                   {label: 'Followup', value: 'Followup'},
@@ -72,11 +72,11 @@
           </div>
           </div>
         <div class="row">
-          <div class="col-12 col-md-2 q-pa-xs">
+          <div class="col-12 col-md-2 q-pa-xs" style="margin-top:-20px;" >
             Task Date *
           </div>
           <div class="col-12 col-md-4 q-pa-xs">
-            <q-input outlined dense :error="checktaskdate" v-model="TasksRecord.taskdate">
+            <q-input outlined dense :error="checktaskdate" style="margin-top:-20px;" v-model="TasksRecord.taskdate">
             <template v-slot:append>
               <q-icon name="event" class="cursor-pointer">
               <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
@@ -88,11 +88,11 @@
           </div>
           </div>
           <div class="row">
-          <div class="col-12 col-md-2 q-pa-xs">
+          <div class="col-12 col-md-2 q-pa-xs" style="margin-top:-20px;">
             Remarks
           </div>
           <div class="col-12 col-md-4 q-pa-xs">
-              <q-input outlined dense v-model="TasksRecord.remarks" autogrow type="textarea">
+              <q-input outlined dense v-model="TasksRecord.remarks" style="margin-top:-20px;"  autogrow type="textarea">
               </q-input>
           </div>
           </div>
