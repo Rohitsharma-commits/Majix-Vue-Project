@@ -431,7 +431,7 @@ export default {
   mounted () {
     this.checkstatus = this.$route.params.pitem
     this.fetchProducts()
-    this.checkclickfromMenu = this.$route.params.pstatus
+    // this.checkclickfromMenu = this.$route.params.pstatus
     // if (this.checkclickfromMenu === 0) {
     //   this.ProductRecord = this.$m.Product()
     //   this.ProductModal = true
@@ -442,11 +442,11 @@ export default {
     $route (to, from) {
       this.checkstatus = this.$route.params.pitem
       this.fetchProducts()
-      this.checkclickfromMenu = this.$route.params.pstatus
-      if (this.checkclickfromMenu === 0) {
-        this.ProductRecord = this.$m.Product()
-        this.ProductModal = true
-      }
+      // this.checkclickfromMenu = this.$route.params.pstatus
+      // if (this.checkclickfromMenu === 0) {
+      //   this.ProductRecord = this.$m.Product()
+      //   this.ProductModal = true
+      // }
     }
   },
   methods: {

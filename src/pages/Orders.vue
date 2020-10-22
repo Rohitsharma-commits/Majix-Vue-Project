@@ -93,7 +93,7 @@
           </q-btn>
         </q-td>
         <q-td key="reccode" :props="props" v-if="props.row.status === 'Dispatched'">
-         <q-btn size="sm" round dense color="cyan" icon="check" :disable="props.row.followup === 'Yes'" @click.stop="FollowUp(props.row)" class="q-mr-sm">
+         <q-btn size="sm" round dense color="cyan" icon="check" :disable="props.row.followup === 'Yes'" @click.stop="ApproveFollowUp(props.row)" class="q-mr-sm">
           <q-tooltip>
             Follow up
           </q-tooltip>
@@ -293,6 +293,29 @@
       </q-card>
     </q-dialog>
     <q-dialog
+      v-model="FollowUpDialog"
+      persistent
+    >
+      <q-card style="width:30vw">
+        <q-bar class="bg-cyan text-white">
+          <div>Follow Up</div>
+          <q-space />
+          <q-btn dense flat icon="close" @click="FollowUpDialog = !FollowUpDialog">
+            <q-tooltip content-class="bg-white text-primary">Close</q-tooltip>
+          </q-btn>
+        </q-bar>
+        <q-card-section>
+          Follow Up done Yes/No?
+          <br/>
+          <br/>
+          <div style="text-align:right">
+            <q-btn flat label="Cancel" @click="FollowUpDialog = !FollowUpDialog" />
+            <q-btn flat color="primary" label="Done" @click="FollowUpDone(FollowUpDoneYesNo)" />
+          </div>
+        </q-card-section>
+      </q-card>
+    </q-dialog>
+    <q-dialog
       v-model="deleteshadeDialog"
       persistent
     >
@@ -441,6 +464,7 @@ export default {
       checkclickfromMenu: '',
       SubmitRecord: '',
       Submitmodal: false,
+      FollowUpDialog: false,
       OrderItemsModal: false,
       Filter: '',
       ColumnOrders: [],
@@ -450,6 +474,7 @@ export default {
       Designationssearch: '',
       Orders: [],
       ProductsAll: [],
+      FollowUpDoneYesNo: '',
       checkstatus: '',
       OrderItems: [],
       printmodal: false,
@@ -520,7 +545,7 @@ export default {
     var self = this
     self.checkstatus = self.$route.params.pitem
     self.fetchOrders()
-    self.checkclickfromMenu = self.$route.params.pstatus
+    // self.checkclickfromMenu = self.$route.params.pstatus
     // if (self.checkclickfromMenu === 0) {
     //   self.OrdersRecord = this.$m.Orders()
     //   self.OrdersModal = true
@@ -530,12 +555,12 @@ export default {
   watch: {
     $route (to, from) {
       this.checkstatus = this.$route.params.pitem
-      this.checkclickfromMenu = this.$route.params.pstatus
+      // this.checkclickfromMenu = this.$route.params.pstatus
       this.fetchOrders()
-      if (this.checkclickfromMenu === 0) {
-        this.OrdersRecord = this.$m.Orders()
-        this.OrdersModal = true
-      }
+      // if (this.checkclickfromMenu === 0) {
+      //   this.OrdersRecord = this.$m.Orders()
+      //   this.OrdersModal = true
+      // }
     }
   },
   methods: {
@@ -588,16 +613,25 @@ export default {
         self.$c.hideLoader()
       })
     },
-    FollowUp: function (row) {
+    ApproveFollowUp: function (row) {
+      var self = this
+      self.FollowUpDoneYesNo = row
+      self.FollowUpDialog = true
+    },
+    FollowUpDone: function (row) {
       var self = this
       row.followup = 'Yes'
       row.iud = 'U'
       console.log(JSON.stringify(row))
       self.$c.postData('Orders/', JSON.stringify(row), function (success, response, error) {
         self.$c.showSuccess('Record(s) Follow up successfully')
-        self.Submitmodal = false
-        self.fetchOrders()
-        // self.servicetypeModal = false
+        self.$c.getData('Orders/UpdateTaskONFollowupDone/' + row.reccode + '/reccode/' + self.$c.getLocalStorage('reccode'), function (success, response, data) {
+          console.log(response.data)
+          if (response.data === 'success') {
+            self.FollowUpDialog = false
+            self.fetchOrders()
+          }
+        })
         self.$c.hideLoader()
       })
     },

@@ -2,7 +2,7 @@
     <div>
     <div class="row">
       <div class="col-12 col-md-4 q-pa-xs">
-      <div @click="$router.push({name: 'orders', params: { pitem: 'Pending', pstatus: 1 }})">
+      <div @click="$router.push({name: 'orders', params: { pitem: 'Pending' }})">
       <q-card class="my-card" >
       <q-card-section class="text-white" style="background: #338DFF;padding: 8px;">
         <div class="text-h6"> Pending Samples the Month</div>
@@ -15,6 +15,7 @@
       </div>
       <div class="row">
       <div class="col-12 col-md-6 q-pa-xs">
+        <div @click="$router.push({name: 'orders', params: { pitem: 'Pending' }})">
         <q-card class="my-card" >
         <q-card-section class="text-white" style="background: #338DFF;padding: 8px;">
           <div class="text-h6">Current</div>
@@ -24,8 +25,10 @@
           <div>{{pendingsamplecurrentdate}}</div>
         </q-card-actions>
       </q-card>
+        </div>
       </div>
       <div class="col-12 col-md-6 q-pa-xs">
+        <div @click="$router.push({name: 'orders', params: { pitem: 'Pending' }})">
         <q-card class="my-card" >
         <q-card-section class="text-white" style="background: #FF0000;padding: 8px;">
           <div class="text-h6">Overdue</div>
@@ -35,12 +38,13 @@
           <div>{{pendingsamplesoverdue}}</div>
         </q-card-actions>
       </q-card>
+        </div>
       </div>
       </div>
       <br>
       <div class="row">
         <div class="col-12 col-md-12 q-pa-xs">
-        <div @click="$router.push({name: 'orders', params: { pitem: 'Dispatched', pstatus: 1 }})">
+        <div @click="$router.push({name: 'orders', params: { pitem: 'Dispatched' }})">
           <q-card class="my-card" >
           <q-card-section class="text-white" style="background: #338DFF;padding: 8px;">
             <div class="text-h6"> Samples Dispatched</div>
@@ -53,6 +57,7 @@
       </div>
         <div class="row">
           <div class="col-12 col-md-6 q-pa-xs">
+             <div @click="$router.push({name: 'orders', params: { pitem: 'Dispatched' }})">
             <q-card class="my-card" >
             <q-card-section class="text-white" style="background: #FF0000;padding: 8px;">
               <div class="text-h6">Last Month</div>
@@ -62,8 +67,10 @@
               <div>{{dispatchedsampleslastmonth}}</div>
             </q-card-actions>
           </q-card>
+             </div>
           </div>
           <div class="col-12 col-md-6 q-pa-xs">
+             <div @click="$router.push({name: 'orders', params: { pitem: 'Dispatched' }})">
             <q-card class="my-card" >
             <q-card-section class="text-white" style="background: #338DFF;padding: 7px;">
               <div class="text-h6">Present Month</div>
@@ -73,6 +80,7 @@
               <div>{{dispatchedsamplespresentmonth}}</div>
             </q-card-actions>
           </q-card>
+             </div>
           </div>
           </div>
         </div>
@@ -105,7 +113,7 @@
   <div class="col-12 col-md-3 q-pa-xs">
     <q-card class="my-card">
     <q-card-section class="bg-white text-center" >
-        <q-btn push style="background: #338DFF;color: white;" @click="$router.push({name: 'product-form', params: { pitem: 'New', pstatus: 0 }})" label="Add Product" />
+        <q-btn push style="background: #338DFF;color: white;" @click="$router.push({name: 'product-form', params: { pitem: 'New' }})" label="Add Product" />
     </q-card-section>
     </q-card>
     </div>
@@ -276,6 +284,7 @@ export default {
       self.GraphData = []
       self.$c.getData('Orders/' + 'GetCustomersGraphOnDashboard/' + self.$c.getLocalStorage('reccode'), function (success, response, data) {
         if (data.length !== 0) {
+          // console.log(data)
           data.forEach(function (item, index, array) {
             self.labelData.push(item.customercode)
             self.GraphData.push(item.salesrepresentativecode)
@@ -294,6 +303,9 @@ export default {
                       }]
                   },
                   options: {
+                    legend: {
+                      position: 'right'
+                    },
                     scales: {
                     yAxes: [{
                     ticks: {
@@ -339,6 +351,9 @@ export default {
                       }]
                   },
                   options: {
+                    legend: {
+                      position: 'right'
+                    },
                     scales: {
                     yAxes: [{
                     ticks: {
@@ -378,12 +393,15 @@ export default {
                       datasets: [{
                           label: 'Customers',
                             data: self.SalesRepresetativeGraphData,
-                            backgroundColor: ["#cccc33", "#ffcc99", "#ffffcc", "#ccffff", "#6699cc", "#333399", "#333366"],
+                            backgroundColor: ["#6699cc", "#333399", "#333366", "#cccc33", "#ffcc99", "#ffffcc", "#ccffff"],
                             // backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"],
                           borderWidth: 1
                       }]
                   },
                   options: {
+                    legend: {
+                      position: 'right'
+                    },
                     scales: {
                     yAxes: [{
                     ticks: {

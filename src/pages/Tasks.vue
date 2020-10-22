@@ -311,11 +311,11 @@ export default {
     $route (to, from) {
       this.checkstatus = this.$route.params.pitem
       this.fetchTasks()
-      this.checkclickfromMenu = this.$route.params.pstatus
-      if (this.checkclickfromMenu === 0) {
-        this.TasksRecord = this.$m.Tasks()
-        this.TasksModal = true
-      }
+      // this.checkclickfromMenu = this.$route.params.pstatus
+      // if (this.checkclickfromMenu === 0) {
+      //   this.TasksRecord = this.$m.Tasks()
+      //   this.TasksModal = true
+      // }
     }
   },
   mounted () {

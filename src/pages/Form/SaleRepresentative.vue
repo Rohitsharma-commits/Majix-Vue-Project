@@ -149,7 +149,7 @@ export default {
       SalesRepresentativesRecord: [],
       Designationssearch: '',
       GetSectors: [],
-      checkclickfromMenu: '',
+      // checkclickfromMenu: '',
       AddeditSales: '',
       SalesRepresentatives: [],
       SalesRepresentativesAll: [],
@@ -164,7 +164,7 @@ export default {
   mounted () {
     this.AddeditSales = this.$route.params.pitem
     this.fetchSalesRepresentatives()
-    this.checkclickfromMenu = this.$route.params.pstatus
+    // this.checkclickfromMenu = this.$route.params.pstatus
     if (this.AddeditSales === 'New') {
       this.SalesRepresentativesRecord = this.$m.SalesRepresentatives()
       this.SalesRepresentativesRecord.activeflag = '1'

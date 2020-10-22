@@ -233,7 +233,7 @@ export default {
   },
   mounted () {
     this.fetchCustomers()
-    this.checkclickfromMenu = this.$route.params.pstatus
+    // this.checkclickfromMenu = this.$route.params.pstatus
     this.checkCustomer = this.$route.params.pitem
     // if (this.checkclickfromMenu === 0) {
     //   this.CustomerRecord = this.$m.Customer()

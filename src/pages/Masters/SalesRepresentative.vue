@@ -252,7 +252,7 @@ export default {
       printmodal: false,
       Designationssearch: '',
       GetSectors: [],
-      checkclickfromMenu: '',
+      // checkclickfromMenu: '',
       SalesRepresentatives: [],
       SalesRepresentativesAll: [],
       GetTeams: [],
@@ -308,7 +308,7 @@ export default {
   mounted () {
     this.checkstatus = this.$route.params.pitem
     this.fetchSalesRepresentatives()
-    this.checkclickfromMenu = this.$route.params.pstatus
+    // this.checkclickfromMenu = this.$route.params.pstatus
     // if (this.checkclickfromMenu === 0) {
     //   this.SalesRepresentativesRecord = this.$m.SalesRepresentatives()
     //   this.SalesRepresentativesRecord.activeflag = '1'
@@ -320,7 +320,7 @@ export default {
     $route (to, from) {
       this.checkstatus = this.$route.params.pitem
       this.fetchSalesRepresentatives()
-      this.checkclickfromMenu = this.$route.params.pstatus
+      // this.checkclickfromMenu = this.$route.params.pstatus
       // if (this.checkclickfromMenu === 0) {
       //   this.SalesRepresentativesRecord = this.$m.SalesRepresentatives()
       //   this.SalesRepresentativesRecord.activeflag = '1'

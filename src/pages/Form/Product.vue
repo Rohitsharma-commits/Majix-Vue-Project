@@ -6,7 +6,7 @@
       active-color="cyan"
       color="light">
       <q-breadcrumbs-el label="Dashboard" to="/menu/dashboard" />
-      <q-breadcrumbs-el label="Product List" :to="{name: 'products', params: { pitem: '1', pstatus: '1' }}"/>
+      <q-breadcrumbs-el label="Product List" :to="{name: 'products', params: { pitem: '1' }}"/>
       <q-breadcrumbs-el label="Product" to="/menu/Product" />
     </q-breadcrumbs>
     <q-card>
@@ -186,7 +186,7 @@ export default {
       deleteshadeDialog: false,
       ShadeModal: false,
       Filter: '',
-      checkstatus: '',
+      // checkstatus: '',
       GetProductGroups: [],
       Designationssearch: '',
       Products: [],
@@ -266,7 +266,7 @@ export default {
   },
   mounted () {
     this.fetchProducts()
-    this.checkstatus = this.$route.params.pstatus
+    // this.checkstatus = this.$route.params.pstatus
     this.checkProduct = this.$route.params.pitem
     if (this.checkProduct === 'New') {
       this.ProductRecord = this.$m.Product()
@@ -286,7 +286,7 @@ export default {
       }
     },
     CancelProduct: function () {
-      this.$router.push({ name: 'products', params: { pitem: '1', pstatus: '1' } })
+      this.$router.push({ name: 'products', params: { pitem: '1' } })
     },
     closemodal: function () {
       this.ProductModal = false
@@ -428,7 +428,7 @@ export default {
                   self.ProductsAll.push(self.ProductRecord)
                 }
                 self.$c.showSuccess('Record(s) saved successfully')
-                self.$router.push({ name: 'products', params: { pitem: '1', pstatus: '1' } })
+                self.$router.push({ name: 'products', params: { pitem: '1' } })
                 self.Shades = []
                 self.fetchProducts()
                 self.ProductModal = false

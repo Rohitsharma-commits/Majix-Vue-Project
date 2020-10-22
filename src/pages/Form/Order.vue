@@ -326,7 +326,7 @@ export default {
       checkcustomercode: false,
       RejectRecord: '',
       Rejectmodal: false,
-      checkclickfromMenu: '',
+      // checkclickfromMenu: '',
       SubmitRecord: '',
       Submitmodal: false,
       OrderItemsModal: false,

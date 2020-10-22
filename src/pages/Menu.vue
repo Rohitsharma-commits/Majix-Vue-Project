@@ -79,7 +79,7 @@
           class="q-ma-sm navigation-item"
           icon="pending_actions"
           label="Tasks">
-          <q-item active-class="tab-active" :to="{name: 'task-form', params: { pitem: 'New', pstatus: 1 }}"  class="q-ma-sm navigation-item" clickable v-ripple>
+          <q-item active-class="tab-active" :to="{name: 'task-form', params: { pitem: 'New' }}"  class="q-ma-sm navigation-item" clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="send"/>
             </q-item-section>
@@ -87,7 +87,7 @@
               Add Task
             </q-item-section>
           </q-item>
-          <q-item active-class="tab-active" :to="{name: 'tasks', params: { pitem: 'Pending', pstatus: 1 }}"  class="q-ma-sm navigation-item" clickable v-ripple>
+          <q-item active-class="tab-active" :to="{name: 'tasks', params: { pitem: 'Pending' }}"  class="q-ma-sm navigation-item" clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="send"/>
             </q-item-section>
@@ -95,7 +95,7 @@
               Pending Tasks
             </q-item-section>
           </q-item>
-          <q-item active-class="tab-active" :to="{name: 'tasks', params: { pitem: 'Completed', pstatus: 1 }}" class="q-ma-sm navigation-item" clickable v-ripple>
+          <q-item active-class="tab-active" :to="{name: 'tasks', params: { pitem: 'Completed' }}" class="q-ma-sm navigation-item" clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="send"/>
             </q-item-section>
@@ -117,7 +117,7 @@
               Add Sample Order
             </q-item-section>
           </q-item>
-          <q-item active-class="tab-active" :to="{name: 'orders', params: { pitem: 'Pending', pstatus: 1 }}"  class="q-ma-sm navigation-item" clickable v-ripple>
+          <q-item active-class="tab-active" :to="{name: 'orders', params: { pitem: 'Pending' }}"  class="q-ma-sm navigation-item" clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="send"/>
             </q-item-section>
@@ -125,7 +125,7 @@
               Pending Sample Orders
             </q-item-section>
           </q-item>
-          <q-item active-class="tab-active" :to="{name: 'orders', params: { pitem: 'Dispatched', pstatus: 1 }}" class="q-ma-sm navigation-item" clickable v-ripple>
+          <q-item active-class="tab-active" :to="{name: 'orders', params: { pitem: 'Dispatched' }}" class="q-ma-sm navigation-item" clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="send"/>
             </q-item-section>
@@ -133,7 +133,7 @@
               Dispatched Sample Orders
             </q-item-section>
           </q-item>
-          <q-item active-class="tab-active" :to="{name: 'orders', params: { pitem: 'Rejected', pstatus: 1 }}" class="q-ma-sm navigation-item" clickable v-ripple>
+          <q-item active-class="tab-active" :to="{name: 'orders', params: { pitem: 'Rejected' }}" class="q-ma-sm navigation-item" clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="send"/>
             </q-item-section>
@@ -170,7 +170,7 @@
           class="q-ma-sm navigation-item"
           icon="archive"
           label="Products">
-          <q-item active-class="tab-active" :to="{name: 'product-form', params: { pitem: 'New', pstatus: 0 }}" class="q-ma-sm navigation-item" clickable v-ripple>
+          <q-item active-class="tab-active" :to="{name: 'product-form', params: { pitem: 'New' }}" class="q-ma-sm navigation-item" clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="send"/>
             </q-item-section>
@@ -178,7 +178,7 @@
               Add Product
             </q-item-section>
           </q-item>
-          <q-item active-class="tab-active" :to="{name: 'products', params: { pitem: '1', pstatus: '1' }}" class="q-ma-sm navigation-item" clickable v-ripple>
+          <q-item active-class="tab-active" :to="{name: 'products', params: { pitem: '1' }}" class="q-ma-sm navigation-item" clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="send"/>
             </q-item-section>
@@ -186,7 +186,7 @@
               All Products
             </q-item-section>
           </q-item>
-          <q-item active-class="tab-active" :to="{name: 'products', params: { pitem: 0, pstatus: 1 }}" class="q-ma-sm navigation-item" clickable v-ripple>
+          <q-item active-class="tab-active" :to="{name: 'products', params: { pitem: 0 }}" class="q-ma-sm navigation-item" clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="send"/>
             </q-item-section>
@@ -208,7 +208,7 @@
               Add Sales Representative
             </q-item-section>
           </q-item>
-          <q-item active-class="tab-active" :to="{name: 'salesrepresentative', params: { pitem: '1', pstatus: '1' }}" class="q-ma-sm navigation-item" clickable v-ripple>
+          <q-item active-class="tab-active" :to="{name: 'salesrepresentative', params: { pitem: '1' }}" class="q-ma-sm navigation-item" clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="send"/>
             </q-item-section>
@@ -216,7 +216,7 @@
               All Sales Representative
             </q-item-section>
           </q-item>
-          <q-item active-class="tab-active" :to="{name: 'salesrepresentative', params: { pitem: '0', pstatus: '1' }}" class="q-ma-sm navigation-item" clickable v-ripple>
+          <q-item active-class="tab-active" :to="{name: 'salesrepresentative', params: { pitem: '0' }}" class="q-ma-sm navigation-item" clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="send"/>
             </q-item-section>

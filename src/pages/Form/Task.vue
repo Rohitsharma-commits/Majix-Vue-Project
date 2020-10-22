@@ -6,7 +6,7 @@
       active-color="cyan"
       color="light">
       <q-breadcrumbs-el label="Dashboard" to="/menu/dashboard" />
-      <q-breadcrumbs-el label="Task List" :to="{name: 'tasks', params: { pitem: 'Pending', pstatus: 1 }}" />
+      <q-breadcrumbs-el label="Task List" :to="{name: 'tasks', params: { pitem: 'Pending' }}" />
       <q-breadcrumbs-el label="Task" to="/menu/Task" />
     </q-breadcrumbs>
     <q-card>
@@ -171,7 +171,7 @@ export default {
     //   })
     // },
     CancelTask: function () {
-      this.$router.push({ name: 'tasks', params: { pitem: 'Pending', pstatus: 1 } })
+      this.$router.push({ name: 'tasks', params: { pitem: 'Pending' } })
     },
     postTasks: function () {
       var self = this
@@ -212,7 +212,7 @@ export default {
             //   self.SectorAll.push(self.TasksRecord)
             // }
             self.$c.showSuccess('Record(s) saved successfully')
-            self.$router.push({ name: 'tasks', params: { pitem: 'Pending', pstatus: 1 } })
+            self.$router.push({ name: 'tasks', params: { pitem: 'Pending' } })
             self.TasksModal = false
             self.$c.hideLoader()
           }
