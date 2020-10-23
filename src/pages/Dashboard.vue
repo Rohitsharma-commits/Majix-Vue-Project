@@ -3,86 +3,86 @@
     <div class="row">
       <div class="col-12 col-md-4 q-pa-xs">
       <div @click="$router.push({name: 'orders', params: { pitem: 'Pending' }})">
-      <q-card class="my-card" >
-      <q-card-section class="text-white" style="background: #338DFF;padding: 8px;">
+      <q-card class="my-card" bordered="">
+      <q-card-section class="text-white" style="background: #338DFF;">
         <div class="text-h6"> Pending Samples the Month</div>
       </q-card-section>
       <q-card-actions class="q-pt-none" align="center" style="padding: 0px;">
         <!-- <q-btn flat>{{pendingsamples}}</q-btn> -->
         <div>{{pendingsamples}}</div>
       </q-card-actions>
-    </q-card>
-      </div>
       <div class="row">
       <div class="col-12 col-md-6 q-pa-xs">
         <div @click="$router.push({name: 'orders', params: { pitem: 'Pending' }})">
-        <q-card class="my-card" >
-        <q-card-section class="text-white" style="background: #338DFF;padding: 8px;">
-          <div class="text-h6">Current</div>
+        <!-- <q-card class="my-card" > -->
+        <q-card-section class="text-white my-card" style="background: #338DFF;padding: 8px;">
+          <div class="text-h6" style="font-size:18px;">Current</div>
         </q-card-section>
         <q-card-actions class="q-pt-none" align="center" style="padding: 0px;">
           <!-- <q-btn flat>{{pendingsamplecurrentdate}}</q-btn> -->
           <div>{{pendingsamplecurrentdate}}</div>
         </q-card-actions>
-      </q-card>
+      <!-- </q-card> -->
         </div>
       </div>
       <div class="col-12 col-md-6 q-pa-xs">
         <div @click="$router.push({name: 'orders', params: { pitem: 'Pending' }})">
-        <q-card class="my-card" >
-        <q-card-section class="text-white" style="background: #FF0000;padding: 8px;">
-          <div class="text-h6">Overdue</div>
+        <!-- <q-card class="my-card" > -->
+        <q-card-section class="text-white my-card" style="background: #FF0000;padding: 8px;">
+          <div class="text-h6" style="font-size:18px;">Overdue</div>
         </q-card-section>
         <q-card-actions class="q-pt-none" align="center" style="padding: 0px;">
           <!-- <q-btn flat>{{pendingsamplesoverdue}}</q-btn> -->
           <div>{{pendingsamplesoverdue}}</div>
         </q-card-actions>
-      </q-card>
+      <!-- </q-card> -->
         </div>
       </div>
+      </div>
+    </q-card>
       </div>
       <br>
       <div class="row">
         <div class="col-12 col-md-12 q-pa-xs">
         <div @click="$router.push({name: 'orders', params: { pitem: 'Dispatched' }})">
-          <q-card class="my-card" >
-          <q-card-section class="text-white" style="background: #338DFF;padding: 8px;">
+          <q-card class="my-card" bordered="">
+          <q-card-section class="text-white" style="background: #338DFF;">
             <div class="text-h6"> Samples Dispatched</div>
           </q-card-section>
           <q-card-actions class="q-pt-none" align="center" style="padding: 0px;">
             <!-- <q-btn flat>{{dispatchedsamplespresentmonth}}</q-btn> -->
             <div>{{dispatchedsamplespresentmonth}}</div>
           </q-card-actions>
-        </q-card>
-      </div>
-        <div class="row">
+          <div class="row">
           <div class="col-12 col-md-6 q-pa-xs">
              <div @click="$router.push({name: 'orders', params: { pitem: 'Dispatched' }})">
-            <q-card class="my-card" >
-            <q-card-section class="text-white" style="background: #FF0000;padding: 8px;">
-              <div class="text-h6">Last Month</div>
+            <!-- <q-card class="my-card" > -->
+            <q-card-section class="text-white my-card" style="background: #FF0000;padding: 8px;">
+              <div class="text-h6" style="font-size:18px;">Last Month</div>
             </q-card-section>
             <q-card-actions class="q-pt-none" align="center" style="padding: 0px;">
               <!-- <q-btn flat>{{dispatchedsampleslastmonth}}</q-btn> -->
               <div>{{dispatchedsampleslastmonth}}</div>
             </q-card-actions>
-          </q-card>
+          <!-- </q-card> -->
              </div>
           </div>
           <div class="col-12 col-md-6 q-pa-xs">
              <div @click="$router.push({name: 'orders', params: { pitem: 'Dispatched' }})">
-            <q-card class="my-card" >
-            <q-card-section class="text-white" style="background: #338DFF;padding: 7px;">
-              <div class="text-h6">Present Month</div>
+            <!-- <q-card class="my-card" > -->
+            <q-card-section class="text-white my-card" style="background: #338DFF;padding: 7px;">
+              <div class="text-h6" style="font-size:18px;">Present Month</div>
             </q-card-section>
             <q-card-actions class="q-pt-none" align="center" style="padding: 0px;">
               <!-- <q-btn flat>{{dispatchedsamplespresentmonth}}</q-btn> -->
               <div>{{dispatchedsamplespresentmonth}}</div>
             </q-card-actions>
-          </q-card>
+          <!-- </q-card> -->
              </div>
           </div>
           </div>
+        </q-card>
+      </div>
         </div>
       </div>
     </div>
@@ -268,7 +268,21 @@ export default {
                 },
 
                 // Configuration options go here
-                options: {}
+                options: {
+                  scales: {
+                    xAxes: [{
+                      gridLines: {
+                          display:false
+                      }
+                  }],
+                    yAxes: [{
+                      stacked: true,
+                      gridLines: {
+                        display:false
+                    }
+                  }]
+                }
+                }
             });
           self.GetCustomerGraphonDashboard()
         }
