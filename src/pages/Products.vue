@@ -707,3 +707,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.q-table thead tr, .q-table tbody td {
+    height: 40px;
+}
+</style>

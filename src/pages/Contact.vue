@@ -38,10 +38,10 @@
       <div class="container fg-white h-100">
         <div class="row justify-content-center align-items-center text-center h-100">
           <div class="col-lg-6">
-            <h3 class="mb-4 fw-medium">Contact</h3>
+            <h3 class="mb-4 fw-medium">Contact Us</h3>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb breadcrumb-dark justify-content-center bg-transparent">
-                <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+                <li class="breadcrumb-item active" aria-current="page">We would love to hear from you</li>
               </ol>
             </nav>
           </div>
@@ -53,7 +53,7 @@
   <div class="page-section">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-10 my-3 wow fadeInUp">
+        <div class="col-lg-10 my-3">
           <div class="card-page">
             <div class="row row-beam-md">
               <div class="col-md-4 text-center py-3 py-md-2">
@@ -75,39 +75,55 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-5 my-3 wow fadeInUp">
+        <div class="col-md-6 col-lg-5 my-3">
           <div class="card-page">
             <h3 class="fw-normal">Get in touch</h3>
-            <form method="POST" class="mt-3">
+            <form class="mt-3">
               <div class="form-group">
-                <label for="name" class="fw-medium fg-grey">Fullname</label>
-                <input type="text" class="form-control" id="name">
+                <label for="name" class="fw-medium fg-grey">Full Name</label>
+                <input type="text" v-model="Name" class="form-control" id="name">
               </div>
               <div class="form-group">
                 <label for="email" class="fw-medium fg-grey">Email</label>
-                <input type="text" class="form-control" id="email">
+                <input type="text" v-model="Email" class="form-control" id="email">
               </div>
 
               <div class="form-group">
                 <label for="phone" class="fw-medium fg-grey">Phone(optional)</label>
-                <input type="number" class="form-control" id="phone">
+                <input type="number" v-model="PhoneNo" class="form-control" id="phone">
               </div>
               <div class="form-group">
                 <label for="message" class="fw-medium fg-grey">Message</label>
-                <textarea rows="6" class="form-control" id="message"></textarea>
+                <textarea rows="6" v-model="Issue" class="form-control" id="message"></textarea>
               </div>
 
               <p>*Your information will never be shared with any third party.</p>
               <div class="form-group mt-4">
-                <button type="submit" class="btn btn-primary">Send Message</button>
+                <q-btn @click="SendMail()" flat="" class="btn btn-primary">Send Message</q-btn>
               </div>
             </form>
           </div>
         </div>
-        <div class="col-md-6 col-lg-7 my-3 wow fadeInUp">
+        <div class="col-md-6 col-lg-7 my-3 ">
           <div class="card-page">
             <div class="maps-container">
-              <div id="myMap"></div>
+              <div id="myMap">
+                <GmapMap
+                v-bind:center="{lat:10, lng:10}"
+                v-bind:zoom="7"
+                map-type-id="terrain"
+                style="width: 600px;height: 500px;"
+              >
+                <GmapMarker
+                  v-bind:key="index"
+                  v-for="(m, index) in markers"
+                  v-bind:position="m.position"
+                  v-bind:clickable="true"
+                  v-bind:draggable="true"
+                  @click="center=m.position"
+                />
+              </GmapMap>
+              </div>
             </div>
           </div>
         </div>
@@ -152,7 +168,7 @@
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Your email..">
             <div class="input-group-append">
-              <button type="submit" class="btn btn-primary"><span class="mai-send"></span></button>
+              <button class="btn btn-primary"><span class="mai-send"></span></button>
             </div>
           </div>
         </form>
@@ -192,7 +208,40 @@
 
 <script>
 export default {
-
+  data () {
+    return {
+      center: { lat: 10.0, lng: 10.0 },
+      markers: [{
+        position: { lat: 10.0, lng: 10.0 }
+      }, {
+        position: { lat: 11.0, lng: 11.0 }
+      }],
+      PhoneNo: '',
+      Name: '',
+      Email: '',
+      Issue: ''
+    }
+  },
+  methods: {
+    SendMail: function () {
+      var self = this
+      self.$c.showLoader()
+      if (self.PhoneNo === '') {
+        self.PhoneNo = 0
+      }
+      self.$c.getData('Administrators/Contactsendemail/' + self.Name + '/Email/' + self.Email + '/issue/' + self.Issue + '/PhoneNo/' + self.PhoneNo, function (success, response, data) {
+        console.log(data)
+        if (data === true || data === 'true') {
+          self.$c.showSuccess('Request Send successfully')
+          self.Name = ''
+          self.Email = ''
+          self.Issue = ''
+          self.PhoneNo = ''
+          self.$c.hideLoader()
+        }
+      })
+    }
+  }
 }
 </script>
 
@@ -203,6 +252,10 @@ export default {
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+ .style {
+    /* visibility: visible; */
+    /* animation-name: fadeInUp; */
+}
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -13491,7 +13544,10 @@ hr {
   height: 100%;
   min-height: 500px;
 }
-
+.element.style {
+    /* visibility: hidden; */
+    animation-name: none;
+}
 /* Teams */
 .team-item {
   display: block;

@@ -189,10 +189,10 @@
             </template>
           </q-select>
           <br/>
-            <q-input outlined dense v-model="OrderItemsRecord.quantity" label="Quantity." type="number">
+            <q-input outlined dense v-model="OrderItemsRecord.quantity" :error="CheckQuantity" label="Quantity *" type="number">
             </q-input>
             <br/>
-            <q-select v-model="OrderItemsRecord.units" label="Units" outlined dense emit-value use-input hide-selected fill-input map-options :options="GetUnits" >
+            <q-select v-model="OrderItemsRecord.units" label="Units *" style="margin-top:-20px;" :error="CheckUnits" outlined dense emit-value use-input hide-selected fill-input map-options :options="GetUnits" >
           <template v-slot:no-option>
             <q-item>
               <q-item-section class="text-grey">
@@ -202,7 +202,7 @@
           </template>
         </q-select>
         <br/>
-        <q-input outlined dense v-model="OrderItemsRecord.remarks" label="Remarks." autogrow="" type="textarea">
+        <q-input outlined dense v-model="OrderItemsRecord.remarks" style="margin-top:-20px;" label="Remarks." autogrow="" type="textarea">
             </q-input>
             <br/>
             <div style="text-align:right">
@@ -324,6 +324,8 @@ export default {
       checksalesrepresentativecode: false,
       checksamplingdate: false,
       checkcustomercode: false,
+      CheckQuantity: false,
+      CheckUnits: false,
       RejectRecord: '',
       Rejectmodal: false,
       // checkclickfromMenu: '',
@@ -494,17 +496,20 @@ export default {
       } else {
         // self.$c.showLoader()
         if (self.OrderItemsRecord.iud === 'I' || self.OrderItemsRecord.iud === 'U') {
+          if (self.OrderItemsRecord.quantity === '0' || self.OrderItemsRecord.quantity === 0 || self.OrderItemsRecord.quantity === '') {
+            self.CheckQuantity = true
+            return self.$c.showError('Quantity Cannot be Zero or Blank')
+          }
+          if (self.OrderItemsRecord.units === '0' || self.OrderItemsRecord.units === 0 || self.OrderItemsRecord.units === null) {
+            self.CheckUnits = true
+            return self.$c.showError('Units Cannot be Blank')
+          }
           if (self.OrderItemsRecord.iud === 'I') {
             for (var a = 0; a < self.GetProducts.length; a++) {
               if (self.GetProducts[a].value === self.OrderItemsRecord.productcode) {
                 self.OrderItemsRecord.productname = self.GetProducts[a].label
               }
             }
-            // for (var b = 0; b < self.GetShades.length; b++) {
-            //   if (self.GetShades[b].value === self.OrderItemsRecord.shadecode) {
-            //     self.OrderItemsRecord.shadename = self.GetShades[b].label
-            //   }
-            // }
             for (var c = 0; c < self.GetUnits.length; c++) {
               if (self.GetUnits[c].value === self.OrderItemsRecord.units) {
                 self.OrderItemsRecord.unitname = self.GetUnits[c].label

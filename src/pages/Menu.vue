@@ -84,7 +84,7 @@
               <q-icon name="send"/>
             </q-item-section>
             <q-item-section>
-              Add Task
+              Create New Task
             </q-item-section>
           </q-item>
           <q-item active-class="tab-active" :to="{name: 'tasks', params: { pitem: 'Pending' }}"  class="q-ma-sm navigation-item" clickable v-ripple>

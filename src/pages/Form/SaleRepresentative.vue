@@ -217,9 +217,9 @@ export default {
           return self.$c.showError('PhoneNo must be 10 digit')
         }
       }
-      if (self.SalesRepresentativesRecord.zipcode !== null) {
+      if (self.SalesRepresentativesRecord.zipcode !== '') {
         if (self.SalesRepresentativesRecord.zipcode.length < 6) {
-          return self.$c.showError('ZipCode must be 10 digit')
+          return self.$c.showError('ZipCode must be 6 digit')
         }
       }
       if (self.SalesRepresentativesRecord.email === '') {

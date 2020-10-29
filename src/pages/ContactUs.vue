@@ -16,7 +16,7 @@
       <q-separator />
       <q-card-section>
         <div class="frame">
-          <q-input v-model="Name" label="Name" type="text">
+          <q-input v-model="Name" label=" Full Name" type="text">
           <template v-slot:prepend>
             <span class="material-icons">
             dns
@@ -43,7 +43,7 @@
           </q-input>
           <br/>
           <br/>
-          <q-btn class="full-width" outline color="primary" @click.native="SendMail()">Send</q-btn>
+          <q-btn class="full-width" color="primary" @click.native="SendMail()">Send</q-btn>
           <br/>
           <br/>
           <br/>
@@ -70,6 +70,7 @@ export default {
   methods: {
     SendMail: function () {
       var self = this
+      self.$c.showLoader()
       self.$c.getData('Administrators/sendemail/' + self.Name + '/MobileNo/' + self.MobileNo + '/issue/' + self.Issue, function (success, response, data) {
         console.log(data)
         if (data === true || data === 'true') {
@@ -77,6 +78,7 @@ export default {
           self.Name = ''
           self.MobileNo = ''
           self.Issue = ''
+          self.$c.hideLoader()
         }
       })
     }

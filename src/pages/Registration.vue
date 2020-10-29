@@ -66,6 +66,7 @@
                 :toggle="true"
               />
               <div>
+                <GoogleLogin id="google-signin-button" :params="params" :onSuccess="onSuccess" :onFailure="onFailure">Login</GoogleLogin>
                 <q-btn label="Register" @click="RegisterNow()" type="button" color="primary"/>&nbsp;&nbsp;&nbsp;&nbsp;
                 <q-btn label="Cancel" to="/" type="button" />
               </div>
@@ -94,12 +95,15 @@
     padding: -20px;
 }
 </style>
+<script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
 <script>
 // const axios = require('axios')
 // eslint-disable-next-line
+import GoogleLogin from 'vue-google-login'
 import Password from 'vue-password-strength-meter'
+import Vue from 'vue'
 export default {
-  components: { Password },
+  components: { Password, GoogleLogin },
   data () {
     return {
       Register: {
@@ -111,10 +115,22 @@ export default {
         password: '',
         iud: 'I'
       },
+      params: {
+        client_id: '725002701224-195eli6t5sgiu26vpub8oeuhg3r1thci.apps.googleusercontent.com'
+      },
+      renderParams: {
+        width: 250,
+        height: 50,
+        longtitle: true
+      },
       isPwd: true
     }
   },
   methods: {
+    onSuccess (googleUser) {
+      console.log(googleUser);
+      console.log(googleUser.getBasicProfile())
+    },
     RegisterNow () {
       var self = this
       // if (self.Register.name === '') {
@@ -177,7 +193,34 @@ export default {
           self.Register.companyname = ''
         }
       })
+    },
+    renderButton () {
+      gapi.signin2.render('gSignIn', {
+          'scope': 'profile email',
+          'width': 240,
+          'height': 50,
+          'longtitle': true,
+          'theme': 'dark',
+          'onsuccess': onSuccess,
+          'onfailure': onFailure
+      })
+    },
+    onFailure (googleUser) {
+      console.log(googleUser)
     }
   }
 }
 </script>
+<style scoped>
+.container{padding: 20px;}
+.usercontent{
+  padding: 10px 20px;
+  margin: auto;
+  width: 350px;
+  background-color: #F7F7F7;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
+}
+.usercontent h3{font-size: 17px;}
+.usercontent p{font-size: 15px;}
+.usercontent img{max-width: 100%;margin-bottom: 5px;}
+</style>

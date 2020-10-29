@@ -8,8 +8,8 @@
       <q-breadcrumbs-el label="Dashboard" to="/menu/dashboard" />
       <q-breadcrumbs-el label="Edit Profile" to="/menu/editprofile" />
     </q-breadcrumbs>
-    <div class="q-pa-xs">
-    <q-card style="max-width: 40%">
+    <div class="row">
+    <q-card class="col-12 col-md-6 q-pa-xs">
       <q-card-section>
         Edit Profile
     </q-card-section>

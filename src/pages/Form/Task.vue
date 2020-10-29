@@ -11,12 +11,21 @@
     </q-breadcrumbs>
     <q-card>
       <q-card-section>
-        <b>Task</b>
+        <b>New Task</b>
       </q-card-section>
       <q-separator></q-separator>
       <form @submit.prevent.stop="saveTasks" class="q-gutter-md">
         <div class="col-12">
         <q-card-section>
+        <div class="row">
+          <div class="col-12 col-md-2 q-pa-xs">
+            Task No.
+          </div>
+          <div class="col-12 col-md-4 q-pa-xs">
+            <q-input outlined dense v-model="TasksRecord.taskNo" readonly="" type="text">
+            </q-input>
+          </div>
+          </div>
           <div class="row">
           <div class="col-12 col-md-2 q-pa-xs">
             Sales Representative *
@@ -35,7 +44,7 @@
           </div>
           <div class="row">
           <div class="col-12 col-md-2 q-pa-xs" style="margin-top:-20px;" >
-            Customers *
+            Customer *
           </div>
           <div class="col-12 col-md-4 q-pa-xs">
           <q-select v-model="TasksRecord.customercode" style="margin-top:-20px;"  :error="checkcustomercode" outlined dense emit-value use-input hide-selected fill-input map-options class="full-width" :options="GetCustomer">
@@ -51,13 +60,13 @@
           </div>
         <div class="row">
           <div class="col-12 col-md-2 q-pa-xs" style="margin-top:-20px;" >
-            Task *
+            Task Type*
           </div>
           <div class="col-12 col-md-4 q-pa-xs">
           <q-select v-model="TasksRecord.tasktype" style="margin-top:-20px;"  :error="checktasktype" outlined dense emit-value use-input hide-selected fill-input map-options :options="[
                   {label: 'Mail', value: 'Mail'},
                   {label: 'Call', value: 'Call'},
-                  {label: 'Followup', value: 'Followup'},
+                  {label: 'Follow Up', value: 'Follow Up'},
                   {label: 'Visit', value: 'Visit'},
                   {label: 'Other', value: 'Other'}
                 ]" >
@@ -92,7 +101,7 @@
             Remarks
           </div>
           <div class="col-12 col-md-4 q-pa-xs">
-              <q-input outlined dense v-model="TasksRecord.remarks" style="margin-top:-20px;"  autogrow type="textarea">
+              <q-input outlined dense v-model="TasksRecord.remarks" style="margin-top:-20px;height:80px !important;" type="textarea">
               </q-input>
           </div>
           </div>
@@ -236,6 +245,11 @@ export default {
       self.Tasks = []
       self.GetCustomer = []
       self.GetSales = []
+      if (self.AddEditTask === 'New') {
+        self.$c.getData('Tasks/GetTaskCountOnNewTask/' + self.$c.getLocalStorage('reccode'), function (success, response, data) {
+          self.TasksRecord.taskNo = data[0].taskNo
+        })
+      }
       self.$c.getData('Customers/' + self.$c.getLocalStorage('reccode'), function (success, response, data) {
         data.forEach(function (item, index, array) {
           self.GetCustomer.push({ value: item.reccode, label: item.companyname })

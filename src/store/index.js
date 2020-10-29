@@ -5,7 +5,13 @@ import '../assets/js/bootstrap.bundle.min.js'
 import '../assets/vendor/owl-carousel/js/owl.carousel.min.js'
 import '../assets/vendor/wow/wow.min.js'
 import '../assets/js/mobster.js'
-
+import * as VueGoogleMaps from 'vue2-google-maps'
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyClvW8YiW20sD46lgIN9AFBvwjqhDWc4qU',
+    libraries: 'places'
+  }
+})
 // import example from './module-example'
 
 Vue.use(Vuex)

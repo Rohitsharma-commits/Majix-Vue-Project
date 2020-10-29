@@ -41,8 +41,8 @@
           <br><br><br>
           <div class="badge mb-2"><span class="icon mr-1"><span class="mai-globe"></span></span> Your Marketing Help</div>
           <h1 class="mb-4">Sample Management System</h1>
-          <p class="mb-4">Hawk has the features to analyze & manage <br>
-          all your sample distribution and other customer interactions.</p>
+          <p class="mb-4">Automate, Manage, Track & Analyse using AI & Data Analytics <br>
+          all your Product Sample distributions & Customer Interactions.</p>
           <!-- <a href="#" class="btn btn-primary rounded-pill">Get Hawk Now</a> -->
           <!-- <router-link class="btn btn-primary rounded-pill" to="/login">Get Hawk Now</router-link> -->
           <q-layout>
@@ -82,6 +82,15 @@
                       lazy-rules
 
                     />
+                  <!-- <facebook-login class="button"
+                    appId="326022817735322"
+                    @login="onLogin"
+                    @logout="onLogout"
+                    @sdk-loaded="sdkLoaded">
+                  </facebook-login> -->
+                     <!-- <GoogleLogin :onSuccess="onSuccess">Test</GoogleLogin> -->
+                     <!-- <GoogleLogin :params="params" :onSuccess="onSuccess"></GoogleLogin> -->
+                     <!-- <div class="g-signin2" :onSuccess="onSuccess">aaaaaaaaaaaa</div> -->
                     <div>
                       <q-btn label="Login" @click="loginClick()" type="button" color="blue"/>&nbsp;&nbsp;&nbsp;
                       <router-link to="/registration" >Register Now!</router-link>&nbsp;&nbsp;&nbsp;
@@ -94,7 +103,7 @@
           </q-page-container>
         </q-layout>
         </div>
-        <div class="col-lg-6 d-none d-lg-block wow zoomIn" style="margin-top:-400px;">
+        <div class="col-lg-6 d-none d-lg-block wow zoomIn getimage" style="margin-top:-400px;">
           <div class="img-place mobile-preview shadow floating-animate">
             <img src="../assets/img/Dashboard.png" alt="">
           </div>
@@ -151,7 +160,7 @@
             </div>
             <div class="iconic-content">
               <h5>Powerful Features</h5>
-              <p class="fs-small">Complately create, track & manage all your sample dispatches with total transparency across customers</p>
+              <p class="fs-small">create, track & manage all your sample dispatches across all your products & customers. Analyse and gather market intelligence using the latest AI and Big Data crunching tools to identify the best ROI.</p>
             </div>
           </div>
           <div class="iconic-item wow fadeInUp">
@@ -160,7 +169,7 @@
             </div>
             <div class="iconic-content">
               <h5>Access Anywhere</h5>
-              <p class="fs-small">Get all the historical data on your mobile at any instant with data analytics about customer sample trends</p>
+              <p class="fs-small">Mobile, Tablet or Desktop. Accessible from anywhere , have full control over your sampling data which will help you analyse sampling trends customer vise and keep track of old customer requests.</p>
             </div>
           </div>
           <div class="iconic-item wow fadeInUp">
@@ -169,7 +178,7 @@
             </div>
             <div class="iconic-content">
               <h5>Fully Secure</h5>
-              <p class="fs-small">Hosted on AWS , protected with the highest levels of encryption, never loose the data again</p>
+              <p class="fs-small">Hosted on AWS , protected with the highest levels of encryption, never lose the data again. Eliminate manual paperwork with auto generated mails and follow up tasks. Remove the need to maintain any files.</p>
             </div>
           </div>
         </div>
@@ -183,8 +192,9 @@
     <div class="row">
       <div class="col-lg-6 offset-lg-1 py-3 mt-lg-5 wow fadeInUp">
         <h1 class="mb-4">Sample Management becomes Easier</h1>
-        <p class="mb-4">With hundreds of customers and regular sample dispatches , we understand how difficult it is to track and analyse actual ROI from the samples created. Thus we have created this easy to use platform to track & manage all your samples. Track samples sent to each customer and get anaylsis about total expenditure on sampling and product vise amount of sampling done </p>
-        <a href="#" class="btn btn-outline-primary rounded-pill">How it works</a>
+        <p class="mb-4">With hundreds of customers and regular sample dispatches , we understand how difficult it is to track and analyse actual ROI from the samples created. Thus we have created this easy to use platform to track & manage all your samples. Track samples sent to each customer and get analysis about total expenditure on sampling and product vise amount of sampling done.</p>
+        <!-- <a href="#" class="btn btn-outline-primary rounded-pill">How it works</a> -->
+        <p class="mb-4">Using AI , automatically send mails to customers about their sampling dispatches, auto generate follow up reminders, keep track of customer feedback. Gain full control over your sampling data at the push of a button.</p>
       </div>
       <div class="col-lg-5 py-3">
         <div class="img-place mobile-preview shadow wow zoomIn">
@@ -207,7 +217,7 @@
             <img src="../assets/img/icons/rocket.svg" alt="">
           </div>
           <p class="fs-large">Very Fast</p>
-          <p class="fs-small fg-grey">Hosted on AWS, get lightening quick data on your fingertips</p>
+          <p class="fs-small fg-grey">Hosted on AWS, get lightening quick data on your fingertips. Accessible anytime , anywhere from your phone</p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3 py-3">
@@ -216,7 +226,7 @@
             <img src="../assets/img/icons/testimony.svg" alt="">
           </div>
           <p class="fs-large">Happy Client</p>
-          <p class="fs-small fg-grey">Get access to all historical data at all times</p>
+          <p class="fs-small fg-grey">Get access to all historical data at all times. Be able to predict customer requirements & perform timely Follow Ups</p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3 py-3">
@@ -224,8 +234,8 @@
           <div class="mb-3">
             <img src="../assets/img/icons/promotion.svg" alt="">
           </div>
-          <p class="fs-large">Free to Use</p>
-          <p class="fs-small fg-grey">This sample management service is free at present for all our customers</p>
+          <p class="fs-large">Save Time</p>
+          <p class="fs-small fg-grey">Eliminate paperwork with a complete digital record of all your sampling, helping you search at the speed of thought. </p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3 py-3">
@@ -233,8 +243,8 @@
           <div class="mb-3">
             <img src="../assets/img/icons/coins.svg" alt="">
           </div>
-          <p class="fs-large">Save Time</p>
-          <p class="fs-small fg-grey">Never search through tons of paper records again </p>
+           <p class="fs-large">Free to Use</p>
+          <p class="fs-small fg-grey">This sample management service is free at present for all our customers</p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3 py-3">
@@ -243,7 +253,7 @@
             <img src="../assets/img/icons/support.svg" alt="">
           </div>
           <p class="fs-large">24/7 Support</p>
-          <p class="fs-small fg-grey">Our team is here to help & guide you at all times</p>
+          <p class="fs-small fg-grey">Our team is here to help & guide you at all times. With regular updates & new features to keep you business booming</p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3 py-3">
@@ -340,22 +350,22 @@
 
         <form method="POST" class="mt-5">
           <div class="form-group wow fadeInUp">
-            <label for="name" class="fw-medium fg-grey">Fullname</label>
-            <input type="text" class="form-control" id="name">
+            <label  class="fw-medium fg-grey">Full Name</label>
+            <input type="text" v-model="Name" class="form-control">
           </div>
 
           <div class="form-group wow fadeInUp">
-            <label for="email" class="fw-medium fg-grey">Email</label>
-            <input type="text" class="form-control" id="email">
+            <label  class="fw-medium fg-grey">Email</label>
+            <input type="text" v-model="Email" class="form-control">
           </div>
 
           <div class="form-group wow fadeInUp">
-            <label for="message" class="fw-medium fg-grey">Message</label>
-            <textarea rows="6" class="form-control" id="message"></textarea>
+            <label class="fw-medium fg-grey">Message</label>
+            <textarea rows="6" v-model="Issue" class="form-control"></textarea>
           </div>
 
           <div class="form-group mt-4 wow fadeInUp">
-            <button type="submit" class="btn btn-primary">Send Message</button>
+            <q-btn @click="SendMail()" dense class="btn btn-primary">Send Message</q-btn>
           </div>
         </form>
       </div>
@@ -436,25 +446,46 @@
 </div>
   </div>
 </template>
-
 <script>
+// eslint-disable-next-line
+// import facebookLogin from 'facebook-login-vuejs';
+// import Vue from 'vue'
+// import GoogleLogin from 'vue-google-login'
+// import GAuth from 'vue-google-oauth2'
+// const gauthOption = {
+//   clientId: '725002701224-alqaf61g2t4bf85pv2igi0oicu37occq.apps.googleusercontent.com',
+//   scope: 'profile email',
+//   prompt: 'select_account'
+// }
+// Vue.use(GAuth, gauthOption)
 export default {
+  // components: {
+  //   GoogleLogin
+  // },
   data () {
     return {
       mobileEmail: '',
-      password: ''
+      password: '',
+      // isConnected: false,
+      Name: '',
+      Email: '',
+      Issue: ''
+      // FB: undefined
+      // params: {
+      //   client_id: '725002701224-alqaf61g2t4bf85pv2igi0oicu37occq.apps.googleusercontent.com'
+      // }
     }
   },
+  // mounted () {
+  //   gapi.signin2.render('google-signin-button', {
+  //     onsuccess: this.onSignIn
+  //   })
+  // },
   methods: {
     loginClick () {
       var self = this
       var m = this.mobileEmail
       var p = this.password
-      // axios.get(self.$c.baseURL + 'Cutomers/' + m + '/P/' + p)
-      //   .then(function (response) {
-      //     // handle success
-      //     console.log(response)
-      //   })
       self.$c.getData('Administrators/loginA/' + m + '/P/' + p, function (success, response, data) {
         if (success) {
           if (data.length === 1) {
@@ -466,7 +497,47 @@ export default {
           }
         }
       })
+    },
+    // onSuccess (googleUser) {
+    //   console.log(googleUser)
+    //   console.log(googleUser.getBasicProfile())
+    // },
+    SendMail: function () {
+      var self = this
+      self.$c.showLoader()
+      self.$c.getData('Administrators/FrontPagesendemail/' + self.Name + '/Email/' + self.Email + '/issue/' + self.Issue, function (success, response, data) {
+        console.log(data)
+        if (data === true || data === 'true') {
+          self.$c.showSuccess('Request Send successfully')
+          self.Name = ''
+          self.Email = ''
+          self.Issue = ''
+          self.$c.hideLoader()
+        }
+      })
     }
+    // getUserData () {
+    //   this.FB.api('/me', 'GET', { fields: 'id,name,email' },
+    //     userInformation => {
+    //       console.warn('data api', userInformation)
+    //       this.personalID = userInformation.id
+    //       this.email = userInformation.email
+    //       this.name = userInformation.name
+    //     }
+    //   )
+    // },
+    // sdkLoaded (payload) {
+    //   this.isConnected = payload.isConnected
+    //   this.FB = payload.FB
+    //   if (this.isConnected) this.getUserData()
+    // },
+    // onLogin () {
+    //   this.isConnected = true
+    //   this.getUserData()
+    // },
+    // onLogout () {
+    //   this.isConnected = false
+    // }
   }
 }
 </script>

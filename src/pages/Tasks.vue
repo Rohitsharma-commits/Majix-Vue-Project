@@ -90,9 +90,9 @@
           </q-btn>
         </q-td>
         <q-td key="taskNo" :props="props">{{ props.row.taskNo }}</q-td>
-        <q-td key="tasktype" :props="props">{{ props.row.tasktype }}</q-td>
         <q-td key="taskdate" :props="props">{{ formatDate(props.row.taskdate) }}</q-td>
-        <q-td key="description" :props="props">{{ props.row.description }}</q-td>
+        <q-td key="customername" :props="props">{{ props.row.customername }}</q-td>
+        <q-td key="tasktype" :props="props">{{ props.row.tasktype }}</q-td>
         <q-td key="donedate" :props="props">{{ formatDate(props.row.donedate) }}</q-td>
         <q-td key="status" :props="props" v-bind:class="props.row.status === 'Pending' ? 'red': 'green'">{{ props.row.status }}</q-td>
       </q-tr>
@@ -527,14 +527,6 @@ export default {
               sortable: true
             },
             {
-              name: 'tasktype',
-              required: true,
-              label: 'Task Type',
-              align: 'left',
-              field: 'tasktype',
-              sortable: true
-            },
-            {
               name: 'taskdate',
               required: true,
               label: 'Task Date',
@@ -543,17 +535,25 @@ export default {
               sortable: true
             },
             {
-              name: 'description',
+              name: 'customername',
               required: true,
-              label: 'Description',
+              label: 'Company Name',
               align: 'left',
-              field: 'description',
+              field: 'customername',
+              sortable: true
+            },
+            {
+              name: 'tasktype',
+              required: true,
+              label: 'Task Type',
+              align: 'left',
+              field: 'tasktype',
               sortable: true
             },
             {
               name: 'donedate',
               required: true,
-              label: 'Done Date',
+              label: 'Task Completion Date',
               align: 'left',
               field: 'donedate',
               sortable: true
@@ -578,14 +578,6 @@ export default {
               sortable: true
             },
             {
-              name: 'tasktype',
-              required: true,
-              label: 'Task Type',
-              align: 'left',
-              field: 'tasktype',
-              sortable: true
-            },
-            {
               name: 'taskdate',
               required: true,
               label: 'Task Date',
@@ -594,17 +586,25 @@ export default {
               sortable: true
             },
             {
-              name: 'description',
+              name: 'customername',
               required: true,
-              label: 'Description',
+              label: 'Company Name',
               align: 'left',
-              field: 'description',
+              field: 'customername',
+              sortable: true
+            },
+            {
+              name: 'tasktype',
+              required: true,
+              label: 'Task Type',
+              align: 'left',
+              field: 'tasktype',
               sortable: true
             },
             {
               name: 'donedate',
               required: true,
-              label: 'Done Date',
+              label: 'Task Completion Date',
               align: 'left',
               field: 'donedate',
               sortable: true
@@ -623,7 +623,12 @@ export default {
       })
       self.$c.getData('Customers/' + self.$c.getLocalStorage('reccode'), function (success, response, data) {
         data.forEach(function (item, index, array) {
-          self.GetCustomer.push({ value: item.reccode, label: item.companyname })
+          // self.GetCustomer.push({ value: item.reccode, label: item.companyname })
+          for (var a = 0; a < self.Tasks.length; a++) {
+            if (self.Tasks[a].customercode === item.reccode) {
+              self.Tasks[a].customername = item.companyname
+            }
+          }
         })
         // self.$c.hideLoader()
       })
@@ -643,5 +648,8 @@ export default {
 }
 .red {
   background-color: red;
+}
+.q-table thead tr, .q-table tbody td {
+    height: 40px;
 }
 </style>

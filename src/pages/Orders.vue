@@ -367,10 +367,10 @@
           </q-btn>
         </q-bar>
         <q-card-section>
-          <q-input outlined dense v-model="SubmitRecord.courierNo" label="CourierNo." type="text">
+          <q-input outlined dense v-model="SubmitRecord.courierNo" label="Courier No." type="text">
           </q-input>
           <br/>
-        <q-input outlined dense v-model="SubmitRecord.trackingNo" label="TrackingNo." type="text">
+        <q-input outlined dense v-model="SubmitRecord.trackingNo" label="Tracking No." type="text">
           </q-input>
           <br/>
         </q-card-section>
@@ -1114,4 +1114,7 @@ export default {
 .makebold {
   font-weight:bold;
   }
+.q-table thead tr, .q-table tbody td {
+    height: 40px;
+}
 </style>
