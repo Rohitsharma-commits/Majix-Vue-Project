@@ -2,105 +2,101 @@
     <div>
     <div class="row">
       <div class="col-12 col-md-4 q-pa-xs">
-      <div @click="$router.push({name: 'orders', params: { pitem: 'Pending' }})">
-      <q-card class="my-card" bordered="">
-      <q-card-section class="text-white" style="background: #338DFF;padding: 7px;">
-        <div class="text-h6" style="font-size:18px;"> Pending Samples the Month</div>
+      <!-- <div @click="$router.push({name: 'orders', params: { pitem: 'Pending' }})"> -->
+      <q-card class="my-card" bordered="" style="max-height:360px !important;">
+      <q-card-section class="text-white" align="center" style="background: #338DFF;padding: 7px;">
+        <div class="text-h6" style="font-size:18px;">Pending Sample Orders</div>
       </q-card-section>
       <q-card-actions class="q-pt-none" align="center">
-        <!-- <q-btn flat>{{pendingsamples}}</q-btn> -->
-        <div>{{pendingsamples}}</div>
+        <div style="margin-top: 2px;">{{pendingsamples}}</div>
       </q-card-actions>
-      <hr>
-      <div class="row">
+      <hr style="margin-top: -5px;">
+      <div class="row" style="margin-top: -12px;">
+      <div class="col-12 col-md-12 q-pa-xs">
+      <q-card-section>
+        <canvas style="max-height:70px !important;margin-top:-30px;" id="CurrentOverduebarChart"></canvas>
+      </q-card-section>
+      </div>
+      </div>
+      <hr style="margin-top: -40px;">
+      <div class="row" style="margin-top: -15px;">
       <div class="col-12 col-md-6 q-pa-xs">
-        <div  @click="$router.push({name: 'orders', params: { pitem: 'Pending' }})">
-        <!-- <q-card class="my-card" > -->
-        <q-card-section class="text-white my-card text-center" style="padding: 0px;">
+        <!-- <div  @click="$router.push({name: 'orders', params: { pitem: 'Pending' }})"> -->
+        <q-card-section class="text-white my-card text-center" align="center" style="padding: 0px;">
           <div class="text-h6" style="font-size:17px;color:#77cbcb;">Current</div>
         </q-card-section>
         <q-card-actions class="q-pt-none" align="center" style="padding: 0px;color:#77cbcb;">
-          <!-- <q-btn flat>{{pendingsamplecurrentdate}}</q-btn> -->
           <div>{{pendingsamplecurrentdate}}</div>
         </q-card-actions>
-      <!-- </q-card> -->
-        </div>
+        <!-- </div> -->
       </div>
-       <span id="vertical-line" style="margin-left: -1px;margin-top: -8px;"></span>
-      <!-- <span class="vl"></span> -->
+       <span id="vertical-line" style="margin-left: -1px;margin-top: 6px;"></span>
       <div class="col-12 col-md-6 q-pa-xs">
-        <div @click="$router.push({name: 'orders', params: { pitem: 'Pending' }})">
-        <!-- <q-card class="my-card" > -->
-        <q-card-section class="text-white my-card text-center" style="padding: 0px;">
+        <!-- <div @click="$router.push({name: 'orders', params: { pitem: 'Pending' }})"> -->
+        <q-card-section class="text-white my-card text-center" align="center" style="padding: 0px;">
           <div class="text-h6" style="font-size:16px;color:#edca6e">Overdue</div>
         </q-card-section>
         <q-card-actions class="q-pt-none" align="center" style="padding: 0px;color:#edca6e;">
-          <!-- <q-btn flat>{{pendingsamplesoverdue}}</q-btn> -->
           <div>{{pendingsamplesoverdue}}</div>
         </q-card-actions>
-      <!-- </q-card> -->
-        </div>
+        <!-- </div> -->
       </div>
       </div>
     </q-card>
-      </div>
+      <!-- </div> -->
       <br>
-      <div class="row">
-        <div class="col-12 col-md-12 q-pa-xs">
-        <div @click="$router.push({name: 'orders', params: { pitem: 'Dispatched' }})">
+        <!-- <div @click="$router.push({name: 'orders', params: { pitem: 'Dispatched' }})"> -->
           <q-card class="my-card" bordered="">
-          <q-card-section class="text-white" style="background: #338DFF;padding: 7px;">
+          <q-card-section class="text-white" align="center" style="background: #338DFF;padding: 7px;">
             <div class="text-h6" style="font-size:18px;"> Samples Dispatched</div>
           </q-card-section>
           <q-card-actions class="q-pt-none" align="center">
-            <!-- <q-btn flat>{{dispatchedsamplespresentmonth}}</q-btn> -->
-            <div>{{dispatchedsamplespresentmonth}}</div>
+            <div style="margin-left: -1px;margin-top: 2px;">{{dispatchedsamplespresentmonth}}</div>
           </q-card-actions>
-          <hr>
-          <div class="row">
+          <hr style="margin-top: -5px;">
+          <div class="row" style="margin-top: -12px;">
+          <div class="col-12 col-md-12 q-pa-xs">
+          <q-card-section>
+            <canvas style="max-height:70px !important;margin-top:-30px;" id="LastMonthPresentMonthbarChart"></canvas>
+          </q-card-section>
+          </div>
+          </div>
+          <hr style="margin-top: -40px;">
+          <div class="row" style="margin-top: -15px;">
           <div class="col-12 col-md-6 q-pa-xs">
-             <div @click="$router.push({name: 'orders', params: { pitem: 'Dispatched' }})">
-            <!-- <q-card class="my-card" > -->
-            <q-card-section class="text-white my-card text-center" style="padding: 0px;">
+             <!-- <div @click="$router.push({name: 'orders', params: { pitem: 'Dispatched' }})"> -->
+            <q-card-section class="text-white my-card text-center" align="center" style="padding: 0px;">
               <div class="text-h6" style="font-size:17px;color:#edca6e;">Last Month</div>
             </q-card-section>
             <q-card-actions class="q-pt-none" align="center" style="padding: 0px;color:#edca6e;">
-              <!-- <q-btn flat>{{dispatchedsampleslastmonth}}</q-btn> -->
               <div>{{dispatchedsampleslastmonth}}</div>
             </q-card-actions>
-          <!-- </q-card> -->
-             </div>
+             <!-- </div> -->
           </div>
-          <span id="vertical-line" style="margin-left: -1px;margin-top: -8px;"></span>
+          <span id="vertical-line" style="margin-left: -1px;margin-top: 6px;"></span>
           <div class="col-12 col-md-6 q-pa-xs">
-             <div @click="$router.push({name: 'orders', params: { pitem: 'Dispatched' }})">
-            <!-- <q-card class="my-card" > -->
-            <q-card-section class="text-white my-card text-center" style="padding: 0px;">
+             <!-- <div @click="$router.push({name: 'orders', params: { pitem: 'Dispatched' }})"> -->
+            <q-card-section class="text-white my-card text-center" align="center" style="padding: 0px;">
               <div class="text-h6" style="font-size:17px;color:#77cbcb;">Present Month</div>
             </q-card-section>
             <q-card-actions class="q-pt-none" align="center" style="padding: 0px;color:#77cbcb;">
-              <!-- <q-btn flat>{{dispatchedsamplespresentmonth}}</q-btn> -->
               <div>{{dispatchedsamplespresentmonth}}</div>
             </q-card-actions>
-          <!-- </q-card> -->
-             </div>
+             <!-- </div> -->
           </div>
           </div>
         </q-card>
-      </div>
+      <!-- </div> -->
         </div>
-      </div>
-    </div>
     <!-- <div style="height:320px !important;"> -->
     <div class="col-12 col-md-8 q-pa-xs">
-      <q-card class="my-card" style="height:335px !important;">
+      <q-card class="my-card" style="max-height:352px !important;">
         <div class="text-h6" style="text-align:center;">Sampling Done per month </div>
       <q-card-section>
-        <canvas style="max-height:280px !important;" id="lineChart"></canvas>
+        <canvas style="max-height:300px !important;" id="lineChart"></canvas>
       </q-card-section>
       </q-card>
       </div>
-    <!-- </div> -->
   </div>
     <div class="row">
     <div class="col-12 col-md-3 q-pa-xs">
@@ -209,12 +205,21 @@ export default {
       myChart: null,
       dispatchedsampleslastmonth: '',
       dispatchedsamplespresentmonth: '',
+      barchartLastMonthData: [],
       pendingsamplecurrentdate: '',
       salesrepresentativechart: null,
       quantitychart: null,
       lineChart: null,
+      CurrentbarChart: null,
+      LastMonthPresentMonthbarChart: null,
+      barchartPresentMonthData: [],
+      PresentMonthbarChart: null,
+      CurrentOverduebarChart: null,
       linechartlabelData: [],
       linechartGraphData: [],
+      barchartlabelData: [],
+      barchartCurrentsample: [],
+      barchartOverdue: [],
       pendingsamplesoverdue: '',
       SalesRepresetativelabelData: [],
       SalesRepresetativeGraphData: [],
@@ -229,7 +234,7 @@ export default {
     this.$c.showLoader()
   },
   mounted () {
-    this.GetLineGraphonDashboard()
+    this.getOverduegraphondashboard()
   },
   methods: {
     fetchsamplescount: function () {
@@ -254,10 +259,138 @@ export default {
       })
     },
     GetPendingTaskCount: function () {
-      return 'Pending Task :' + ' ' + this.CountPendingTask
+      return 'Pending Tasks :' + ' ' + this.CountPendingTask
     },
     GetOrdersFollowUpCounts: function () {
       return 'Follow Ups needed :' + ' ' + this.CountofSamplesFollowup
+    },
+    getOverduegraphondashboard: function () {
+      var self = this
+      self.$c.showLoader()
+      if (self.CurrentOverduebarChart !== null) {
+        self.CurrentOverduebarChart.destroy()
+      }
+      self.barchartOverdue = []
+      self.barchartCurrentsample = []
+      self.$c.getData('Orders/' + 'loginuser/' + self.$c.getLocalStorage('reccode'), function (success, response, data) {
+        if (data.length !== 0) {
+          data.forEach(function (item, index, array) {
+            self.barchartOverdue.push(item.customercode)
+            self.barchartCurrentsample.push(item.samplingdate)
+          })
+            var ctx = document.getElementById("CurrentOverduebarChart").getContext('2d');
+            var chart = new Chart(ctx, {
+              type: 'horizontalBar',
+              data: {
+                labels: [''],
+                datasets: [{
+                  label: 'Current',
+                  data: self.barchartCurrentsample,
+                  backgroundColor: '#338DFF'
+                }, {
+                  label: 'Overdue',
+                  data: self.barchartOverdue,
+                  backgroundColor: 'rgb(237,202,110)'
+                }]
+            },
+            options: {
+                responsive: false,
+                legend: {
+                  display: false
+                },
+                scales: {
+                  xAxes: [{
+                    gridLines: {
+                      display:false
+                    },
+                    ticks: {
+                      // min: 0,
+                      // max: 25,
+                      // stepSize: 1,
+                      display: false,
+                    },
+                      stacked: true // this should be set to make the bars stacked
+                  }],
+                  yAxes: [{
+                    stacked: true,
+                    barPercentage: 0.5,
+                    ticks: {
+                      display: false,
+                    },
+                    gridLines: {
+                          display:false
+                      }
+                  }]
+                }
+            }
+        })
+        self.GetLastMonthGraphonDashboard()
+      }
+    })
+},
+    GetLastMonthGraphonDashboard: function () {
+      var self = this
+            self.$c.showLoader()
+      if (self.LastMonthPresentMonthbarChart !== null) {
+        self.LastMonthPresentMonthbarChart.destroy()
+      }
+      self.barchartLastMonthData = []
+      self.PresentMonthbarChart = []
+      self.$c.getData('Orders/' + 'loginuser/' + self.$c.getLocalStorage('reccode'), function (success, response, data) {
+        if (data.length !== 0) {
+          data.forEach(function (item, index, array) {
+            self.barchartLastMonthData.push(item.zipcode)
+            self.barchartPresentMonthData.push(item.dispatchdate)
+          })
+            var ctx = document.getElementById("LastMonthPresentMonthbarChart").getContext('2d');
+            var chart = new Chart(ctx, {
+              type: 'horizontalBar',
+              data: {
+                labels: [''],
+                datasets: [{
+                  label: 'Last Month',
+                  data: self.barchartLastMonthData,
+                  backgroundColor: 'rgb(237,202,110)'
+                }, {
+                  label: 'Present Month',
+                  data: self.barchartPresentMonthData,
+                  backgroundColor: '#338DFF'
+                }]
+            },
+            options: {
+                responsive: false,
+                legend: {
+                  display: false
+                },
+                scales: {
+                  xAxes: [{
+                    gridLines: {
+                      display:false
+                    },
+                    ticks: {
+                      // min: 0,
+                      // max: 25,
+                      // stepSize: 1,
+                      display: false,
+                    },
+                      stacked: true // this should be set to make the bars stacked
+                  }],
+                  yAxes: [{
+                    stacked: true,
+                    barPercentage: 0.5,
+                    ticks: {
+                      display: false,
+                    },
+                    gridLines: {
+                          display:false
+                      }
+                  }]
+                }
+            }
+        })
+        self.GetLineGraphonDashboard()()
+      }
+    })
     },
     GetLineGraphonDashboard: function () {
       var self = this
@@ -466,7 +599,7 @@ export default {
 .my-card {
   /* padding: -10px; */
   border-radius: 25px;
-  border-block-end-color: #338DFF;
+  /* border-block-end-color: #338DFF; */
 }
 body {
   line-height: 0;

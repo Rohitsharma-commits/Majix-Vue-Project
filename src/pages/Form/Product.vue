@@ -31,30 +31,30 @@
         </q-select>
         </div>
         </div>
-      <div class="row">
-        <div class="col-12 col-md-2 q-pa-xs" style="margin-top:-20px;" >
+      <div class="row" style="margin-top:-20px;" >
+        <div class="col-12 col-md-2 q-pa-xs">
           Product Name *
         </div>
         <div class="col-12 col-md-4 q-pa-xs">
-          <q-input outlined dense v-model="ProductRecord.productname" style="margin-top:-20px;"  :error="checkproductname" type="text">
+          <q-input outlined dense v-model="ProductRecord.productname"  :error="checkproductname" type="text">
           </q-input>
         </div>
         </div>
-        <div class="row">
-        <div class="col-12 col-md-2 q-pa-xs" style="margin-top:-20px;" >
+        <div class="row" style="margin-top:-20px;" >
+        <div class="col-12 col-md-2 q-pa-xs">
           Product Code *
         </div>
         <div class="col-12 col-md-4 q-pa-xs">
-          <q-input outlined dense v-model="ProductRecord.productcode" style="margin-top:-20px;"  :error="checkproductcode" type="text">
+          <q-input outlined dense v-model="ProductRecord.productcode"  :error="checkproductcode" type="text">
           </q-input>
         </div>
         </div>
-        <div class="row">
-        <div class="col-12 col-md-2 q-pa-xs" style="margin-top:-20px;" >
+        <div class="row" style="margin-top:-20px;" >
+        <div class="col-12 col-md-2 q-pa-xs">
           Cost Price
         </div>
         <div class="col-12 col-md-4 q-pa-xs">
-          <q-input outlined dense v-model="ProductRecord.costprice" style="margin-top:-20px;"  type="number">
+          <q-input outlined dense v-model="ProductRecord.costprice"  type="number">
           </q-input>
         </div>
         </div>

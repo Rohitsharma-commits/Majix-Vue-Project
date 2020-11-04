@@ -106,7 +106,7 @@
         />
       </div>
     </q-table>
-    <q-dialog v-model="SalesRepresentativesModal" persistent transition-show="flip-down" transition-hide="flip-up">
+    <!-- <q-dialog v-model="SalesRepresentativesModal" persistent transition-show="flip-down" transition-hide="flip-up">
       <q-card style="width:50vw">
         <q-bar class="bg-cyan text-white">
           <div>Add New Sales Representative</div>
@@ -176,7 +176,7 @@
           </div>
         </q-card-section>
       </q-card>
-    </q-dialog>
+    </q-dialog> -->
     <q-dialog
       v-model="deleteDialog"
       persistent

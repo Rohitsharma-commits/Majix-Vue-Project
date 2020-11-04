@@ -37,15 +37,15 @@
   <div class="hero-caption pt-5">
     <div class="container h-100">
       <div class="row align-items-center h-100">
-        <div class="col-lg-6 wow fadeInUp">
+        <div class="col-12 col-md-6 q-pa-xs wow fadeInUp">
           <br><br><br>
           <div class="badge mb-2"><span class="icon mr-1"><span class="mai-globe"></span></span> Your Marketing Help</div>
-          <h1 class="mb-4">Sample Management System</h1>
+          <h1 class="mb-4">Hawk Sample Management System</h1>
           <p class="mb-4">Automate, Manage, Track & Analyse using AI & Data Analytics <br>
           all your Product Sample distributions & Customer Interactions.</p>
           <!-- <a href="#" class="btn btn-primary rounded-pill">Get Hawk Now</a> -->
           <!-- <router-link class="btn btn-primary rounded-pill" to="/login">Get Hawk Now</router-link> -->
-          <q-layout>
+          <!-- <q-layout>
           <q-page-container>
             <q-page class="flex flex-center">
               <div id="particles-js"></div>
@@ -82,15 +82,6 @@
                       lazy-rules
 
                     />
-                  <!-- <facebook-login class="button"
-                    appId="326022817735322"
-                    @login="onLogin"
-                    @logout="onLogout"
-                    @sdk-loaded="sdkLoaded">
-                  </facebook-login> -->
-                     <!-- <GoogleLogin :onSuccess="onSuccess">Test</GoogleLogin> -->
-                     <!-- <GoogleLogin :params="params" :onSuccess="onSuccess"></GoogleLogin> -->
-                     <!-- <div class="g-signin2" :onSuccess="onSuccess">aaaaaaaaaaaa</div> -->
                     <div>
                       <q-btn label="Login" @click="loginClick()" type="button" color="blue"/>&nbsp;&nbsp;&nbsp;
                       <router-link to="/registration" >Register Now!</router-link>&nbsp;&nbsp;&nbsp;
@@ -101,9 +92,50 @@
               </q-card>
             </q-page>
           </q-page-container>
-        </q-layout>
+        </q-layout> -->
+        <q-card class="login-form" style="background:#f1f1f1;" v-bind:style="$q.platform.is.mobile?{'width': '80%'}:{'width':'60%'}">
+          <q-card-section>
+            <div class="row no-wrap items-center">
+              <div class="col text-h6 ellipsis">
+                Log in to Dashboard
+              </div>
+            </div>
+          </q-card-section>
+          <q-card-section>
+            <q-form
+              class="q-gutter-md"
+            >
+              <q-input
+                filled
+                v-model="mobileEmail"
+                dense=""
+                outlined
+                style="margin-left:8px;margin-right:-5px;"
+                label="Username"
+                lazy-rules
+              />
+
+              <q-input
+                type="password"
+                filled
+                dense=""
+                outlined
+                v-model="password"
+                style="margin-left:8px;margin-right:-5px;"
+                label="Password"
+                lazy-rules
+
+              />
+              <div>
+                <q-btn label="Login" @click="loginClick()" type="button" color="blue"/>&nbsp;&nbsp;&nbsp;
+                <router-link to="/registration" >Register Now!</router-link>&nbsp;&nbsp;&nbsp;
+                <router-link to="/forgotpassword" >Forgot Password!</router-link>
+              </div>
+            </q-form>
+          </q-card-section>
+        </q-card>
         </div>
-        <div class="col-lg-6 d-none d-lg-block wow zoomIn getimage" style="margin-top:-400px;">
+        <div class="col-12 col-md-6 q-pa-xs d-none d-lg-block wow zoomIn getimage">
           <div class="img-place mobile-preview shadow floating-animate">
             <img src="../assets/img/Dashboard.png" alt="">
           </div>
@@ -142,9 +174,9 @@
 </div>  End clients -->
 
 <!-- <div class="position-realive bg-image" style="background-image: url(../assets/img/pattern_1.svg);"> -->
-<div class="position-realive bg-image" :style="{ backgroundImage: 'url(' + require('assets/img/pattern_1.svg') + ')' }">
+<!-- <div class="position-realive bg-image" style="margin-top: 100px;" :style="{ backgroundImage: 'url(' + require('assets/img/pattern_1.svg') + ')' }"> -->
 
-<div class="page-section">
+<div class="page-section" style="margin-top: 100px;">
   <div class="container">
     <div class="row">
       <div class="col-lg-5 py-3">
@@ -160,7 +192,7 @@
             </div>
             <div class="iconic-content">
               <h5>Powerful Features</h5>
-              <p class="fs-small">create, track & manage all your sample dispatches across all your products & customers. Analyse and gather market intelligence using the latest AI and Big Data crunching tools to identify the best ROI.</p>
+              <p class="fs-small">Create, track & manage all your sample dispatches across all your products & customers. Analyse and gather market intelligence using the latest AI and Big Data crunching tools to identify the best ROI.</p>
             </div>
           </div>
           <div class="iconic-item wow fadeInUp">
@@ -205,7 +237,7 @@
   </div>
 </div>
 
-</div>
+<!-- </div> -->
 <div class="page-section bg-dark fg-white">
   <div class="container">
     <h1 class="text-center">Why Choose HAWK</h1>
@@ -244,7 +276,7 @@
             <img src="../assets/img/icons/coins.svg" alt="">
           </div>
            <p class="fs-large">Free to Use</p>
-          <p class="fs-small fg-grey">This sample management service is free at present for all our customers</p>
+          <p class="fs-small fg-grey">This sample management service is free at present for all our customers Please contact for enterprise solutions</p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3 py-3">

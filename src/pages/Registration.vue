@@ -65,11 +65,17 @@
                 secureLength = 8
                 :toggle="true"
               />
-              <div>
-                <GoogleLogin id="google-signin-button" :params="params" :onSuccess="onSuccess" :onFailure="onFailure">Login</GoogleLogin>
-                <q-btn label="Register" @click="RegisterNow()" type="button" color="primary"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="row">
+                <div class="col-md-4 q-pa-xs">
+                <GoogleLogin :params="params" :renderParams="renderParams" :onSuccess="onSuccess" :onFailure="onFailure"></GoogleLogin>
+                </div>
+                <div class="col-md-4 q-pa-xs">
+                <q-btn label="Register" @click="RegisterNow()" type="button" color="primary"/>
+                </div>
+                <div class="col-md-4 q-pa-xs">
                 <q-btn label="Cancel" to="/" type="button" />
-              </div>
+                </div>
+                </div>
             </q-form>
           </q-card-section>
         </q-card>
@@ -119,8 +125,8 @@ export default {
         client_id: '725002701224-195eli6t5sgiu26vpub8oeuhg3r1thci.apps.googleusercontent.com'
       },
       renderParams: {
-        width: 250,
-        height: 50,
+        width: 40,
+        height: 35,
         longtitle: true
       },
       isPwd: true
@@ -128,8 +134,38 @@ export default {
   },
   methods: {
     onSuccess (googleUser) {
-      console.log(googleUser);
-      console.log(googleUser.getBasicProfile())
+      var self = this
+      self.$c.showLoader()
+      var profile = googleUser.getBasicProfile();
+      console.log('Email: ' + profile.getEmail());
+      self.$c.getData('Administrators/emailid/' + profile.getEmail(), function (success, response, data) {
+      if (data.length === 0) {
+        var generator = require('generate-password');
+        var password = generator.generate({
+          length: 8,
+          numbers: true
+        })
+        self.Register.name = profile.getName()
+        self.Register.emailid = profile.getEmail()
+        self.Register.password = password
+        self.$c.postData('Administrators/', JSON.stringify(self.Register), function (success, response, error) {
+          if (response.data === 'Successfull') {
+          self.$c.getData('Administrators/SendPasswordToCustomer/' + self.Register.emailid + '/password/' + self.Register.password, function (success, response, data) {
+            console.log(data)
+            if (data === true || data === 'true') {
+              self.$c.showSuccess('Password Send To Your Email')
+              self.$router.push({ name: 'login' })
+              self.$c.showSuccess('Registered successfully')
+              self.$c.hideLoader()
+            }
+          })
+          }
+        })
+      } else {
+          self.$c.showError('Email id already Registered')
+          self.$c.hideLoader()
+        }
+      })
     },
     RegisterNow () {
       var self = this
