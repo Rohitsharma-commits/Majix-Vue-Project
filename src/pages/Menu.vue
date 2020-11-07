@@ -52,7 +52,7 @@
       content-style="{ backgroundColor: '#ff0000' }"
       side="left"
       :width="240"
-      :height="100"
+      :height="240"
       elevated>
       <div style="height: calc(100% - 117px);padding:10px;margin-top: -10px;">
         <q-toolbar>
@@ -231,7 +231,7 @@
           class="q-ma-sm navigation-item"
           icon="folder_shared"
           label="Reports">
-          <q-item active-class="tab-active" class="q-ma-sm navigation-item" clickable v-ripple>
+          <q-item active-class="tab-active"  to="/menu/financialreports" class="q-ma-sm navigation-item" clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="send"/>
             </q-item-section>
@@ -239,20 +239,22 @@
               Financial
               </div>
           </q-item>
-          <q-item active-class="tab-active"  class="q-ma-sm navigation-item" clickable v-ripple>
+          <q-item active-class="tab-active" to="/menu/productreports" class="q-ma-sm navigation-item" clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="send"/>
             </q-item-section>
               <div style="padding-bottom: 0px;padding-top: 0px;">
-              Product Analysis
+              <!-- Product Analysis -->
+              Product Reports
               </div>
           </q-item>
-          <q-item active-class="tab-active"  class="q-ma-sm navigation-item" clickable v-ripple>
+          <q-item active-class="tab-active" to="/menu/customerreports" class="q-ma-sm navigation-item" clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="send"/>
             </q-item-section>
               <div style="padding-bottom: 0px;padding-top: 0px;">
-              Production Data
+              <!-- Production Data -->
+              Customer Reports
               </div>
           </q-item>
         </q-expansion-item>
@@ -315,7 +317,7 @@ export default {
 
   .q-drawer__content {
     background-color: rgba(1, 1, 1, 0.75);
-    padding-bottom: 50px;
+    padding-bottom: -100px;
     padding-top: 0px;
   }
 

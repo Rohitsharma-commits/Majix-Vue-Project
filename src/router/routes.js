@@ -52,7 +52,10 @@ const routes = [
       { path: 'product-form/:pitem', name: 'product-form', component: () => import('pages/Form/Product.vue') },
       { path: 'task-form/:pitem', name: 'task-form', component: () => import('pages/Form/Task.vue') },
       { path: 'salerepresentative-form/:pitem', name: 'salerepresentative-form', component: () => import('pages/Form/SaleRepresentative.vue') },
-      { path: 'Order-form/:pitem', name: 'Order-form', component: () => import('pages/Form/Order.vue') }
+      { path: 'Order-form/:pitem', name: 'Order-form', component: () => import('pages/Form/Order.vue') },
+      { path: 'financialreports', name: 'financialreports', component: () => import('pages/FinancialReports.vue') },
+      { path: 'productreports', name: 'productreports', component: () => import('pages/ProductReports.vue') },
+      { path: 'customerreports', name: 'customerreports', component: () => import('pages/CustomerReports.vue') }
     ]
   }
 ]
