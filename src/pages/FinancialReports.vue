@@ -17,7 +17,7 @@
               <div class="text-h6" style="font-size:18px;">Total Cost of Sampling</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;">{{CommaSeperator(TotalCostSampling)}}</div>
+          <div class="text-h6" style="font-size:18px;">{{CommaSeperator(TotalCostSampling)}} &#8360;</div>
       </q-card-actions>
         </q-card>
     </div>
@@ -27,7 +27,7 @@
               <div class="text-h6" style="font-size:18px;">Sampling Cost this Month</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;">{{CommaSeperator(TotalCostSamplingthisMonth)}}</div>
+          <div class="text-h6" style="font-size:18px;">{{CommaSeperator(TotalCostSamplingthisMonth)}} &#8360;</div>
       </q-card-actions>
         </q-card>
     </div>
@@ -37,7 +37,7 @@
               <div class="text-h6" style="font-size:18px;">ROI on Sampling</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;">Comming Soon</div>
+          <div class="text-h6" style="font-size:18px;"><i>Comming Soon</i></div>
       </q-card-actions>
         </q-card>
     </div>
@@ -70,7 +70,7 @@
               <div class="text-h6" style="font-size:18px;">Best ROI Product</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;">Comming Soon</div>
+          <div class="text-h6" style="font-size:18px;"><i>Comming Soon</i></div>
       </q-card-actions>
         </q-card>
     </div>
@@ -83,7 +83,7 @@
               <div class="text-h6" style="font-size:18px;">Average Sample Order Cost this Year</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;">{{CommaSeperator(AverageSampleOrderThisYear)}}</div>
+          <div class="text-h6" style="font-size:18px;">{{CommaSeperator(AverageSampleOrderThisYear)}}  &#8360;</div>
       </q-card-actions>
         </q-card>
     </div>
@@ -93,7 +93,7 @@
               <div class="text-h6" style="font-size:18px;">Average Sample Order Cost this Month</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;">{{CommaSeperator(AverageSampleOrderThisMonth)}}</div>
+          <div class="text-h6" style="font-size:18px;">{{CommaSeperator(AverageSampleOrderThisMonth)}}  &#8360;</div>
       </q-card-actions>
         </q-card>
     </div>
@@ -103,7 +103,7 @@
               <div class="text-h6" style="font-size:18px;">Best Customer</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;">Comming Soon</div>
+          <div class="text-h6" style="font-size:18px;"><i>Comming Soon</i></div>
       </q-card-actions>
         </q-card>
     </div>
@@ -117,12 +117,12 @@
 export default {
   data () {
     return {
-      TotalCostSamplingthisMonth: 0,
       TotalCostSampling: 0,
-      AverageSampleOrderThisYear: 0,
-      AverageSampleOrderThisMonth: 0,
+      TotalCostSamplingthisMonth: 0,
       MaximumExpenceCustomer: '',
-      MaximumExpenceProduct: ''
+      MaximumExpenceProduct: '',
+      AverageSampleOrderThisYear: 0,
+      AverageSampleOrderThisMonth: 0
     }
   },
   created () {
@@ -136,10 +136,10 @@ export default {
       self.$c.getData('Orders/GetFinancialReportData/' + self.$c.getLocalStorage('reccode'), function (success, response, data) {
         self.TotalCostSampling = data[0].salesrepresentativecode
         self.TotalCostSamplingthisMonth = data[0].samplingdate
-        self.MaximumExpenceCustomer = data[0].trackingNo
-        self.MaximumExpenceProduct = data[0].zipcode
-        self.AverageSampleOrderThisYear = data[0].customercode
-        self.AverageSampleOrderThisMonth = data[0].dispatchdate
+        self.MaximumExpenceCustomer = data[0].customercode
+        self.MaximumExpenceProduct = data[0].dispatchdate
+        self.AverageSampleOrderThisYear = data[0].trackingNo
+        self.AverageSampleOrderThisMonth = data[0].zipcode
         self.$c.hideLoader()
       })
       // self.fetchTeamAndFollowUpCOuntOnDashboard()

@@ -37,7 +37,7 @@
               <div class="text-h6" style="font-size:18px;">Best ROI Product</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;">Comming Soon</div>
+          <div class="text-h6" style="font-size:18px;"><i>Comming Soon</i></div>
       </q-card-actions>
         </q-card>
     </div>
@@ -70,7 +70,7 @@
               <div class="text-h6" style="font-size:18px;">Best ROI Product Group</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;">Comming Soon</div>
+          <div class="text-h6" style="font-size:18px;"><i>Comming Soon</i></div>
       </q-card-actions>
         </q-card>
     </div>
@@ -83,7 +83,7 @@
               <div class="text-h6" style="font-size:18px;">Slowest Sampling Product</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;">{{CommaSeperator(AverageSampleOrderThisYear)}}</div>
+          <div class="text-h6" style="font-size:18px;">{{AverageSampleOrderThisYear}}</div>
       </q-card-actions>
         </q-card>
     </div>
@@ -93,7 +93,7 @@
               <div class="text-h6" style="font-size:18px;">Fastest Sampling Product</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;">{{CommaSeperator(AverageSampleOrderThisMonth)}}</div>
+          <div class="text-h6" style="font-size:18px;">{{AverageSampleOrderThisMonth}}</div>
       </q-card-actions>
         </q-card>
     </div>
@@ -103,7 +103,7 @@
               <div class="text-h6" style="font-size:18px;">Best Customer</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;">Comming Soon</div>
+          <div class="text-h6" style="font-size:18px;"><i>Comming Soon</i></div>
       </q-card-actions>
         </q-card>
     </div>
@@ -117,10 +117,12 @@
 export default {
   data () {
     return {
-      HighestDemandProductGroupThisYear: '',
       HighestDemandProductThisYear: '',
+      HighestDemandProductGroupThisYear: '',
       HighestDemandProductThisMonth: '',
-      HighestDemandProductGroupThisMonth: ''
+      HighestDemandProductGroupThisMonth: '',
+      AverageSampleOrderThisYear: '',
+      AverageSampleOrderThisMonth: ''
     }
   },
   created () {
@@ -135,9 +137,10 @@ export default {
       self.$c.getData('Orders/GetProductReportData/' + self.$c.getLocalStorage('reccode'), function (success, response, data) {
         self.HighestDemandProductThisYear = data[0].salesrepresentativecode
         self.HighestDemandProductGroupThisYear = data[0].samplingdate
-        self.HighestDemandProductThisMonth = data[0].trackingNo
-        self.HighestDemandProductGroupThisMonth = data[0].zipcode
-        // self.dispatchedsampleslastmonth = data[0].zipcode
+        self.HighestDemandProductThisMonth = data[0].customercode
+        self.HighestDemandProductGroupThisMonth = data[0].dispatchdate
+        self.AverageSampleOrderThisYear = data[0].trackingNo
+        self.AverageSampleOrderThisMonth = data[0].zipcode
         self.$c.hideLoader()
       })
     //   self.fetchTeamAndFollowUpCOuntOnDashboard()

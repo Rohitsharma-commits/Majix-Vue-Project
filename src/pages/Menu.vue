@@ -244,8 +244,8 @@
               <q-icon name="send"/>
             </q-item-section>
               <div style="padding-bottom: 0px;padding-top: 0px;">
-              <!-- Product Analysis -->
-              Product Reports
+              Product Analysis
+              <!-- Product Reports -->
               </div>
           </q-item>
           <q-item active-class="tab-active" to="/menu/customerreports" class="q-ma-sm navigation-item" clickable v-ripple>
@@ -253,8 +253,8 @@
               <q-icon name="send"/>
             </q-item-section>
               <div style="padding-bottom: 0px;padding-top: 0px;">
-              <!-- Production Data -->
-              Customer Reports
+              Production Data
+              <!-- Customer Reports -->
               </div>
           </q-item>
         </q-expansion-item>

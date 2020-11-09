@@ -37,7 +37,7 @@
               <div class="text-h6" style="font-size:18px;">Lowest ROI Customer</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;">Comming Soon</div>
+          <div class="text-h6" style="font-size:18px;"><i>Comming Soon</i></div>
       </q-card-actions>
         </q-card>
     </div>
@@ -71,7 +71,7 @@
               <div class="text-h6" style="font-size:18px;">Lowest ROI Sector</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;">Comming Soon</div>
+          <div class="text-h6" style="font-size:18px;"><i>Comming Soon</i></div>
       </q-card-actions>
         </q-card>
     </div>
@@ -104,7 +104,7 @@
               <div class="text-h6" style="font-size:18px;">Lowest ROI Customer</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;">Comming Soon</div>
+          <div class="text-h6" style="font-size:18px;"><i>Comming Soon</i></div>
       </q-card-actions>
         </q-card>
     </div>
@@ -140,8 +140,8 @@ export default {
         self.OnTimeSamplingThisMonth = Number(data[0].samplingdate)
         self.CancelSamplesThisYear = data[0].customercode
         self.CancelSamplesThisMonth = data[0].dispatchdate
-        self.HighestProductCanceledthisYear = data[0].zipcode
-        self.HighestProductCanceledthisMonth = data[0].courierNo
+        self.HighestProductCanceledthisYear = data[0].trackingNo
+        self.HighestProductCanceledthisMonth = data[0].zipcode
         self.$c.hideLoader()
       })
     //   self.fetchTeamAndFollowUpCOuntOnDashboard()
