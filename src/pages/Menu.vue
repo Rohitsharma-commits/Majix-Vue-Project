@@ -4,6 +4,7 @@
       <q-toolbar>
         <q-toolbar-title></q-toolbar-title>
         <!-- <div style="font-size:20px;"><b>HAWK</b></div> -->
+        <div v-if="Units.length === 0" style="color:red;"><b>Please Fill All Organization Details</b></div>
          <q-btn flat class="q-mr-sm" :label="showName()"/>
         <q-btn  size="lg" round dense flat icon="settings" >
           <q-tooltip>
@@ -280,10 +281,24 @@ export default {
   data () {
     return {
       drawer: false,
+      Units: [],
       miniState: false
     }
   },
+  mounted () {
+    this.fetchUnits()
+  },
   methods: {
+    fetchUnits: function () {
+      var self = this
+      self.Units = []
+      self.$c.getData('Units/' + self.$c.getLocalStorage('reccode'), function (success, response, data) {
+        data.forEach(function (item, index, array) {
+          self.Units.push(self.$m.Units(item))
+        })
+        self.$c.hideLoader()
+      })
+    },
     logoutAdmin: function () {
       this.$c.resetLogin()
       window.localStorage.clear()

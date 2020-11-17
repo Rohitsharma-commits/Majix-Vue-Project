@@ -17,7 +17,7 @@
               <div class="text-h6" style="font-size:18px;">On Time Sampling this Year</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;">{{CommaSeperator(OnTimeSamplingThisYear)}}</div>
+          <div class="text-h6" style="font-size:18px;">{{CommaSeperator(OnTimeSamplingThisYear) + '%'}}</div>
       </q-card-actions>
         </q-card>
     </div>
@@ -27,7 +27,7 @@
               <div class="text-h6" style="font-size:17px;">On Time Sampling this Month</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;">{{CommaSeperator(OnTimeSamplingThisMonth)}}</div>
+          <div class="text-h6" style="font-size:18px;">{{CommaSeperator(OnTimeSamplingThisMonth) + '%'}}</div>
       </q-card-actions>
         </q-card>
     </div>
@@ -37,7 +37,7 @@
               <div class="text-h6" style="font-size:18px;">Lowest ROI Customer</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;"><i>Comming Soon</i></div>
+          <div class="text-h6" style="font-size:18px;"><i>Coming Soon</i></div>
       </q-card-actions>
         </q-card>
     </div>
@@ -71,7 +71,7 @@
               <div class="text-h6" style="font-size:18px;">Lowest ROI Sector</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;"><i>Comming Soon</i></div>
+          <div class="text-h6" style="font-size:18px;"><i>Coming Soon</i></div>
       </q-card-actions>
         </q-card>
     </div>
@@ -104,7 +104,7 @@
               <div class="text-h6" style="font-size:18px;">Lowest ROI Customer</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;"><i>Comming Soon</i></div>
+          <div class="text-h6" style="font-size:18px;"><i>Coming Soon</i></div>
       </q-card-actions>
         </q-card>
     </div>

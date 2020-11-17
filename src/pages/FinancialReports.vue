@@ -37,7 +37,7 @@
               <div class="text-h6" style="font-size:18px;">ROI on Sampling</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;"><i>Comming Soon</i></div>
+          <div class="text-h6" style="font-size:18px;"><i>Coming Soon</i></div>
       </q-card-actions>
         </q-card>
     </div>
@@ -70,7 +70,7 @@
               <div class="text-h6" style="font-size:18px;">Best ROI Product</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;"><i>Comming Soon</i></div>
+          <div class="text-h6" style="font-size:18px;"><i>Coming Soon</i></div>
       </q-card-actions>
         </q-card>
     </div>
@@ -103,7 +103,7 @@
               <div class="text-h6" style="font-size:18px;">Best Customer</div>
           </q-card-section>
         <q-card-actions class="q-pt-none" align="center">
-          <div class="text-h6" style="font-size:18px;"><i>Comming Soon</i></div>
+          <div class="text-h6" style="font-size:18px;"><i>Coming Soon</i></div>
       </q-card-actions>
         </q-card>
     </div>

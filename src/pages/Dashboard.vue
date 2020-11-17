@@ -90,7 +90,7 @@
         </div>
     <!-- <div style="height:320px !important;"> -->
     <div class="col-12 col-md-8 q-pa-xs">
-      <q-card class="my-card" style="max-height:345px !important;">
+      <q-card class="my-card" style="max-height:365px !important;">
         <div class="text-h6" style="text-align:center;">Sampling Done per month </div>
       <q-card-section>
         <canvas style="max-height:300px !important;" id="lineChart"></canvas>
@@ -282,22 +282,27 @@ export default {
             var chart = new Chart(ctx, {
               type: 'horizontalBar',
               data: {
-                labels: [''],
+                labels: ['Pending Sample Orders'],
                 datasets: [{
                   label: 'Current',
                   data: self.barchartCurrentsample,
-                  backgroundColor: '#338DFF'
+                  backgroundColor: '#338DFF',
                 }, {
                   label: 'Overdue',
                   data: self.barchartOverdue,
-                  backgroundColor: 'rgb(237,202,110)'
+                  backgroundColor: 'rgb(237,202,110)',
                 }]
             },
             options: {
-                responsive: false,
+                responsive: true,
                 legend: {
                   display: false
                 },
+                plugins: {
+                  datalabels: {
+                      display: false,
+                  },
+              },
                 scales: {
                   xAxes: [{
                     gridLines: {
@@ -346,7 +351,7 @@ export default {
             var chart = new Chart(ctx, {
               type: 'horizontalBar',
               data: {
-                labels: [''],
+                labels: ['Samples Dispatched'],
                 datasets: [{
                   label: 'Last Month',
                   data: self.barchartLastMonthData,
@@ -358,10 +363,15 @@ export default {
                 }]
             },
             options: {
-                responsive: false,
+                responsive: true,
                 legend: {
                   display: false
                 },
+                plugins: {
+                  datalabels: {
+                      display: false,
+                  },
+              },
                 scales: {
                   xAxes: [{
                     gridLines: {

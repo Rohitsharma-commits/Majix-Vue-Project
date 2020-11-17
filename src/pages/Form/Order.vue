@@ -162,8 +162,8 @@
         </q-td>
         <q-td key="productname" :props="props">{{ props.row.productname }}</q-td>
         <q-td key="shadename" :props="props">{{ props.row.shadename }}</q-td>
-        <q-td key="unitname" :props="props">{{ props.row.unitname }}</q-td>
         <q-td key="quantity" :props="props">{{ props.row.quantity }}</q-td>
+        <q-td key="unitname" :props="props">{{ props.row.unitname }}</q-td>
         <q-td key="remarks" :props="props">{{ props.row.remarks }}</q-td>
       </q-tr>
       <div slot="pagination" slot-scope="props" class="row flex-center q-py-sm">
@@ -310,16 +310,16 @@
               <tr>
               <th>Product Name</th>
               <th>Shade</th>
-              <th>Units</th>
               <th>Quantity</th>
+              <th>Units</th>
               <th>Remarks</th>
               </tr>
               <!-- <div v-for="item in Products" :key="item.reccode"> -->
               <tr v-for="item in OrderItems" :key="item.reccode">
                 <td style="width:=20%;text-align: center">{{item.productname}}</td>
                 <td style="width:=20%;text-align: center">{{item.shadename}}</td>
-                <td style="width:=20%;text-align: center">{{item.unitname}}</td>
                 <td style="width:=20%;text-align: center">{{item.quantity}}</td>
+                <td style="width:=20%;text-align: center">{{item.unitname}}</td>
                 <td style="width:20%;text-align: center">{{item.remarks}}</td>
               </tr>
         </table>
@@ -409,19 +409,19 @@ export default {
           sortable: true
         },
         {
-          name: 'unitname',
-          required: true,
-          label: 'Units',
-          align: 'left',
-          field: 'unitname',
-          sortable: true
-        },
-        {
           name: 'quantity',
           required: true,
           label: 'quantity',
           align: 'left',
           field: 'quantity',
+          sortable: true
+        },
+        {
+          name: 'unitname',
+          required: true,
+          label: 'Units',
+          align: 'left',
+          field: 'unitname',
           sortable: true
         },
         {
@@ -480,11 +480,11 @@ export default {
       // var element = document.getElementById('getpdf')
       // var worker = html2pdf(element)
       // html2pdf(this.$refs.document, {
-      //   margin: 1,
-      //   filename: 'document.pdf',
+      //   margin: 0.5,
+      //   filename: 'OrderNo-' + this.OrdersRecord.orderNo + '.pdf',
       //   image: { type: 'jpeg', quality: 0.98 },
-      //   html2canvas: { dpi: 192, letterRendering: true },
-      //   jsPDF: { unit: 'in', format: 'letter', orientation: 'Portrait' }
+      //   html2canvas: { scale: 1, useCORS: true },
+      //   jsPDF: { unit: 'in', format: 'a4', orientation: 'Portrait' }
       // })
     },
     Checkdate: function (row) {
