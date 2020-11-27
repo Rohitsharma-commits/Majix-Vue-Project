@@ -30,7 +30,7 @@ export default function (/* { store, ssrContext } */) {
     if (isAuthenticated === null) {
       isAuthenticated = ''
     }
-    if (to.name !== 'login' && to.name !== 'frontpage' && to.name !== 'about' && to.name !== 'contact' && to.name !== 'updates' && to.name !== 'registration' && to.name !== 'forgotpassword' && isAuthenticated === '') {
+    if (to.name !== 'login' && to.name !== 'frontpage' && to.name !== 'newpassword' && to.name !== 'about' && to.name !== 'contact' && to.name !== 'updates' && to.name !== 'registration' && to.name !== 'forgotpassword' && isAuthenticated === '') {
       return next({ path: '/' })
     }
     return next()

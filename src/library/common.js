@@ -6,10 +6,9 @@ export default {
   aInstance: axios.create(
     {
       // baseURL: 'http://localhost:8081/'
-      // rohit-server
-      // baseURL: 'http://18.221.58.133:8080/HAWK/'
       // majix-server
-      baseURL: 'http://52.10.153.223:8080/HAWK/'
+      // baseURL: 'http://52.10.153.223:8080/HAWK/'
+      baseURL: 'http://www.majix.in/HAWK/'
     }
   ),
   appPrefix: 'c', // for unique local storage names

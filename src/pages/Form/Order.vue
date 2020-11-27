@@ -335,6 +335,7 @@
         {{this.$c.getLocalStorage('companyname')}}
         </div>
         <div style="text-align:right">
+          <q-btn label="Download PDF" color="cyan" @click.native="DownloadPDF()" />&nbsp;&nbsp;
         <q-btn label="Print" color="cyan" @click.native="PrintPDF()" />
       </div>
       </q-card-section>
@@ -471,21 +472,23 @@ export default {
       // var message = document.getElementById('getpdf').innerHTML
       window.open('whatsapp://send?phone=' + '+91' + this.AllCustomerData.customerphoneno, '_blank');
     },
+    DownloadPDF: function () {
+      var element = document.getElementById('getpdf')
+      var worker = html2pdf(element)
+      html2pdf(this.$refs.document, {
+        margin: 0.5,
+        filename: 'OrderNo-' + this.OrdersRecord.orderNo + '.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 1, useCORS: true },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'Portrait' }
+      })
+    },
     PrintPDF: function () {
       var printContent = document.getElementById('getpdf').innerHTML
       var w = window.open()
       w.document.write(printContent)
       w.print()
       w.close()
-      // var element = document.getElementById('getpdf')
-      // var worker = html2pdf(element)
-      // html2pdf(this.$refs.document, {
-      //   margin: 0.5,
-      //   filename: 'OrderNo-' + this.OrdersRecord.orderNo + '.pdf',
-      //   image: { type: 'jpeg', quality: 0.98 },
-      //   html2canvas: { scale: 1, useCORS: true },
-      //   jsPDF: { unit: 'in', format: 'a4', orientation: 'Portrait' }
-      // })
     },
     Checkdate: function (row) {
       var self = this

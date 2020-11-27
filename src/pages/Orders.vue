@@ -1089,7 +1089,7 @@ export default {
         data.forEach(function (item, index, array) {
           self.GetProducts.push({ value: item.reccode, label: item.productname })
         })
-        self.$c.hideLoader()
+        // self.$c.hideLoader()
       })
       self.$c.getData('Units/' + self.$c.getLocalStorage('reccode'), function (success, response, data) {
         data.forEach(function (item, index, array) {

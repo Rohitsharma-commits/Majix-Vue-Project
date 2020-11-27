@@ -31,6 +31,7 @@ const routes = [
     component: () => import('pages/Registration.vue')
   },
   { path: '/forgotpassword', name: 'forgotpassword', component: () => import('pages/ForgotPassword.vue') },
+  { path: '/newpassword/:pitem', name: 'newpassword', component: () => import('pages/NewPassword.vue') },
   {
     path: '/menu',
     component: () => import('pages/Menu.vue'),

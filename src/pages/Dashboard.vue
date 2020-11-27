@@ -13,12 +13,12 @@
       <hr style="margin-top: -5px;">
       <div class="row" style="margin-top: -12px;">
       <div class="col-12 col-md-12 q-pa-xs">
-      <q-card-section style="margin-top: -70px;">
+      <q-card-section style="margin-top: -65px;">
         <canvas  id="CurrentOverduebarChart"></canvas>
       </q-card-section>
       </div>
       </div>
-      <hr style="margin-top: -85px;">
+      <hr style="margin-top: -80px;">
       <div class="row" style="margin-top: -15px;">
       <div class="col-12 col-md-6 q-pa-xs">
         <!-- <div  @click="$router.push({name: 'orders', params: { pitem: 'Pending' }})"> -->
@@ -56,12 +56,12 @@
           <hr style="margin-top: -5px;">
           <div class="row" style="margin-top: -12px;">
           <div class="col-12 col-md-12 q-pa-xs">
-          <q-card-section style="margin-top: -70px;">
+          <q-card-section style="margin-top: -65px;">
             <canvas id="LastMonthPresentMonthbarChart"></canvas>
           </q-card-section>
           </div>
           </div>
-          <hr style="margin-top: -85px;">
+          <hr style="margin-top: -80px;">
           <div class="row" style="margin-top: -15px;">
           <div class="col-12 col-md-6 q-pa-xs">
              <!-- <div @click="$router.push({name: 'orders', params: { pitem: 'Dispatched' }})"> -->
@@ -90,7 +90,7 @@
         </div>
     <!-- <div style="height:320px !important;"> -->
     <div class="col-12 col-md-8 q-pa-xs">
-      <q-card class="my-card" style="max-height:365px !important;">
+      <q-card class="my-card" style="max-height:375px !important;">
         <div class="text-h6" style="text-align:center;">Sampling Done per month </div>
       <q-card-section>
         <canvas style="max-height:300px !important;" id="lineChart"></canvas>
@@ -279,6 +279,7 @@ export default {
             self.barchartCurrentsample.push(item.samplingdate)
           })
             var ctx = document.getElementById("CurrentOverduebarChart").getContext('2d');
+            ctx.height = 500;
             var chart = new Chart(ctx, {
               type: 'horizontalBar',
               data: {
@@ -295,6 +296,7 @@ export default {
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
                 legend: {
                   display: false
                 },
@@ -348,6 +350,7 @@ export default {
             self.barchartPresentMonthData.push(item.dispatchdate)
           })
             var ctx = document.getElementById("LastMonthPresentMonthbarChart").getContext('2d');
+            ctx.height = 500;
             var chart = new Chart(ctx, {
               type: 'horizontalBar',
               data: {
@@ -364,6 +367,7 @@ export default {
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
                 legend: {
                   display: false
                 },
@@ -398,7 +402,7 @@ export default {
                 }
             }
         })
-        self.GetLineGraphonDashboard()()
+        self.GetLineGraphonDashboard()
       }
     })
     },

@@ -122,7 +122,7 @@ export default {
         iud: 'I'
       },
       params: {
-        client_id: '725002701224-195eli6t5sgiu26vpub8oeuhg3r1thci.apps.googleusercontent.com'
+        client_id: '725002701224-h710lni8ceqts1vjrcq0r5gtsuk3dgmm.apps.googleusercontent.com'
       },
       renderParams: {
         width: 40,
@@ -137,7 +137,7 @@ export default {
       var self = this
       self.$c.showLoader()
       var profile = googleUser.getBasicProfile();
-      console.log('Email: ' + profile.getEmail());
+      console.log('Email: ' + profile);
       self.$c.getData('Administrators/emailid/' + profile.getEmail(), function (success, response, data) {
       if (data.length === 0) {
         var generator = require('generate-password');
@@ -154,7 +154,7 @@ export default {
             console.log(data)
             if (data === true || data === 'true') {
               self.$c.showSuccess('Password Send To Your Email')
-              self.$router.push({ name: 'login' })
+              self.$router.push({ name: 'frontpage' })
               self.$c.showSuccess('Registered successfully')
               self.$c.hideLoader()
             }

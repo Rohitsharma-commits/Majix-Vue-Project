@@ -23,10 +23,10 @@
                 filled
                 dense
                 v-model="username"
-                label="UserName *"
+                label="User Name *"
                 lazy-rules
               />
-              <q-input
+              <!-- <q-input
                 filled
                 dense
                 v-if="phoneno"
@@ -34,9 +34,9 @@
                 label="New Password *"
                 type="password"
                 lazy-rules
-              />
-                <q-btn label="Submit" @click="Forgotpassword()" v-if="phoneno === false" type="button" color="primary"/>&nbsp;
-                 <q-btn label="Submit" @click="UpdatePassword()" v-if="phoneno === true" type="button" color="primary"/>&nbsp;
+              /> -->
+                <q-btn label="Submit" @click="Forgotpassword()"  type="button" color="primary"/>&nbsp;
+                 <!-- <q-btn label="Submit" @click="UpdatePassword()"  type="button" color="primary"/>&nbsp; -->
                 <q-btn label="Cancel" to="/" type="button" />
             </q-form>
           </q-card-section>
@@ -77,7 +77,7 @@ export default {
         iud: 'I'
       },
       username: '',
-      phoneno: false,
+      // phoneno: false,
       isPwd: true
     }
   },
@@ -88,49 +88,50 @@ export default {
         if (data.length > 0) {
           self.Register = data[0]
           self.Register.password = ''
-          self.phoneno = true
+          // self.phoneno = true
+          self.$c.showSuccess('Please Check Your Mail')
         } else {
           self.$c.showError('MobileNo Or EmailId Not Present')
         }
       })
-    },
-    UpdatePassword () {
-      var self = this
-      if (self.Register.name === '') {
-        return self.$c.showError('Please Enter Name')
-      }
-      if (self.Register.companyname === '') {
-        return self.$c.showError('Please Enter Company Name')
-      }
-      if (self.Register.mobileno === null) {
-        return self.$c.showError('Please Enter mobileNo')
-      }
-      if (self.Register.emailid === '') {
-        return self.$c.showError('Please Enter Email Id')
-      }
-      if (self.Register.password === '') {
-        return self.$c.showError('Please Enter password')
-      }
-      if (self.Register.password !== '') {
-        if (self.Register.password.length < 8) {
-          return self.$c.showError('Password must Contain minimum 8 Character')
-        }
-      }
-      if (self.Register.emailid !== '') {
-        // eslint-disable-next-line
-        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
-        if (reg.test(self.Register.emailid) === false) {
-          return self.$c.showError('Please Enter Correct Email Address')
-        }
-      }
-      self.$c.postData('Administrators/', JSON.stringify(self.Register), function (success, response, error) {
-        if (response.data === 'Successfull') {
-          self.$router.push({ name: 'login' })
-          self.$c.showSuccess('Password Updated successfully')
-          self.$c.hideLoader()
-        }
-      })
     }
+    // UpdatePassword () {
+    //   var self = this
+    //   if (self.Register.name === '') {
+    //     return self.$c.showError('Please Enter Name')
+    //   }
+    //   if (self.Register.companyname === '') {
+    //     return self.$c.showError('Please Enter Company Name')
+    //   }
+    //   if (self.Register.mobileno === null) {
+    //     return self.$c.showError('Please Enter mobileNo')
+    //   }
+    //   if (self.Register.emailid === '') {
+    //     return self.$c.showError('Please Enter Email Id')
+    //   }
+    //   if (self.Register.password === '') {
+    //     return self.$c.showError('Please Enter password')
+    //   }
+    //   if (self.Register.password !== '') {
+    //     if (self.Register.password.length < 8) {
+    //       return self.$c.showError('Password must Contain minimum 8 Character')
+    //     }
+    //   }
+    //   if (self.Register.emailid !== '') {
+    //     // eslint-disable-next-line
+    //     var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
+    //     if (reg.test(self.Register.emailid) === false) {
+    //       return self.$c.showError('Please Enter Correct Email Address')
+    //     }
+    //   }
+    //   self.$c.postData('Administrators/', JSON.stringify(self.Register), function (success, response, error) {
+    //     if (response.data === 'Successfull') {
+    //       self.$router.push({ name: 'login' })
+    //       self.$c.showSuccess('Password Updated successfully')
+    //       self.$c.hideLoader()
+    //     }
+    //   })
+    // }
   }
 }
 </script>

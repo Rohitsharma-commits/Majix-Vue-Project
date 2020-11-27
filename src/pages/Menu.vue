@@ -4,7 +4,7 @@
       <q-toolbar>
         <q-toolbar-title></q-toolbar-title>
         <!-- <div style="font-size:20px;"><b>HAWK</b></div> -->
-        <div v-if="Units.length === 0" style="color:red;"><b>Please Fill All Organization Details</b></div>
+        <!-- <div v-if="Units.length === 0" style="color:red;"><b>Please Fill All Organization Details</b></div> -->
          <q-btn flat class="q-mr-sm" :label="showName()"/>
         <q-btn  size="lg" round dense flat icon="settings" >
           <q-tooltip>
@@ -296,6 +296,13 @@ export default {
         data.forEach(function (item, index, array) {
           self.Units.push(self.$m.Units(item))
         })
+        if (self.Units.length === 0) {
+          self.$q.notify({
+            message: 'Please Go To Settings Fill All Organization Details',
+            color: 'red',
+            position: 'top'
+          })
+        }
         self.$c.hideLoader()
       })
     },
