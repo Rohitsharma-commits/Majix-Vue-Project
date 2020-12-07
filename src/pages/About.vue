@@ -32,7 +32,8 @@
 
 <main class="bg-light">
 
-<div class="page-hero-section bg-image hero-mini" :style="{ background: 'url(' + require('assets/img/hero_mini.svg') + ')' }">
+<!-- <div class="page-hero-section bg-image hero-mini" :style="{ backgroundImage: 'url(' + require('assets/img/hero_mini.svg') + ')' }"> -->
+<div class="page-hero-section bg-image hero-mini addbackgroundimage">
   <div class="hero-caption">
     <div class="container fg-white h-100">
       <div class="row justify-content-center align-items-center text-center h-100">
@@ -153,6 +154,10 @@ export default {
 </script>
 
 <style scoped>
+  .addbackgroundimage {
+    background: url('../assets/img/hero_mini.svg') no-repeat center fixed;
+    /* background-size: cover; */
+  }
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors

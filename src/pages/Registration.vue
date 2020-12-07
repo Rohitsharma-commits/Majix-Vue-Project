@@ -201,6 +201,7 @@ export default {
           return self.$c.showError('Please Enter Correct Email Address')
         }
       }
+      // self.$c.showLoader()
       self.$c.getData('Administrators/companyname/' + self.Register.companyname, function (success, response, data) {
         if (data.length === 0) {
           self.$c.getData('Administrators/emailid/' + self.Register.emailid, function (success, response, data) {
@@ -209,9 +210,8 @@ export default {
                 if (data.length === 0) {
                   self.$c.postData('Administrators/', JSON.stringify(self.Register), function (success, response, error) {
                     if (response.data === 'Successfull') {
-                      self.$router.push({ name: 'login' })
+                      self.$router.push({ name: 'frontpage' })
                       self.$c.showSuccess('Registered successfully')
-                      self.$c.hideLoader()
                     }
                   })
                 } else {
@@ -228,6 +228,7 @@ export default {
           self.$c.showError('Company Name Already Registered')
           self.Register.companyname = ''
         }
+        self.$c.hideLoader()
       })
     },
     renderButton () {

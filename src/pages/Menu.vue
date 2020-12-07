@@ -298,7 +298,7 @@ export default {
         })
         if (self.Units.length === 0) {
           self.$q.notify({
-            message: 'Please Go To Settings Fill All Organization Details',
+            message: 'Please Go To Settings and Fill All Organization Details',
             color: 'red',
             position: 'top'
           })

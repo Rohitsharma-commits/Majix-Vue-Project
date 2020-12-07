@@ -32,8 +32,8 @@
   </div>
 </nav>
 <!-- <div class="page-hero-section bg-image hero-home-1" style="background-image: url(assets/img/bg_hero_1.svg);"> -->
-<!-- <div class="page-hero-section bg-image hero-home-1" style="background: url(~assets/img/bg_hero_1.svg);"> -->
-<div class="page-hero-section bg-image hero-home-1" :style="{ background: 'url(' + require('assets/img/bg_hero_1.png') + ')' }">
+<div class="page-hero-section bg-image hero-home-1 addbackgroundimage" >
+<!-- <div class="page-hero-section bg-image hero-home-1" :style="{ background: 'url(' + require('assets/img/bg_hero_1.png') + ')' }"> -->
   <div class="hero-caption pt-5">
     <div class="container h-100">
       <div class="row align-items-center h-100">
@@ -176,7 +176,7 @@
 <!-- <div class="position-realive bg-image" style="background-image: url(../assets/img/pattern_1.svg);"> -->
 <!-- <div class="position-realive bg-image" style="margin-top: 100px;" :style="{ backgroundImage: 'url(' + require('assets/img/pattern_1.svg') + ')' }"> -->
 
-<div class="page-section" style="margin-top: 100px;">
+<div class="page-section" style="margin-top: 150px;display:flex;">
   <div class="container">
     <div class="row">
       <div class="col-lg-5 py-3">
@@ -439,9 +439,9 @@
         <p>Get some offers, news, or update features from us</p>
         <form method="POST">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Your email..">
+            <input type="text" class="form-control" dense="" v-model="useremail" placeholder="Your email..">
             <div class="input-group-append">
-              <button type="submit" class="btn btn-primary"><span class="mai-send"></span></button>
+              <q-btn  @click="SendOfferMail()" dense="" class="btn btn-primary"><span class="mai-send"></span></q-btn>
             </div>
           </div>
         </form>
@@ -501,7 +501,8 @@ export default {
       // isConnected: false,
       Name: '',
       Email: '',
-      Issue: ''
+      Issue: '',
+      useremail: ''
       // FB: undefined
       // params: {
       //   client_id: '725002701224-alqaf61g2t4bf85pv2igi0oicu37occq.apps.googleusercontent.com'
@@ -518,6 +519,7 @@ export default {
       var self = this
       var m = this.mobileEmail
       var p = this.password
+      // self.$c.showLoader()
       self.$c.getData('Administrators/loginA/' + m + '/P/' + p, function (success, response, data) {
         if (success) {
           if (data.length === 1) {
@@ -527,6 +529,7 @@ export default {
           } else {
             self.$c.showError('Invalid Username / Password!')
           }
+          self.$c.hideLoader()
         }
       })
     },
@@ -544,6 +547,18 @@ export default {
           self.Name = ''
           self.Email = ''
           self.Issue = ''
+          self.$c.hideLoader()
+        }
+      })
+    },
+    SendOfferMail: function () {
+      var self = this
+      self.$c.showLoader()
+      self.$c.getData('Administrators/SendOfferMail/' + self.useremail, function (success, response, data) {
+        console.log(data)
+        if (data === true || data === 'true') {
+          self.$c.showSuccess('Request Send successfully')
+          self.useremail = ''
           self.$c.hideLoader()
         }
       })
@@ -585,6 +600,10 @@ export default {
   /* .login-form {
     position: absolute;
   } */
+  .addbackgroundimage {
+    background: url('../assets/img/bg_hero_1.png') no-repeat center fixed;
+    background-size: cover;
+  }
 :root {
   --blue: #007bff;
   --indigo: #6610f2;

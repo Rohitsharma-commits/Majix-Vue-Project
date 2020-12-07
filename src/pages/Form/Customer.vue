@@ -288,17 +288,17 @@ export default {
     },
     PostCustomers: function () {
       var self = this
-      if (self.CustomerRecord.customername === '') {
-        self.checkcustomername = true
-        return self.$c.showError('Enter Customer Contact Person')
-      }
       if (self.CustomerRecord.companyname === '') {
         self.checkcompanyname = true
         return self.$c.showError('Enter Company Group Name')
       }
+      if (self.CustomerRecord.customername === '') {
+        self.checkcustomername = true
+        return self.$c.showError('Enter Customer Contact Person')
+      }
       if (self.CustomerRecord.sectorid === '') {
         self.checksectorid = true
-        return self.$c.showError('Select Sector ID')
+        return self.$c.showError('Select Sector')
       }
       if (self.CustomerRecord.customerphoneno === null) {
         self.checkcustomerphoneno = true

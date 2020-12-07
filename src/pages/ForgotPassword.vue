@@ -84,15 +84,19 @@ export default {
   methods: {
     Forgotpassword () {
       var self = this
+      self.$c.showLoader()
       self.$c.getData('Administrators/CheckUserNamePresentOrNot/' + self.username, function (success, response, data) {
         if (data.length > 0) {
           self.Register = data[0]
           self.Register.password = ''
           // self.phoneno = true
           self.$c.showSuccess('Please Check Your Mail')
+          self.$router.push({ name: 'frontpage' })
         } else {
           self.$c.showError('MobileNo Or EmailId Not Present')
+          self.$c.hideLoader()
         }
+        self.$c.hideLoader()
       })
     }
     // UpdatePassword () {

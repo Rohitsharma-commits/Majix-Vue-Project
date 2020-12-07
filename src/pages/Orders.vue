@@ -622,6 +622,7 @@ export default {
       var self = this
       row.followup = 'Yes'
       row.iud = 'U'
+      self.$c.showLoader()
       console.log(JSON.stringify(row))
       self.$c.postData('Orders/', JSON.stringify(row), function (success, response, error) {
         self.$c.showSuccess('Record(s) Follow up successfully')

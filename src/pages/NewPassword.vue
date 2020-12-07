@@ -85,6 +85,7 @@ export default {
           return self.$c.showError('Password must Contain minimum 8 Character')
         }
       }
+      self.$c.showLoader()
       self.$c.getData('Administrators/UpdateNewPassword/' + self.Register.reccode + '/P/' + self.Register.password, function (success, response, data) {
       //   self.$c.postData('Administrators/', JSON.stringify(self.Register), function (success, response, error) {
         if (response.data === 'Successfull') {

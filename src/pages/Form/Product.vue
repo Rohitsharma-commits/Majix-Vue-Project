@@ -402,7 +402,7 @@ export default {
         self.checkproductname = true
         return self.$c.showError('Please Enter Product Name')
       }
-      if (self.ProductRecord.productcode === '') {
+      if (self.ProductRecord.productcode === null) {
         self.checkproductcode = true
         return self.$c.showError('Please Enter Product Code')
       }

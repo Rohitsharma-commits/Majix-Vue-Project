@@ -134,12 +134,28 @@ export default {
       self.Team = []
       self.$c.showLoader()
       self.$c.getData('Orders/GetFinancialReportData/' + self.$c.getLocalStorage('reccode'), function (success, response, data) {
-        self.TotalCostSampling = data[0].salesrepresentativecode
-        self.TotalCostSamplingthisMonth = data[0].samplingdate
+        if (data[0].salesrepresentativecode === null) {
+          self.TotalCostSampling = 0
+        } else {
+          self.TotalCostSampling = data[0].salesrepresentativecode
+        }
+        if (data[0].samplingdate === null) {
+          self.TotalCostSamplingthisMonth = 0
+        } else {
+          self.TotalCostSamplingthisMonth = data[0].samplingdate
+        }
         self.MaximumExpenceCustomer = data[0].customercode
         self.MaximumExpenceProduct = data[0].dispatchdate
-        self.AverageSampleOrderThisYear = data[0].trackingNo
-        self.AverageSampleOrderThisMonth = data[0].zipcode
+        if (data[0].trackingNo === null) {
+          self.AverageSampleOrderThisYear = 0
+        } else {
+          self.AverageSampleOrderThisYear = data[0].trackingNo
+        }
+        if (data[0].zipcode === null) {
+          self.AverageSampleOrderThisMonth = 0
+        } else {
+          self.AverageSampleOrderThisMonth = data[0].zipcode
+        }
         self.$c.hideLoader()
       })
       // self.fetchTeamAndFollowUpCOuntOnDashboard()

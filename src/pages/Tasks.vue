@@ -506,6 +506,17 @@ export default {
         data.forEach(function (item, index, array) {
           self.Tasks.push(self.$m.Tasks(item))
         })
+        self.$c.getData('Customers/' + self.$c.getLocalStorage('reccode'), function (success, response, data) {
+          data.forEach(function (item, index, array) {
+            // self.GetCustomer.push({ value: item.reccode, label: item.companyname })
+            for (var a = 0; a < self.Tasks.length; a++) {
+              if (self.Tasks[a].customercode === item.reccode) {
+                self.Tasks[a].customername = item.companyname
+              }
+            }
+          })
+        // self.$c.hideLoader()
+        })
         self.SectorAll = self.Tasks
         if (self.checkstatus === 'Pending') {
           self.ColumnTasks = [
@@ -619,17 +630,6 @@ export default {
             }
           ]
         }
-        // self.$c.hideLoader()
-      })
-      self.$c.getData('Customers/' + self.$c.getLocalStorage('reccode'), function (success, response, data) {
-        data.forEach(function (item, index, array) {
-          // self.GetCustomer.push({ value: item.reccode, label: item.companyname })
-          for (var a = 0; a < self.Tasks.length; a++) {
-            if (self.Tasks[a].customercode === item.reccode) {
-              self.Tasks[a].customername = item.companyname
-            }
-          }
-        })
         // self.$c.hideLoader()
       })
       self.$c.getData('SalesRepresentatives/' + self.$c.getLocalStorage('reccode') + '/ActiveStatus/' + 1, function (success, response, data) {

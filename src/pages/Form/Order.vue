@@ -474,7 +474,7 @@ export default {
     },
     DownloadPDF: function () {
       var element = document.getElementById('getpdf')
-      var worker = html2pdf(element)
+      // var worker = html2pdf(element)
       html2pdf(this.$refs.document, {
         margin: 0.5,
         filename: 'OrderNo-' + this.OrdersRecord.orderNo + '.pdf',
@@ -658,9 +658,6 @@ export default {
     },
     postOrders: function () {
       var self = this
-      if (self.OrdersRecord.samplingdate !== null) {
-        self.OrdersRecord.samplingdate = self.OrdersRecord.samplingdate.split('-').reverse().join('-')
-      }
       if (self.OrdersRecord.salesrepresentativecode === '') {
         self.checksalesrepresentativecode = true
         return self.$c.showError('Please Select Sales Representative')
@@ -677,6 +674,9 @@ export default {
         if (self.OrderItems.length === 0) {
           return self.$c.showError('Please Add Atleast One Product')
         }
+      }
+      if (self.OrdersRecord.samplingdate !== null) {
+        self.OrdersRecord.samplingdate = self.OrdersRecord.samplingdate.split('-').reverse().join('-')
       }
       self.$c.showLoader()
       if (self.OrdersRecord.iud === 'I' || self.OrdersRecord.iud === 'U') {

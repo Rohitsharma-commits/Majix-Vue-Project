@@ -204,7 +204,7 @@ export default {
       // if (!self.SalesRepresentativesRecord.name) {
       //   self.$c.showError('Enter Name')
       // } else {
-      if (self.SalesRepresentativesRecord.Name === '') {
+      if (self.SalesRepresentativesRecord.name === '') {
         self.checkname = true
         return self.$c.showError('Please Enter Name')
       }
