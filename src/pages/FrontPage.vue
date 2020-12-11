@@ -25,7 +25,7 @@
         </li>
       </ul>
       <div class="ml-auto my-2 my-lg-0">
-        <!-- <button class="btn btn-dark rounded-pill">Login</button> -->
+        <q-btn class="btn btn-dark rounded-pill" size="sm" to="/AmazeCalculator">Calculator</q-btn>&nbsp;
         <q-btn class="btn btn-dark rounded-pill" size="sm" to="/registration">Register Now</q-btn>
       </div>
     </div>

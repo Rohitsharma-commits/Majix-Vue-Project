@@ -31,8 +31,8 @@ const routes = [
     component: () => import('pages/Registration.vue')
   },
   {
-    path: '/AmazeCalculator',
-    name: 'AmazeCalculator',
+    path: '/Amaze',
+    name: 'Amaze',
     component: () => import('pages/AmazeCalculator.vue')
   },
   { path: '/forgotpassword', name: 'forgotpassword', component: () => import('pages/ForgotPassword.vue') },
