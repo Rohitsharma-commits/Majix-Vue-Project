@@ -17,6 +17,13 @@
         <li class="nav-item">
           <router-link class="nav-link" to="/about">About</router-link>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <router-link class="nav-link" to="/">Hawk</router-link>
+            <router-link class="nav-link" to="/Amaze">Amaze</router-link>
+          </div>
+        </li>
         <li class="nav-item">
           <router-link class="nav-link" to="/updates">What's New</router-link>
         </li>
@@ -25,7 +32,7 @@
         </li>
       </ul>
       <div class="ml-auto my-2 my-lg-0">
-        <q-btn class="btn btn-dark rounded-pill" size="sm" to="/AmazeCalculator">Calculator</q-btn>&nbsp;
+        <!-- <q-btn class="btn btn-dark rounded-pill" size="sm" to="/Amaze">Calculator</q-btn>&nbsp; -->
         <q-btn class="btn btn-dark rounded-pill" size="sm" to="/registration">Register Now</q-btn>
       </div>
     </div>

@@ -16,6 +16,13 @@
         <li class="nav-item">
            <router-link class="nav-link" to="/about">About</router-link>
         </li>
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <router-link class="nav-link" to="/">Hawk</router-link>
+            <router-link class="nav-link" to="/Amaze">Amaze</router-link>
+          </div>
+        </li> -->
         <li class="nav-item active">
         <router-link class="nav-link" to="/updates">What's New</router-link>
         </li>

@@ -67,7 +67,7 @@
               />
                 <div class="row">
                 <div class="col-md-4 q-pa-xs">
-                <GoogleLogin :params="params" :renderParams="renderParams" :onSuccess="onSuccess" :onFailure="onFailure"></GoogleLogin>
+                <!-- <GoogleLogin :params="params" :renderParams="renderParams" :onSuccess="onSuccess" :onFailure="onFailure"></GoogleLogin> -->
                 </div>
                 <div class="col-md-4 q-pa-xs">
                 <q-btn label="Register" @click="RegisterNow()" type="button" color="primary"/>

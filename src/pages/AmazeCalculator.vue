@@ -1,67 +1,980 @@
 <template>
   <div>
-    <q-card>
+    <!-- <q-card> -->
+    <q-dialog v-model="printmodal" persistent transition-show="flip-down" transition-hide="flip-up">
+      <q-card style="min-width:100%">
+        <q-bar class="bg-cyan text-white">
+          <div></div>
+          <q-space />
+          <q-btn dense flat icon="close" @click="printmodal = !printmodal">
+            <q-tooltip content-class="bg-white text-primary">Close</q-tooltip>
+          </q-btn>
+        </q-bar>
+        <q-card-section>
+    <div id="getpdf">
     <q-card>
      <q-card-section>
-       <h4 style="text-align:center;margin: -7px;"><b><u>AMAZE- Your Seller Calculator</u></b></h4>
+       <h5 style="text-align:center;margin: -10px;"><b><u>AMAZE - Your Seller Calculator</u></b></h5>
      </q-card-section>
-     <q-separator></q-separator>
     </q-card>
+    <br/><br/>
+    <table style="width:100%;border-collapse: collapse;"  border="1">
+    <tr>
+    <td style="width:10%;text-align: center"><b>Sales Price</b></td>
+    <td style="width:10%;text-align: center">{{amazeheaderrecord.B3}}</td>
+    <td style="width:10%;text-align: center"><b>GST in %</b></td>
+    <td style="width:10%;text-align: center">{{amazeheaderrecord.D3}}</td>
+    <td style="width:10%;text-align: center"><b>Volume Weight</b></td>
+    <td style="width:10%;text-align: center">{{amazeheaderrecord.H3}}</td>
+    <td style="width:10%;text-align: center"><b>Commission %</b></td>
+    <td style="width:10%;text-align: center">{{amazeheaderrecord.N3}}</td>
+    <td style="width:10%;text-align: center"><b>Return %</b></td>
+    <td style="width:10%;text-align: center">{{amazeheaderrecord.P3}}</td>
+  </tr>
+  <tr>
+    <td style="width:10%;text-align: center"><b>Additional Shipping</b></td>
+    <td style="width:10%;text-align: center">{{amazeheaderrecord.B4}}</td>
+    <td style="width:10%;text-align: center"><b>Weight (kgs)</b></td>
+    <td style="width:10%;text-align: center">{{amazeheaderrecord.D4}}</td>
+    <td style="width:10%;text-align: center"><b>Length (cms)</b></td>
+    <td style="width:10%;text-align: center">{{amazeheaderrecord.G4}}</td>
+    <td style="width:10%;text-align: center"><b>Breadth (cms)</b></td>
+    <td style="width:10%;text-align: center">{{amazeheaderrecord.J4}}</td>
+    <td style="width:10%;text-align: center"><b>Height (cms)</b></td>
+    <td style="width:10%;text-align: center">{{amazeheaderrecord.L4}}</td>
+  </tr>
+    <tr>
+    <td style="width:10%;text-align: center"><b>Cost Price</b></td>
+    <td style="width:10%;text-align: center">{{amazeheaderrecord.B5}}</td>
+    <td style="width:10%;text-align: center"><b>Calc Weight</b></td>
+    <td style="width:10%;text-align: center">{{amazeheaderrecord.D5}}</td>
+    <td style="width:10%;text-align: center"><b>Special Category</b></td>
+    <td style="width:10%;text-align: center">{{amazeheaderrecord.H5}}</td>
+    <td style="width:10%;text-align: center"><b>STEP</b></td>
+    <td style="width:10%;text-align: center">{{amazeheaderrecord.L5}}</td>
+  </tr>
+    </table>
+  <br/><br/>
+  <table style="width:100%;border-collapse: collapse;"  border="1">
+    <tr>
+    <th style="width:20%;text-align: center"></th>
+    <th style="width:20%;text-align: center">Self Ship</th>
+    <th style="width:20%;text-align: center">Easy Ship</th>
+    <th style="width:20%;text-align: center">FBA</th>
+    <th style="width:20%;text-align: center">Seller Flex</th>
+  </tr>
+  <tr>
+  <td style="width:20%;text-align: center"><b>Selling Price</b></td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <th style="width:7%;text-align: center">Local</th>
+    <th style="width:7%;text-align: center">Regional</th>
+    <th style="width:6%;text-align: center">National</th>
+    </tr>
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.salesprice}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.salesprice}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.salesprice}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <th style="width:7%;text-align: center">Local</th>
+    <th style="width:7%;text-align: center">Regional</th>
+    <th style="width:6%;text-align: center">National</th>
+    </tr>
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.salesprice}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.salesprice}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.salesprice}}</td>
+  </tr>
+    </table>
+  </td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <th style="width:7%;text-align: center">Local</th>
+    <th style="width:7%;text-align: center">Regional</th>
+    <th style="width:6%;text-align: center">National</th>
+    </tr>
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.salesprice}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.salesprice}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.salesprice}}</td>
+  </tr>
+    </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <th style="width:7%;text-align: center">Local</th>
+    <th style="width:7%;text-align: center">Regional</th>
+    <th style="width:6%;text-align: center">National</th>
+    </tr>
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.salesprice}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.salesprice}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.salesprice}}</td>
+  </tr>
+    </table>
+  </td>
+  </tr>
+  <tr>
+  <td style="width:20%;text-align: center"><b>Additional Shipping</b></td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.additionalshipping}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.additionalshipping}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.additionalshipping}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.additionalshipping}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.additionalshipping}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.additionalshipping}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.additionalshipping}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.additionalshipping}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.additionalshipping}}</td>
+  </tr>
+  </table>
+  </td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.additionalshipping}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.additionalshipping}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.additionalshipping}}</td>
+  </tr>
+  </table>
+  </td>
+  </tr>
+  <tr>
+  <td style="width:20%;text-align: center"><b>GST</b></td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.gst}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.gst}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.gst}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.gst}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.gst}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.gst}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.gst}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.gst}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.gst}}</td>
+  </tr>
+  </table>
+  </td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.gst}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.gst}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.gst}}</td>
+  </tr>
+  </table>
+  </td>
+  </tr>
+  <tr>
+  <td style="width:20%;text-align: center"><b>Selling Price Without GST</b></td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.sellingpricewithoutgst}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.sellingpricewithoutgst}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.sellingpricewithoutgst}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.sellingpricewithoutgst}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.sellingpricewithoutgst}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.sellingpricewithoutgst}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.sellingpricewithoutgst}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.sellingpricewithoutgst}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.sellingpricewithoutgst}}</td>
+  </tr>
+  </table>
+  </td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.sellingpricewithoutgst}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.sellingpricewithoutgst}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.sellingpricewithoutgst}}</td>
+  </tr>
+  </table>
+  </td>
+  </tr>
+    <tr>
+  <td style="width:20%;text-align: center"><b>Fixed Closing Fees</b></td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.B15}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.C15}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.D15}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.F15}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.G15}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.H15}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.J15}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.K15}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.L15}}</td>
+  </tr>
+  </table>
+  </td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.N15}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.O15}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.P15}}</td>
+  </tr>
+  </table>
+  </td>
+  </tr>
+  <tr>
+  <td style="width:20%;text-align: center"><b>Referral Fees</b></td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.referalfees}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.referalfees}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.referalfees}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.referalfees}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.referalfees}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.referalfees}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.referalfees}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.referalfees}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.referalfees}}</td>
+  </tr>
+  </table>
+  </td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.referalfees}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.referalfees}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.referalfees}}</td>
+  </tr>
+  </table>
+  </td>
+  </tr>
+    <tr>
+  <td style="width:20%;text-align: center"><b>Weight Handling Fees</b></td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.B17}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.C17}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.D17}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.F17}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.G17}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.H17}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.J17}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.K17}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.L17}}</td>
+  </tr>
+  </table>
+  </td>
+  <td style="width:20%;text-align: center">
+    <table>
+    <tr>
+    <!-- <td style="width:7%;text-align: center">{{amazerecord.N17}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.O17}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.P17}}</td> -->
+  </tr>
+  </table>
+  </td>
+  </tr>
+  <tr>
+    <td style="width:20%;text-align: center"><b>Pick & Pack Fee</b></td>
+  <td style="width:20%;text-align: center">
+    <table>
+    <tr>
+    <!-- <td style="width:7%;text-align: center">{{amazerecord.B19}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.C19}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.D19}}</td> -->
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table>
+    <tr>
+    <!-- <td style="width:7%;text-align: center">{{amazerecord.F19}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.G19}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.H19}}</td> -->
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.J19}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.K19}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.L19}}</td>
+  </tr>
+  </table>
+  </td>
+  <td style="width:20%;text-align: center">
+    <table>
+    <tr>
+    <!-- <td style="width:7%;text-align: center">{{amazerecord.N19}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.O19}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.P19}}</td> -->
+  </tr>
+  </table>
+  </td>
+  </tr>
+   <tr>
+  <td style="width:20%;text-align: center"><b>Storage Fees</b></td>
+  <td style="width:20%;text-align: center">
+    <table>
+    <tr>
+    <!-- <td style="width:7%;text-align: center">{{amazerecord.B20}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.C20}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.D20}}</td> -->
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table>
+    <tr>
+    <!-- <td style="width:7%;text-align: center">{{amazerecord.F20}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.G20}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.H20}}</td> -->
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table>
+    <tr>
+    <!-- <td style="width:7%;text-align: center">{{amazerecord.J20}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.K20}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.L20}}</td> -->
+  </tr>
+  </table>
+  </td>
+  <td style="width:20%;text-align: center">
+    <table>
+    <tr>
+    <!-- <td style="width:7%;text-align: center">{{amazerecord.N20}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.O20}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.P20}}</td> -->
+  </tr>
+  </table>
+  </td>
+  </tr>
+  <tr>
+  <td style="width:20%;text-align: center"><b>Technology Fee</b></td>
+  <td style="width:20%;text-align: center">
+    <table>
+    <tr>
+    <!-- <td style="width:7%;text-align: center">{{amazerecord.B22}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.C22}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.D22}}</td> -->
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table>
+    <tr>
+    <!-- <td style="width:7%;text-align: center">{{amazerecord.F22}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.G22}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.H22}}</td> -->
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table>
+    <tr>
+    <!-- <td style="width:7%;text-align: center">{{amazerecord.J22}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.K22}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.L22}}</td> -->
+  </tr>
+  </table>
+  </td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.N22}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.O22}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.P22}}</td>
+  </tr>
+  </table>
+  </td>
+  </tr>
+    <tr>
+  <td style="width:20%;text-align: center"><b>Total Amazon Fees</b></td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.B24}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.C24}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.D24}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.F24}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.G24}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.H24}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.J24}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.K24}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.L24}}</td>
+  </tr>
+  </table>
+  </td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.N24}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.O24}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.P24}}</td>
+  </tr>
+  </table>
+  </td>
+  </tr>
+  <tr>
+  <td style="width:20%;text-align: center"><b>GST on Amazon Fees</b></td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.B25}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.C25}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.D25}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.F25}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.G25}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.H25}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.J25}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.K25}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.L25}}</td>
+  </tr>
+  </table>
+  </td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.N25}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.O25}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.P25}}</td>
+  </tr>
+  </table>
+  </td>
+  </tr>
+    <tr>
+  <td style="width:20%;text-align: center"><b>Revenue - Amazon Fees</b></td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.B27}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.C27}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.D27}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.F27}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.G27}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.H27}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.J27}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.K27}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.L27}}</td>
+  </tr>
+  </table>
+  </td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.N27}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.O27}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.P27}}</td>
+  </tr>
+  </table>
+  </td>
+  </tr>
+   <tr>
+  <td style="width:20%;text-align: center"><b>Cost Price(Without GST)</b></td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.costpricewithoutgst}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.costpricewithoutgst}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.costpricewithoutgst}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.costpricewithoutgst}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.costpricewithoutgst}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.costpricewithoutgst}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.costpricewithoutgst}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.costpricewithoutgst}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.costpricewithoutgst}}</td>
+  </tr>
+  </table>
+  </td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.costpricewithoutgst}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.costpricewithoutgst}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.costpricewithoutgst}}</td>
+  </tr>
+  </table>
+  </td>
+  </tr>
+     <tr>
+  <td style="width:20%;text-align: center"><b>Packing Cost</b></td>
+  <td style="width:20%;text-align: center">
+    <table>
+    <tr>
+    <!-- <td style="width:7%;text-align: center">{{amazerecord.packingcost}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.packingcost}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.packingcost}}</td> -->
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table>
+    <tr>
+    <!-- <td style="width:7%;text-align: center">{{amazerecord.packingcost}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.packingcost}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.packingcost}}</td> -->
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table>
+    <tr>
+    <!-- <td style="width:7%;text-align: center">{{amazerecord.packingcost}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.packingcost}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.packingcost}}</td> -->
+  </tr>
+  </table>
+  </td>
+  <td style="width:20%;text-align: center">
+    <table>
+    <tr>
+    <!-- <td style="width:7%;text-align: center">{{amazerecord.packingcost}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.packingcost}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.packingcost}}</td> -->
+  </tr>
+  </table>
+  </td>
+  </tr>
+  <tr>
+  <td style="width:20%;text-align: center"><b>Output GST</b></td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.outputgst}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.outputgst}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.outputgst}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.outputgst}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.outputgst}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.outputgst}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.outputgst}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.outputgst}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.outputgst}}</td>
+  </tr>
+  </table>
+  </td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.outputgst}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.outputgst}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.outputgst}}</td>
+  </tr>
+  </table>
+  </td>
+  </tr>
+    <tr>
+  <td style="width:20%;text-align: center"><b>Input GST</b></td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.B33}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.C33}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.D33}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.F33}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.G33}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.H33}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.J33}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.K33}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.L33}}</td>
+  </tr>
+  </table>
+  </td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.N33}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.O33}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.P33}}</td>
+  </tr>
+  </table>
+  </td>
+  </tr>
+     <tr>
+  <td style="width:20%;text-align: center"><b>GST Liability</b></td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.B34}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.C34}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.D34}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.F34}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.G34}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.H34}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.J34}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.K34}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.L34}}</td>
+  </tr>
+  </table>
+  </td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.N34}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.O34}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.P34}}</td>
+  </tr>
+    </table>
+  </td>
+     </tr>
+       <tr>
+  <td style="width:20%;text-align: center"><b>Profit</b></td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.B36}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.C36}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.D36}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.F36}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.G36}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.H36}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.J36}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.K36}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.L36}}</td>
+  </tr>
+  </table>
+  </td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.N36}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.O36}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.P36}}</td>
+  </tr>
+    </table>
+  </td>
+  </tr>
+    <tr>
+  <td style="width:20%;text-align: center"><b>Amazon Returns Cost</b></td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.B38}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.C38}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.D38}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.F38}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.G38}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.H38}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.J38}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.K38}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.L38}}</td>
+  </tr>
+  </table>
+  </td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.N38}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.O38}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.P38}}</td>
+  </tr>
+  </table>
+  </td>
+  </tr>
+      <tr>
+  <td style="width:20%;text-align: center"><b>Per Unit Returns as per %</b></td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.B39}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.C39}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.D39}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.F39}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.G39}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.H39}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.J39}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.K39}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.L39}}</td>
+  </tr>
+  </table>
+  </td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.N39}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.O39}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.P39}}</td>
+  </tr>
+  </table>
+  </td>
+  </tr>
+    <tr>
+  <td style="width:20%;text-align: center"><b>Actual Profit</b></td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.B41}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.C41}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.D41}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.F41}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.G41}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.H41}}</td>
+  </tr>
+  </table>
+  </td>
+    <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.J41}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.K41}}</td>
+    <td style="width:6%;text-align: center">{{amazerecord.L41}}</td>
+  </tr>
+  </table>
+  </td>
+  <td style="width:20%;text-align: center">
+    <table style="border-collapse: collapse;" border="1">
+    <tr>
+    <td style="width:7%;text-align: center">{{amazerecord.N41}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.O41}}</td>
+    <td style="width:7%;text-align: center">{{amazerecord.P41}}</td>
+  </tr>
+  </table>
+  </td>
+  </tr>
+  </table>
+    </div>
+    <div style="text-align:right">
+    <q-btn label="Print" color="cyan" @click.native="PrintPDF()" />
+  </div>
+  </q-card-section>
+</q-card>
+</q-dialog>
+    <q-card>
+     <q-card-section>
+       <h5 style="text-align:center;margin: -8px;"><b><u>AMAZE - Your Seller Calculator</u></b></h5>
+        <q-btn color="light-blue-5" size="lg" style="position: absolute;top: 0;right: 0;" @click.native="print()" round dense flat icon="print" >
+      <q-tooltip>
+        Print
+      </q-tooltip>
+      </q-btn>
+     </q-card-section>
+     <!-- <q-separator></q-separator> -->
+    <!-- </q-card> -->
       <q-card-section>
-    <!-- <div class="row">
-        <div class="col-12 col-md-3 q-pa-xs">
-          <q-input outlined dense v-model="amazerecord.salesprice" label="Sales Price" type="text"/>
-        </div>
-        <div class="col-12 col-md-3 q-pa-xs">
-          <q-input outlined dense  v-model="amazerecord.gst" label="GST %" type="text"/>
-        </div>
-        <div class="col-12 col-md-2 q-pa-xs">
-          <q-input outlined dense label="Volume Weight" type="text"/>
-        </div>
-        <div class="col-12 col-md-2 q-pa-xs">
-          <q-input outlined dense label="Commission %" type="text"/>
-        </div>
-        <div class="col-12 col-md-2 q-pa-xs">
-          <q-input outlined dense label="Return %" type="text"/>
-        </div>
-        </div>
-        <div class="row">
-        <div class="col-12 col-md-3 q-pa-xs">
-          <q-input outlined dense v-model="amazerecord.additionalshipping" label="Additional Shipping" type="text"/>
-        </div>
-        <div class="col-12 col-md-3 q-pa-xs">
-          <q-input outlined dense label="Weight" type="text"/>
-        </div>
-        <div class="col-12 col-md-2 q-pa-xs">
-          <q-input outlined dense label="Length" type="text"/>
-        </div>
-        <div class="col-12 col-md-2 q-pa-xs">
-          <q-input outlined dense label="Breadth" type="text"/>
-        </div>
-        <div class="col-12 col-md-2 q-pa-xs">
-          <q-input outlined dense label="Height" type="text"/>
-        </div>
-        </div>
-      <div class="row">
-        <div class="col-12 col-md-3 q-pa-xs">
-          <q-input outlined dense label="Cost Price" type="text"/>
-        </div>
-        <div class="col-12 col-md-3 q-pa-xs">
-          <q-input outlined dense label="Calculate Weight" type="text"/>
-        </div>
-        <div class="col-12 col-md-3 q-pa-xs">
-          <q-input outlined dense label="Special Category" type="text"/>
-        </div>
-        <div class="col-12 col-md-3 q-pa-xs">
-          <q-input outlined dense label="STEP" type="text"/>
-        </div>
-        </div> -->
-  <div style="overflow-x:auto;margin: -5px;">
+  <div style="overflow-x:auto;margin-top: -10px;">
+  <!-- <div id="getpdf"> -->
   <table>
   <tr>
-    <td><b>Sales Price</b></td>
+    <td><b>Sales Price</b>&nbsp;
+    <q-icon size="xs" round dense  name="help_outline">
+    <q-tooltip>
+      Please enter your final<br>
+      customer selling price here
+    </q-tooltip>
+    </q-icon>
+    </td>
     <td><q-input outlined dense  style="width: 150px;" class="greencolor" v-model="amazeheaderrecord.B3" type="text"/></td>
-    <td><b>GST</b></td>
+    <td><b>GST in %</b></td>
     <td><q-input outlined dense  style="width: 150px;" class="greencolor" v-model="amazeheaderrecord.D3" type="text"/></td>
     <td><b>Volume Weight</b></td>
     <td><q-input outlined dense  v-model="amazeheaderrecord.H3" readonly="" type="text"/></td>
@@ -71,19 +984,33 @@
     <td><q-input outlined dense  v-model="amazeheaderrecord.P3" class="greencolor" type="text"/></td>
   </tr>
     <tr>
-    <td><b>Additional Shippings</b></td>
+    <td><b>Additional Shipping</b>&nbsp;
+    <q-icon size="xs" round dense  name="help_outline">
+    <q-tooltip>
+      Please mention any additional shipping<br>
+      charges you add to customer price
+    </q-tooltip>
+    </q-icon>
+    </td>
     <td><q-input outlined dense  style="width: 150px;" class="greencolor" v-model="amazeheaderrecord.B4" type="text"/></td>
-    <td><b>Weight</b></td>
+    <td><b>Weight (kgs)</b></td>
     <td><q-input outlined dense  style="width: 150px;" class="greencolor" v-model="amazeheaderrecord.D4" type="text"/></td>
-    <td><b>Length</b></td>
+    <td><b>Length (cms)</b></td>
     <td><q-input outlined dense  v-model="amazeheaderrecord.G4" class="greencolor" type="text"/></td>
-    <td><b>Breadth</b></td>
+    <td><b>Breadth (cms)</b></td>
     <td><q-input outlined dense  v-model="amazeheaderrecord.J4" class="greencolor" type="text"/></td>
-    <td><b>Height in cms</b></td>
+    <td><b>Height (cms)</b></td>
     <td><q-input outlined dense v-model="amazeheaderrecord.L4" class="greencolor" type="text"/></td>
   </tr>
   <tr>
-    <td><b>Cost Price</b></td>
+    <td><b>Cost Price</b>&nbsp;
+    <q-icon size="xs" round dense  name="help_outline">
+    <q-tooltip>
+      Please mention your product cost<br>
+       to be able to find your profits
+    </q-tooltip>
+    </q-icon>
+    </td>
     <td><q-input outlined dense  style="width: 150px;" class="greencolor" v-model="amazeheaderrecord.B5" type="text"/></td>
     <td><b>Calc Weight</b></td>
     <td><q-input outlined dense  style="width: 150px;" v-model="amazeheaderrecord.D5" readonly="" type="text"/></td>
@@ -102,7 +1029,14 @@
       </template>
     </q-select>
     </td>
-    <td><b>STEP</b></td>
+    <td><b>STEP</b>&nbsp;
+    <q-icon size="xs" round dense  name="help_outline">
+    <q-tooltip>
+      Please select your STEP category<br>
+       to get exact amazon fees
+    </q-tooltip>
+    </q-icon>
+    </td>
     <td style="max-width: 120px;">
       <q-select v-model="amazeheaderrecord.L5" class="greencolor" outlined dense emit-value use-input hide-selected fill-input map-options :options="[
           {label: 'Basic', value: 'Basic'},
@@ -127,9 +1061,10 @@
     </td>
   </tr>
   </table>
+  <!-- </div> -->
   </div>
         <br/>
-  <div style="overflow-x:auto;margin: -5px;" class="my-sticky-header-column-table">
+  <div style="overflow-x:auto;margin-top: -10px;" class="my-sticky-header-column-table">
   <table>
     <thead>
   <tr>
@@ -140,7 +1075,7 @@
     <th class="sticky" style="text-align:center;">Seller Flex</th>
   </tr>
   <tr>
-    <td><b>Selling Price</b></td>
+    <td style="width:120px;"><b>Selling Price</b></td>
     <td>
 <table>
   <tr>
@@ -487,7 +1422,13 @@
   </tr>
 
         <tr>
-    <td><b>Total Amazon Fees</b></td>
+    <td><b>Total Amazon Fees</b>&nbsp;
+    <q-icon size="xs" round dense  name="help_outline">
+    <q-tooltip>
+      This is the total of all amazon charges
+    </q-tooltip>
+    </q-icon>
+    </td>
     <td>
     <tr>
     <td><q-input outlined dense readonly="" v-model="amazerecord.B24" type="text"/></td>
@@ -743,7 +1684,14 @@
   </tr>
 
     <tr>
-    <td><b>Profit</b></td>
+    <td><b>Profit</b>&nbsp;
+    <q-icon size="xs" round dense  name="help_outline">
+    <q-tooltip>
+      This is your per unit profit<br>
+       sans any returns cost
+    </q-tooltip>
+    </q-icon>
+    </td>
     <td>
     <tr>
     <td><q-input outlined dense readonly="" v-model="amazerecord.B36" type="text"/></td>
@@ -775,7 +1723,14 @@
   </tr>
 
    <tr>
-    <td><b>Amazon Returns Cost</b></td>
+    <td><b>Amazon Returns Cost</b>&nbsp;
+    <q-icon size="xs" round dense  name="help_outline">
+    <q-tooltip>
+      This is the charge amazon charges
+       you when product is returned
+    </q-tooltip>
+    </q-icon>
+    </td>
     <td>
     <tr>
     <td><q-input outlined dense readonly="" v-model="amazerecord.B38" type="text"/></td>
@@ -807,7 +1762,14 @@
   </tr>
 
   <tr>
-    <td><b>Amazon Returns Cost</b></td>
+    <td><b>Per Unit Returns as per %</b>&nbsp;
+    <q-icon size="xs" round dense  name="help_outline">
+    <q-tooltip>
+      This helps you find your per unit returns
+       cost depending on your overall return %
+    </q-tooltip>
+    </q-icon>
+    </td>
     <td>
     <tr>
     <td><q-input outlined dense readonly="" v-model="amazerecord.B39" type="text"/></td>
@@ -839,7 +1801,13 @@
   </tr>
 
     <tr>
-    <td><b>Actual Profit</b></td>
+    <td><b>Actual Profit</b>&nbsp;
+    <q-icon size="xs" round dense  name="help_outline">
+    <q-tooltip>
+      Actual money earned considering cost of returns
+    </q-tooltip>
+    </q-icon>
+    </td>
     <td>
     <tr>
     <td><q-input outlined dense readonly="" v-model="amazerecord.B41" type="text"/></td>
@@ -874,7 +1842,8 @@
   </div>
       </q-card-section>
     </q-card>
-  </div>
+    </div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -1079,10 +2048,21 @@ export default {
       premiumdata: '',
       testdata: '',
       testdata1: '',
-      testdata2: ''
+      testdata2: '',
+      printmodal: false
     }
   },
   methods: {
+    PrintPDF: function () {
+      var printContent = document.getElementById('getpdf').innerHTML
+      var w = window.open()
+      w.document.write(printContent)
+      w.print()
+      w.close()
+    },
+    print: function () {
+      this.printmodal = true
+    },
     CalculateGST: function (row) {
       var self = this
       row.H3 = row.G4 * row.J4 * row.L4 / 5000
@@ -1253,7 +2233,8 @@ export default {
         self.amazerecord.P15 = 45
       }
       // Referal Fees
-      self.amazerecord.referalfees = row.N3 / 100 * row.B3
+      self.roundoff = Number(row.N3) / 100 * Number(row.B3)
+      self.amazerecord.referalfees = self.roundoff.toFixed(2)
       // Weight Handling Fees
       if (row.L5 === 'Premium') {
         self.premiumdata = 32
@@ -1833,24 +2814,27 @@ table {
   border: 1px solid #ddd;
 }
 table, th, td {
-  border-color:#cccccc; /*grey*/
+  border-color:#cccccc;
   border-style:solid;
   border-width:1px;
+  padding: 10px 0;
 }
 
 th, td {
   text-align: left;
-  padding: 4px;
+  padding: 1px;
+  font-size: 13px;
 }
 .sticky {
-  background: white;
+  background: grey;
   position: sticky;
   top: 0;
 }
 .sticky1 {
   background: white;
   position: sticky;
-  top: 0;
+  /* z-index: 2;
+  top: 0; */
 }
 
 tr:nth-child(even){background-color: #f2f2f2}
@@ -1865,7 +2849,7 @@ tr:nth-child(even){background-color: #f2f2f2}
 @media (min-width:1281px)
 .my-sticky-header-column-table
   /* height or max-height is important */
-  height: 450px
+  height: 510px;
 
   /* specifying max-width so the example can
     highlight the sticky column on any browser window */
