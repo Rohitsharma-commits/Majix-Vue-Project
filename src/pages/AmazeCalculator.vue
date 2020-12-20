@@ -952,7 +952,7 @@
     <q-card>
      <q-card-section>
        <h5 style="text-align:center;margin: -8px;"><b><u>AMAZE - Your Seller Calculator</u></b></h5>
-        <q-btn color="light-blue-5" size="lg" style="position: absolute;top: 0;right: 0;" @click.native="print()" round dense flat icon="print" >
+        <q-btn color="light-blue-5" size="lg" class="mobileShow" style="position: absolute;top: 0;right: 0;" @click.native="print()" round dense flat icon="print" >
       <q-tooltip>
         Print
       </q-tooltip>
@@ -973,7 +973,7 @@
     </q-tooltip>
     </q-icon>
     </td>
-    <td><q-input outlined dense  style="width: 150px;" class="greencolor" v-model="amazeheaderrecord.B3" type="text"/></td>
+    <td><q-input outlined dense  style="width: 150px;" class="greencolor"  v-model="amazeheaderrecord.B3" type="text"/></td>
     <td><b>GST in %</b></td>
     <td><q-input outlined dense  style="width: 150px;" class="greencolor" v-model="amazeheaderrecord.D3" type="text"/></td>
     <td><b>Volume Weight</b></td>
@@ -1075,354 +1075,354 @@
     <th class="sticky" style="text-align:center;">Seller Flex</th>
   </tr>
   <tr>
-    <td style="width:120px;"><b>Selling Price</b></td>
+    <td style="width:120px;" class="tdfirstchild"><b>Selling Price</b></td>
     <td>
-<table>
+<!-- <table> -->
   <tr>
     <th class="sticky1">Local</th>
     <th class="sticky1">Regional</th>
     <th class="sticky1">National</th>
   </tr>
-    <tr>
-    <td><q-input outlined dense style="max-width: 200px;" readonly="" v-model="amazerecord.salesprice" type="text"/></td>
-    <td><q-input outlined dense  readonly="" v-model="amazerecord.salesprice" type="text"/></td>
-    <td><q-input outlined dense  readonly="" v-model="amazerecord.salesprice" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense class="tablewidth inputmargin" readonly="" v-model="amazerecord.salesprice" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.salesprice" type="text"/></td>
+    <td><q-input outlined dense  class="inputmargin" readonly="" v-model="amazerecord.salesprice" type="text"/></td>
   </tr>
-</table>
+<!-- </table> -->
     </td>
     <td>
-<table>
+<!-- <table> -->
   <tr>
     <th class="sticky1">Local</th>
     <th class="sticky1">Regional</th>
     <th class="sticky1">National</th>
   </tr>
-    <tr>
-    <td><q-input outlined dense style="max-width: 200px;" readonly="" v-model="amazerecord.salesprice" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.salesprice" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.salesprice" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense class="tablewidth inputmargin" readonly="" v-model="amazerecord.salesprice" type="text"/></td>
+    <td><q-input outlined dense class="inputmargin" readonly="" v-model="amazerecord.salesprice" type="text"/></td>
+    <td><q-input outlined dense class="inputmargin" readonly="" v-model="amazerecord.salesprice" type="text"/></td>
   </tr>
-</table>
+<!-- </table> -->
     </td>
     <td>
-<table>
+<!-- <table> -->
   <tr>
     <th class="sticky1">Local</th>
     <th class="sticky1">Regional</th>
     <th class="sticky1">National</th>
   </tr>
-    <tr>
-    <td><q-input outlined dense style="max-width: 200px;" readonly="" v-model="amazerecord.salesprice" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.salesprice" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.salesprice" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense class="tablewidth inputmargin" readonly="" v-model="amazerecord.salesprice" type="text"/></td>
+    <td><q-input outlined dense class="inputmargin" readonly="" v-model="amazerecord.salesprice" type="text"/></td>
+    <td><q-input outlined dense class="inputmargin" readonly="" v-model="amazerecord.salesprice" type="text"/></td>
   </tr>
-</table>
+<!-- </table> -->
     </td>
   <td>
-<table>
+<!-- <table> -->
   <tr>
     <th class="sticky1">Local</th>
     <th class="sticky1">Regional</th>
     <th class="sticky1">National</th>
   </tr>
-    <tr>
-    <td><q-input outlined dense style="max-width: 200px;" readonly="" v-model="amazerecord.salesprice" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.salesprice" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.salesprice" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense class="tablewidth inputmargin" readonly="" v-model="amazerecord.salesprice" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.salesprice" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.salesprice" type="text"/></td>
   </tr>
-</table>
+<!-- </table> -->
     </td>
   </tr>
     <tr>
-    <td><b>Additional Shipping</b></td>
+    <td class="tdfirstchild"><b>Additional Shipping</b></td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.additionalshipping" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.additionalshipping" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.additionalshipping" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.additionalshipping" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.additionalshipping" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.additionalshipping" type="text"/></td>
   </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.additionalshipping" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.additionalshipping" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.additionalshipping" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.additionalshipping" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.additionalshipping" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.additionalshipping" type="text"/></td>
   </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.additionalshipping" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.additionalshipping" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.additionalshipping" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.additionalshipping" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.additionalshipping" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.additionalshipping" type="text"/></td>
   </tr>
     </td>
   <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.additionalshipping" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.additionalshipping" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.additionalshipping" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.additionalshipping" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.additionalshipping" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.additionalshipping" type="text"/></td>
   </tr>
     </td>
   </tr>
 
   <tr>
-    <td><b>GST</b></td>
+    <td class="tdfirstchild"><b>GST</b></td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.gst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.gst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.gst" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.gst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.gst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.gst" type="text"/></td>
   </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.gst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.gst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.gst" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.gst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.gst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.gst" type="text"/></td>
   </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.gst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.gst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.gst" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.gst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.gst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.gst" type="text"/></td>
   </tr>
     </td>
   <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.gst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.gst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.gst" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.gst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.gst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.gst" type="text"/></td>
   </tr>
     </td>
   </tr>
 
     <tr>
-    <td><b>Selling Price Without GST</b></td>
+    <td class="tdfirstchild"><b>Selling Price Without GST</b></td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
   </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
   </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
   </tr>
     </td>
   <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
-  </tr>
-    </td>
-  </tr>
-
-      <tr>
-    <td><b>Fixed Closing Fees</b></td>
-    <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.B15" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.C15" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.D15" type="text"/></td>
-  </tr>
-    </td>
-    <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.F15" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.G15" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.H15" type="text"/></td>
-  </tr>
-    </td>
-    <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.J15" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.K15" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.L15" type="text"/></td>
-  </tr>
-    </td>
-  <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.N15" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.O15" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.P15" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.sellingpricewithoutgst" type="text"/></td>
   </tr>
     </td>
   </tr>
 
       <tr>
-    <td><b>Referral Fees</b></td>
+    <td class="tdfirstchild"><b>Fixed Closing Fees</b></td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.referalfees" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.referalfees" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.referalfees" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.B15" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.C15" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.D15" type="text"/></td>
   </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.referalfees" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.referalfees" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.referalfees" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.F15" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.G15" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.H15" type="text"/></td>
   </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.referalfees" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.referalfees" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.referalfees" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.J15" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.K15" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.L15" type="text"/></td>
   </tr>
     </td>
   <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.referalfees" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.referalfees" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.referalfees" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.N15" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.O15" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.P15" type="text"/></td>
+  </tr>
+    </td>
+  </tr>
+
+      <tr>
+    <td class="tdfirstchild"><b>Referral Fees</b></td>
+    <td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.referalfees" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.referalfees" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.referalfees" type="text"/></td>
+  </tr>
+    </td>
+    <td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.referalfees" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.referalfees" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.referalfees" type="text"/></td>
+  </tr>
+    </td>
+    <td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.referalfees" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.referalfees" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.referalfees" type="text"/></td>
+  </tr>
+    </td>
+  <td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.referalfees" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.referalfees" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.referalfees" type="text"/></td>
   </tr>
     </td>
   </tr>
 
     <tr>
-    <td><b>Weight Handling Fees</b></td>
+    <td class="tdfirstchild"><b>Weight Handling Fees</b></td>
     <td>
-    <tr>
-    <td><q-input outlined dense  class="greencolor" v-model="amazerecord.B17" type="text"/></td>
-    <td><q-input outlined dense  class="greencolor" v-model="amazerecord.C17" type="text"/></td>
-    <td><q-input outlined dense class="greencolor" v-model="amazerecord.D17" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense  class="greencolor inputmargin" v-model="amazerecord.B17" type="text"/></td>
+    <td><q-input outlined dense  class="greencolor inputmargin" v-model="amazerecord.C17" type="text"/></td>
+    <td><q-input outlined dense  class="greencolor inputmargin" v-model="amazerecord.D17" type="text"/></td>
   </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.F17" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.G17" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.H17" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.F17" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.G17" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.H17" type="text"/></td>
   </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.J17" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.K17" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.L17" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.J17" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin"  v-model="amazerecord.K17" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.L17" type="text"/></td>
   </tr>
     </td>
   <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.N17" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.O17" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.P17" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.N17" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.O17" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.P17" type="text"/></td>
   </tr>
     </td>
   </tr>
 
     <tr>
-    <td><b>Pick & Pack Fee</b></td>
+    <td class="tdfirstchild"><b>Pick & Pack Fee</b></td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.B19" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.C19" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.D19" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.B19" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.C19" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.D19" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.F19" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.G19" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.H19" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.F19" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.G19" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.H19" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.J19" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.K19" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.L19" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.J19" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.K19" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.L19" type="text"/></td>
   </tr>
     </td>
   <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.N19" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.O19" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.P19" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.N19" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.O19" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.P19" type="text"/></td>
     </tr>
     </td>
   </tr>
 
       <tr>
-    <td><b>Storage Fees</b></td>
+    <td class="tdfirstchild"><b>Storage Fees</b></td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.B20" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.C20" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.D20" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.B20" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.C20" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.D20" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.F20" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.G20" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.H20" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.F20" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.G20" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.H20" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.J20" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.K20" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.L20" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.J20" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.K20" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.L20" type="text"/></td>
   </tr>
     </td>
   <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.N20" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.O20" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.P20" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.N20" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.O20" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.P20" type="text"/></td>
     </tr>
     </td>
   </tr>
 
       <tr>
-    <td><b>Technology Fee</b></td>
+    <td class="tdfirstchild"><b>Technology Fee</b></td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.B22" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.C22" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.D22" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.B22" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.C22" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.D22" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.F22" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.G22" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.H22" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.F22" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.G22" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.H22" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.J22" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.K22" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.L22" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.J22" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.K22" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.L22" type="text"/></td>
     </tr>
     </td>
   <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.N22" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.O22" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.P22" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.N22" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.O22" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.P22" type="text"/></td>
     </tr>
     </td>
   </tr>
 
         <tr>
-    <td><b>Total Amazon Fees</b>&nbsp;
+    <td class="tdfirstchild"><b>Total Amazon Fees</b>&nbsp;
     <q-icon size="xs" round dense  name="help_outline">
     <q-tooltip>
       This is the total of all amazon charges
@@ -1430,261 +1430,261 @@
     </q-icon>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.B24" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.C24" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.D24" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.B24" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.C24" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.D24" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.F24" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.G24" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.H24" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.F24" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.G24" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.H24" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.J24" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.K24" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.L24" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.J24" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.K24" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.L24" type="text"/></td>
     </tr>
     </td>
   <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.N24" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.O24" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.P24" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.N24" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.O24" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.P24" type="text"/></td>
     </tr>
     </td>
   </tr>
 
    <tr>
-    <td><b>GST on Amazon Fees</b></td>
+    <td class="tdfirstchild"><b>GST on Amazon Fees</b></td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.B25" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.C25" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.D25" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.B25" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.C25" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.D25" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.F25" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.G25" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.H25" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.F25" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.G25" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.H25" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.J25" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.K25" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.L25" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.J25" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.K25" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.L25" type="text"/></td>
     </tr>
     </td>
   <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.N25" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.O25" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.P25" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.N25" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.O25" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.P25" type="text"/></td>
     </tr>
     </td>
   </tr>
 
      <tr>
-    <td><b>Revenue - Amazon Fees</b></td>
+    <td class="tdfirstchild"><b>Revenue - Amazon Fees</b></td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.B27" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.C27" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.D27" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.B27" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.C27" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.D27" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.F27" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.G27" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.H27" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.F27" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.G27" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.H27" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.J27" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.K27" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.L27" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.J27" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.K27" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.L27" type="text"/></td>
     </tr>
     </td>
   <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.N27" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.O27" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.P27" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.N27" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.O27" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.P27" type="text"/></td>
     </tr>
     </td>
   </tr>
 
     <tr>
-    <td><b>Cost Price(Without GST)</b></td>
+    <td class="tdfirstchild"><b>Cost Price(Without GST)</b></td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
     </tr>
     </td>
   <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
-    </tr>
-    </td>
-  </tr>
-
-      <tr>
-    <td><b>Packing Cost</b></td>
-    <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.packingcost" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.packingcost" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.packingcost" type="text"/></td>
-    </tr>
-    </td>
-    <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.packingcost" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.packingcost" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.packingcost" type="text"/></td>
-    </tr>
-    </td>
-    <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.packingcost" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.packingcost" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.packingcost" type="text"/></td>
-    </tr>
-    </td>
-  <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.packingcost" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.packingcost" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.packingcost" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.costpricewithoutgst" type="text"/></td>
     </tr>
     </td>
   </tr>
 
       <tr>
-    <td><b>Output GST</b></td>
+    <td class="tdfirstchild"><b>Packing Cost</b></td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.outputgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.outputgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.outputgst" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.packingcost" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.packingcost" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.packingcost" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.outputgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.outputgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.outputgst" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.packingcost" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.packingcost" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.packingcost" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.outputgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.outputgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.outputgst" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.packingcost" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.packingcost" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.packingcost" type="text"/></td>
     </tr>
     </td>
   <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.outputgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.outputgst" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.outputgst" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.packingcost" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.packingcost" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.packingcost" type="text"/></td>
+    </tr>
+    </td>
+  </tr>
+
+      <tr>
+    <td class="tdfirstchild"><b>Output GST</b></td>
+    <td>
+    <tr class="noPadding" >
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.outputgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.outputgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.outputgst" type="text"/></td>
+    </tr>
+    </td>
+    <td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.outputgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.outputgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.outputgst" type="text"/></td>
+    </tr>
+    </td>
+    <td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.outputgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.outputgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.outputgst" type="text"/></td>
+    </tr>
+    </td>
+  <td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.outputgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.outputgst" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.outputgst" type="text"/></td>
     </tr>
     </td>
   </tr>
 
        <tr>
-    <td><b>Input GST</b></td>
+    <td class="tdfirstchild"><b>Input GST</b></td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.B33" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.C33" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.D33" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.B33" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.C33" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.D33" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.F33" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.G33" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.H33" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.F33" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.G33" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.H33" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.J33" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.K33" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.L33" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.J33" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.K33" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.L33" type="text"/></td>
     </tr>
     </td>
   <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.N33" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.O33" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.P33" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.N33" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.O33" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.P33" type="text"/></td>
     </tr>
     </td>
   </tr>
 
   <tr>
-    <td><b>GST Liability</b></td>
+    <td class="tdfirstchild"><b>GST Liability</b></td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.B34" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.C34" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.D34" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.B34" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin"  v-model="amazerecord.C34" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.D34" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.F34" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.G34" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.H34" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.F34" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.G34" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.H34" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.J34" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.K34" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.L34" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.J34" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.K34" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.L34" type="text"/></td>
     </tr>
     </td>
   <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.N34" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.O34" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.P34" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.N34" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.O34" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.P34" type="text"/></td>
     </tr>
     </td>
   </tr>
 
     <tr>
-    <td><b>Profit</b>&nbsp;
+    <td class="tdfirstchild"><b>Profit</b>&nbsp;
     <q-icon size="xs" round dense  name="help_outline">
     <q-tooltip>
       This is your per unit profit<br>
@@ -1693,37 +1693,37 @@
     </q-icon>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.B36" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.C36" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.D36" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.B36" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.C36" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.D36" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.F36" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.G36" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.H36" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.F36" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.G36" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.H36" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.J36" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.K36" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.L36" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.J36" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.K36" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.L36" type="text"/></td>
     </tr>
     </td>
   <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.N36" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.O36" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.P36" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.N36" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.O36" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.P36" type="text"/></td>
     </tr>
     </td>
   </tr>
 
    <tr>
-    <td><b>Amazon Returns Cost</b>&nbsp;
+    <td class="tdfirstchild"><b>Amazon Returns Cost</b>&nbsp;
     <q-icon size="xs" round dense  name="help_outline">
     <q-tooltip>
       This is the charge amazon charges
@@ -1732,37 +1732,37 @@
     </q-icon>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.B38" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.C38" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.D38" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.B38" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.C38" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.D38" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.F38" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.G38" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.H38" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.F38" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.G38" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.H38" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.J38" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.K38" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.L38" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.J38" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.K38" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.L38" type="text"/></td>
     </tr>
     </td>
   <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.N38" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.O38" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.P38" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.N38" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.O38" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.P38" type="text"/></td>
     </tr>
     </td>
   </tr>
 
   <tr>
-    <td><b>Per Unit Returns as per %</b>&nbsp;
+    <td class="tdfirstchild"><b>Per Unit Returns as per %</b>&nbsp;
     <q-icon size="xs" round dense  name="help_outline">
     <q-tooltip>
       This helps you find your per unit returns
@@ -1771,37 +1771,37 @@
     </q-icon>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.B39" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.C39" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.D39" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.B39" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.C39" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.D39" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.F39" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.G39" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.H39" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.F39" type="text"/></td>
+    <td><q-input outlined dense readonly=""  class="inputmargin" v-model="amazerecord.G39" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.H39" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.J39" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.K39" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.L39" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.J39" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.K39" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.L39" type="text"/></td>
     </tr>
     </td>
   <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.N39" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.O39" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.P39" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.N39" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.O39" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.P39" type="text"/></td>
     </tr>
     </td>
   </tr>
 
     <tr>
-    <td><b>Actual Profit</b>&nbsp;
+    <td class="tdfirstchild"><b>Actual Profit</b>&nbsp;
     <q-icon size="xs" round dense  name="help_outline">
     <q-tooltip>
       Actual money earned considering cost of returns
@@ -1809,37 +1809,70 @@
     </q-icon>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.B41" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.C41" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.D41" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.B41" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.C41" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.D41" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.F41" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.G41" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.H41" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.F41" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.G41" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.H41" type="text"/></td>
     </tr>
     </td>
     <td>
-    <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.J41" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.K41" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.L41" type="text"/></td>
+    <tr class="noPadding">
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.J41" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.K41" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.L41" type="text"/></td>
     </tr>
     </td>
   <td>
     <tr>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.N41" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.O41" type="text"/></td>
-    <td><q-input outlined dense readonly="" v-model="amazerecord.P41" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.N41" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.O41" type="text"/></td>
+    <td><q-input outlined dense readonly="" class="inputmargin" v-model="amazerecord.P41" type="text"/></td>
     </tr>
     </td>
   </tr>
     </thead>
 </table>
   </div>
+  <div class="page-footer-section bg-dark fg-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1 py-2">
+        <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <router-link class="nav-link" style="color: white;" to="/">Home</router-link>
+        </li>
+        </ul>
+      </div>
+      <div class="col-md-1 py-2" >
+        <ul class="nav justify-content-end">
+        <li class="nav-item">
+        <router-link class="nav-link" style="color: white;" to="/contact">Contact Us</router-link>
+        </li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-6">
+      </div>
+      <div class="col-12 col-md-4 py-2 addmargin">
+        <img src="../assets/HAWK Favicon.png" style="margin-top: 5px;margin-bottom: -15px;margin-left: 80px;" alt="" width="40">
+        <!-- Please don't remove or modify the credits below -->
+        <p class="d-inline-block ml-2 newaddmargin" style="margin-bottom: -12px;">developed by Majix Computing pvt Ltd</p>
+      </div>
+      <!-- <div class="col-12 col-md-2 py-2">
+        <ul class="nav justify-content-end">
+          <li class="nav-item"><a  style="color: white;" href="http://majix.in/#/" class="nav-link">Home</a></li>
+          <li class="nav-item"><a  style="color: white;" href="http://majix.in/#/contact" class="nav-link">Contact Us</a></li>
+        </ul>
+      </div> -->
+    </div>
+  </div>
+</div>
       </q-card-section>
     </q-card>
     </div>
@@ -2804,6 +2837,40 @@ export default {
 </script>
 
 <style scoped>
+  @media screen and (max-width: 500px) {
+      .mobileShow {
+          display: none
+      }
+  }
+    @media screen and (max-width: 500px) {
+      .tablewidth {
+        width: 50px;
+        /* margin-right: -2px;
+        margin-left: -2px; */
+      }
+      .inputmargin {
+        width: 70px;
+        /* padding:0px; */
+        margin:0px;
+        float: left;
+        font-size: 12px;
+      }
+      .noPadding td {
+        /* padding: 0px; */
+        /* margin:0px; */
+      }
+      /* .noPadding td input { margin: -10px; } */
+      .tdfirstchild {
+        background: grey;
+      }
+      .addmargin {
+        margin-left: -65px;
+        margin-top: -10px;
+      }
+      .newaddmargin {
+        margin-right: -50px;
+      }
+  }
 .greencolor {
   background-color: #c1f4cd
 }
@@ -2831,13 +2898,89 @@ th, td {
   top: 0;
 }
 .sticky1 {
-  background: white;
-  position: sticky;
-  /* z-index: 2;
-  top: 0; */
+ text-align: center;
 }
 
 tr:nth-child(even){background-color: #f2f2f2}
+
+.page-footer-section {
+  position: relative;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  background-color: #F0EEF5;
+}
+
+.page-footer-section.bg-dark .caption {
+  color: rgba(255, 255, 255, 0.6);
+}
+.bg-dark {
+  background-color: #383340 !important;
+}
+.page-footer-section.bg-dark hr {
+  border-color: #4d4853;
+}
+.page-section:not(.fg-white) h1,
+.page-section:not(.fg-white) h2,
+.page-section:not(.fg-white) h3 {
+  color: #6b6872;
+}
+.fg-white {
+  color: #fff !important;
+}
+  /* .container {
+    max-width: 992px !important;
+  } */
+  /* .navbar-expand>.container,
+.navbar-expand>.container-fluid,
+.navbar-expand>.container-sm,
+.navbar-expand>.container-md,
+.navbar-expand>.container-lg,
+.navbar-expand>.container-xl {
+  flex-wrap: nowrap;
+} */
+.mb-3,
+.my-3 {
+  margin-bottom: 1rem !important;
+}
+.mb-5,
+.my-5 {
+  margin-bottom: 3rem !important;
+}
+.pb-3,
+.py-3 {
+  padding-bottom: 1rem !important;
+}
+.menu-link li a:hover {
+  color: #526bf5;
+  text-decoration: none;
+}
+
+.justify-content-end {
+  justify-content: flex-end !important;
+}
+.d-inline-block {
+  display: inline-block !important;
+}
+.ml-2,
+.mx-2 {
+  margin-left: 0.5rem !important;
+}
+.pb-2,
+.py-2 {
+  padding-bottom: 0.5rem !important;
+}
+
+.nav-fill .nav-item {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.nav-justified .nav-item {
+  flex-basis: 0;
+  flex-grow: 1;
+  text-align: center;
+}
+
 </style>
 
 <style lang="sass">
@@ -2848,7 +2991,6 @@ tr:nth-child(even){background-color: #f2f2f2}
 @media (min-width:1025px)
 @media (min-width:1281px)
 .my-sticky-header-column-table
-  /* height or max-height is important */
   height: 510px;
 
   /* specifying max-width so the example can
@@ -2880,6 +3022,7 @@ tr:nth-child(even){background-color: #f2f2f2}
   td:first-child
     z-index: 1
 
-  td:first-child, th:first-child
+  td:first-child
+    position: sticky
     left: 0
 </style>

@@ -106,7 +106,7 @@
 
               <p>*Your information will never be shared with any third party.</p>
               <div class="form-group mt-4">
-                <q-btn @click="SendMail()" flat="" class="btn btn-primary">Send Message</q-btn>
+                <q-btn @click="SendMail()" dense="" flat="" class="btn btn-primary">Send Message</q-btn>
               </div>
             </form>
           </div>
@@ -119,7 +119,7 @@
                 v-bind:center="{lat:10, lng:10}"
                 v-bind:zoom="7"
                 map-type-id="terrain"
-                style="width: 600px;height: 500px;"
+                style="width: 100%;height: 500px;"
               >
                 <GmapMarker
                   v-bind:key="index"
@@ -262,6 +262,12 @@ export default {
  .style {
     /* visibility: visible; */
     /* animation-name: fadeInUp; */
+}
+@media screen and (max-width: 500px) {
+.GoogleMap {
+  width: 50px;
+  height: 50px;
+}
 }
 :root {
   --blue: #007bff;

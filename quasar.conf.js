@@ -123,7 +123,7 @@ module.exports = function (/* ctx */) {
       manifest: {
         name: 'HAWK Sample Management System',
         short_name: 'HAWK Application',
-        description: 'A Quasar Framework app',
+        description: 'AI and ML cutting edge WebApps for exponential gains in Productivity',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
